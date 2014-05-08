@@ -11,4 +11,5 @@ Dependencies
 pip install requests
 pip install unicodecsv
 pip install sqlalchemy
+pip install flask
 ```
