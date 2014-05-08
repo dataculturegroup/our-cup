@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include '_search.html' %}
+
+Here are the games to watch in {{state}}/{{county}}:
+
+<ul>
+	{% for game in games %}
+		<li>{{game['team1']}} vs. {{game['team2']}}: {{game['score']}}</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

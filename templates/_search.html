@@ -1,0 +1,33 @@
+
+<div id="search">
+
+<form role="form" name="searchForm" id="searchForm" method="POST" action="/get-picks" class="form-inline">
+
+<div class="row">
+	<div class="col-sm-12">
+	  
+    	<select id="searchState" name="state" class="form-control">
+			{% for state_option in states_with_counties.keys() | sort %}
+				<option value="{{state_option}}" {{ 'SELECTED' if state==state_option}} >{{state_option}}</option>
+			{% endfor %}
+		</select>
+
+		{% for state_option,counties in states_with_counties.iteritems() %}
+			<select id="search{{state_option}}Counties" name="{{state_option}}-county" class="searchCounties form-control" style="display:none">
+				{% for county_option in counties %}
+					<option value="{{county_option}}" {{ 'SELECTED' if county==county_option}} >{{county_option}}</option>
+				{% endfor %}
+			</select>
+		{% endfor %}
+
+	  <input type="hidden" id="source" name="source" value="county"/>
+	  <button id="searchGetPicks" style="display:none;" type="submit" class="btn btn-default">Get Picks</button>
+
+	</div>
+</div>
+
+</form>
+
+</div>
+
+<hr />

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block page_title %}Games To Watch{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/our-games.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                {% block header %}
+                <h1>{% block header_title %}Games To Watch{% endblock %}</h1>
+                <hr/>
+                {% endblock %}
+            </div>
+            <div class="nav"></div>
+            <div class="messages">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="content">
+                {% block content %}
+                {{ content |safe }}
+                {% endblock %}
+            </div>
+            <div class="footer">
+                {% block footer %}
+                <hr/>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Alpha in development</p>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $(function(){
+            $("#searchState").change(function(){    // change county list based on state
+                $(".searchCounties").hide();
+                $("#search"+$(this).val()+"Counties").show();
+                $("#searchGetPicks").show();
+            });
+            $("#searchState").change(); // fire once to show right list on load
+        });
+        </script>
+    </body>
+</html>
+
