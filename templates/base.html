@@ -47,8 +47,8 @@
         <script type="text/javascript">
         $(function(){
             $("#searchState").change(function(){    // change county list based on state
-                $(".searchCounties").hide();
-                $("#search"+$(this).val()+"Counties").show();
+                $(".searchCounties").hide().attr("disabled",true);
+                $("#search"+$(this).val().replace(" ","")+"Counties").show().attr("disabled",false);
                 $("#searchGetPicks").show();
             });
             $("#searchState").change(); // fire once to show right list on load

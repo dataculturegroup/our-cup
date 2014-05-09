@@ -13,7 +13,7 @@
 		</select>
 
 		{% for state_option,counties in states_with_counties.iteritems() %}
-			<select id="search{{state_option}}Counties" name="{{state_option}}-county" class="searchCounties form-control" style="display:none">
+			<select id="search{{state_option.replace(" ","")}}Counties" name="{{state_option}}-county" class="searchCounties form-control" style="display:none">
 				{% for county_option in counties %}
 					<option value="{{county_option}}" {{ 'SELECTED' if county==county_option}} >{{county_option}}</option>
 				{% endfor %}
