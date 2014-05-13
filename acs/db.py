@@ -24,6 +24,7 @@ class CensusDataManager():
     def __init__(self,db_connection_str):
         self._logger = logging.getLogger(__name__)
         self._engine = create_engine(db_connection_str)
+        self._cache = {}
         Base.metadata.bind = self._engine
         self._createTables()
         self._createSession()
@@ -59,15 +60,30 @@ class CensusDataManager():
         self._session.query(CensusTract).delete()
 
     def states(self):
-        return sorted([l[0] for l in self._session.query(distinct(CensusTract.state))])
+        cache_key = 'states'
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        self._cache[cache_key] = sorted([l[0] for l in self._session.query(distinct(CensusTract.state))])
+        return self._cache[cache_key]
 
     def counties(self,state):
-        return sorted([l[0] for l in self._session.query(distinct(CensusTract.county)).filter(CensusTract.state==state)])
+        cache_key = 'counties_in_'+state
+        if cache_key in self._cache:
+            return self._cache[cache_key] 
+        self._cache[cache_key] = sorted([l[0] for l in self._session.query(distinct(CensusTract.county)).filter(CensusTract.state==state)])
+        return self._cache[cache_key]
 
     def statesWithCounties(self):
-        return {state:self.counties(state) for state in self.states()}
+        cache_key = 'states_with_countries'
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        self._cache[cache_key] = {state:self.counties(state) for state in self.states()}
+        return self._cache[cache_key]
 
     def countyPopulationByCountry(self,state,county):
+        cache_key = 'county_pop_'+state+'_'+county
+        if cache_key in self._cache:
+            return self._cache[cache_key]
         records = self._session.query(CensusTract).filter(CensusTract.state==state).filter(CensusTract.county==county)
         country_to_pop = {}
         # prefill stuff
@@ -78,4 +94,5 @@ class CensusDataManager():
             pop_info = json.loads(record.pop_by_county_json)
             for alpha2 in pop_info:
                 country_to_pop[alpha2]+=pop_info[alpha2]
-        return country_to_pop
+        self._cache[cache_key] = country_to_pop
+        return self._cache[cache_key]
