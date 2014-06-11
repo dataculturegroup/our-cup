@@ -39,6 +39,7 @@ def picks_for_location(lat,lng):
     try:
         logger.debug("Picks for location: ["+str(lat)+","+str(lng)+"]")
         place = util.geo.reverse_geocode(lat,lng)
+        logger.debug("  location details: "+json.dumps(place))
         tract_id2 = place['Block']['FIPS'][:-4]
         pop_map = db.countryPopulationByTractId2(tract_id2)
         games = picker.by_population(pop_map)[:5]
