@@ -9,7 +9,7 @@ key you pass in (use the md5_key helper to generate keys and make this super eas
 
 DEFAULT_DIR = "cache"
 
-dir = DEFAULT_DIR
+cache_dir = DEFAULT_DIR
 
 def md5_key(string):
     '''
@@ -23,24 +23,24 @@ def set_dir(new_dir = DEFAULT_DIR):
     '''
     Don't need to call this, unless you want to override the default location
     '''
-    dir = new_dir
-    if not os.path.exists(dir):
-        os.makedirs(dir)
-    logging.debug("filecache now using "+dir)
+    cache_dir = new_dir
+    if not os.path.exists(cache_dir):
+        os.makedirs(cache_dir)
+    logging.debug("filecache: now using "+cache_dir)
 
 def contains(key):
     '''
     Returns true if a file named by key is in the cache dir
     '''
-    return os.path.isfile(os.path.join(dir,key))
+    return os.path.isfile(os.path.join(cache_dir,key))
 
 def get(key):
     '''
     Returns the contents of the file named by key from the cache dir.
     Returns None if file doesn't exist
     '''
-    if os.path.isfile(os.path.join(dir,key)):
-        with codecs.open(os.path.join(dir,key), mode="r",encoding='utf-8') as myfile:
+    if os.path.isfile(os.path.join(cache_dir,key)):
+        with codecs.open(os.path.join(cache_dir,key), mode="r",encoding='utf-8') as myfile:
             return myfile.read()
     return None
 
@@ -48,6 +48,7 @@ def put(key,content):
     '''
     Creates a file in the cache dir named by key, with the content in it
     '''
-    text_file = codecs.open(os.path.join(dir,key), encoding='utf-8', mode="w")
+    logging.debug("filecache: writing "+str(key)+" in "+cache_dir)
+    text_file = codecs.open(os.path.join(cache_dir,key), encoding='utf-8', mode="w")
     text_file.write(content.decode('utf-8'))
     text_file.close()
