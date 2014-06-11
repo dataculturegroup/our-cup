@@ -4,12 +4,14 @@ import worldcup.fixtures
 
 class PickerTest(unittest.TestCase):
 
-    #def setUp(self):
-        #self._config = ConfigParser.ConfigParser()
-
     def testCreate(self):
         picker = worldcup.fixtures.Picker()
         self.assertTrue(picker._fixtures is not None)
+
+    def testParticipatingFifaCountryCodes(self):
+    	picker = worldcup.fixtures.Picker()
+    	countries = picker.participating_fifa_country_codes()
+    	self.assertEquals(len(countries),32)
 
 class CountryCodeTranslatorTest(unittest.TestCase):
 

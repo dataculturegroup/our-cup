@@ -20,6 +20,9 @@ class Picker(object):
         prioritized_games = sorted(all_games, key=itemgetter('score'), reverse=True)
         return prioritized_games
 
+    def participating_fifa_country_codes(self):
+        return set([game['team1'] for game in self._fixtures] + [game['team2'] for game in self._fixtures])
+
 class CountryCodeTranslator(object):
 
     def __init__(self):
