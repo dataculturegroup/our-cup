@@ -1,4 +1,4 @@
-import hashlib, os, codecs
+import hashlib, os, codecs, logging
 
 '''
 Super basic file-based cache (utf-8 friendly).  Helpful if you're developing a 
@@ -25,6 +25,7 @@ def set_dir(dir = DEFAULT_DIR):
     '''
     if not os.path.exists(dir):
         os.makedirs(dir)
+    logging.debug("filecache now using "+dir)
 
 def contains(key):
     '''
