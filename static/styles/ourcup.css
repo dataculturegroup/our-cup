@@ -1,0 +1,35 @@
+body {
+  background-color: #3E4095;
+}
+
+h1 {
+  font-size: 4em;
+  font-family: '3dumbregular', Arial, sans-serif;
+  color: #FFCC29;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-family: '2dumbregular', Arial, sans-serif;
+  color: #FFCC29;
+  margin-bottom: 20px;
+}
+
+.oc-header {
+  background-color: #3E4095;
+  text-align: center;
+}
+
+.oc-content {
+  background-color: #00A859;
+  padding: 1em;
+}
+
+.oc-footer {
+  background-color: #3E4095;
+  text-align: center;
+  font-size: 0.9em;
+  color: #FFFFFF;
+  margin-top: 1em;
+}

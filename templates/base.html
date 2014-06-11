@@ -1,59 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>{% block page_title %}Games To Watch{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="/static/lib/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="/static/lib/bootstrap/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/our-games.css"/>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                {% block header %}
-                <h1>{% block header_title %}Games To Watch{% endblock %}</h1>
-                <hr/>
-                {% endblock %}
-            </div>
-            <div class="nav"></div>
-            <div class="messages">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <ul class="flashes">
-                        {% for message in messages %}
-                            <li>{{ message }}</li>
-                        {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endwith %}
-            </div>
-            <div class="content">
-                {% block content %}
-                {{ content |safe }}
-                {% endblock %}
-            </div>
-            <div class="footer">
-                {% block footer %}
-                <hr/>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p>Alpha in development</p>
-                    </div>
-                </div>
-                {% endblock %}
-            </div>
-        </div>
-        <script type="text/javascript" src="/static/lib/jquery/js/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="/static/lib/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-        $(function(){
-            $("#searchState").change(function(){    // change county list based on state
-                $(".searchCounties").hide().attr("disabled",true);
-                $("#search"+$(this).val().replace(" ","")+"Counties").show().attr("disabled",false);
-                $("#searchGetPicks").show();
-            });
-            $("#searchState").change(); // fire once to show right list on load
-        });
-        </script>
-    </body>
-</html>
 
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Which 2014 world cup games to watch, based on where people in your community are from">
+    <meta name="keywords" content="world cup, census, data, soccer">
+    <meta name="author" content="Rahul Bhargava, MIT Center for Civic Media">
+
+    <title>{% block page_title %}Our Cup{% endblock %}</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/static/fonts/2dumb_regular_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="/static/fonts/3dumb_regular_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="/static/styles/ourcup.css" type="text/css" charset="utf-8" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      
+      <div class="row oc-header">
+        <h1>Our Cup</h1>
+      </div>
+
+      <div class="row oc-content">
+        {% block content %}
+        {{ content |safe }}
+        {% endblock %}
+      </div>
+
+      <div class="row oc-footer">
+        <div class="col-md-12">
+          <p>A project of Rahul Bhargava at the MIT Center for Civic Media</p>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="/static/scripts/ourcup.js"></script>
+  <script>
+  $(function(){
+    OurCup.initialize();
+  });
+  </script>
+
+</html>

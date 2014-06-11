@@ -12,3 +12,14 @@ Here are the games to watch in {{state}}/{{county}}:
 </ul>
 
 {% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript">
+$(function(){
+{% for country in countries %}
+	$('#wc-flag-{{country}} img').removeClass('wc-grayscale');
+	$('#wc-flag-{{country}} img').removeClass('wc-faded');
+{% endfor %}
+});
+</script>
+{% endblock %}

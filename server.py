@@ -1,12 +1,10 @@
-import logging
+import logging, requests, json
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
-import acs.data, worldcup.fixtures
+import acs.db, acs.data, worldcup.fixtures, util.geo
 
 app = Flask(__name__)
-
-import acs.db, acs.data
 
 # setup logging
 logging.basicConfig(filename='world-cup.log',level=logging.DEBUG)
@@ -21,33 +19,27 @@ picker = worldcup.fixtures.Picker()
 
 @app.route("/")
 def index():
-    return render_template("home.html",
-        state = "Massachusetts",
-        county = "Middlesex County",
-        states_with_counties = db.statesWithCounties()
-    )
+    return render_template("home.html")
 
-@app.route("/get-picks",methods=['POST'])
-def get_picks():
-    logger.info("get picks!")
-    state = request.form['state']
-    county = request.form[state+'-county']
-    return redirect( url_for('recommendations',state=state,county=county) )
+@app.route("/picks/zipcode/<zip_code>")
+def picks_for_zip_code(zip_code):
+    tract_id2s = db.tractId2sInZipCode(zip_code)
+    pop_map = db.countryPopulationByTractId2List(tract_id2s)
+    tract_games = picker.by_population(pop_map)[:5]
+    return jsonify({'zipcode_games':tract_games})
 
-@app.route("/picks_for/<state>/<county>")
-def recommendations(state,county):
-    if state not in db.states():
-        flask.abort(400)
-    if county not in db.counties(state):
-        flask.abort(400)
-    pop_map = db.countyPopulationByCountry(state,county)
-    games = picker.by_population(pop_map)
-    return render_template("picks_for.html",
-        state = state,
-        county = county,
-        states_with_counties = db.statesWithCounties(),
-        games = games[:5]
-    )
+@app.route("/picks/location/<lat>/<lng>")
+def picks_for_location(lat,lng):
+    try:
+        place = util.geo.reverse_geocode(lat,lng)
+        tract_id2 = place['Block']['FIPS'][:-4]
+        pop_map = db.countryPopulationByTractId2(tract_id2)
+        tract_games = picker.by_population(pop_map)[:5]
+        return jsonify({'tract_list_games':tract_games})
+    except:
+        # geocoding failed for some reason, so fall back to making user pick location
+        # TODO
+        return jsonify({'error':1})
 
 if __name__ == "__main__":
     app.debug = True
