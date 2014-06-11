@@ -1,0 +1,16 @@
+
+<div class="oc-top-game-wrapper">
+	<h2>You Need to Watch this Game</h2>
+	<div class="oc-game-list">
+		{% for game in games[:1] %}
+			{% include "_one-game.html" %}
+		{% endfor %}
+	</div>
+</div>
+
+<h2>You Should Watch These Too</h2>
+<div class="oc-game-list">
+	{% for game in games[1:] %}
+		{% include "_one-game.html" %}
+	{% endfor %}
+</div>

@@ -1,5 +1,6 @@
 body {
   background-color: #3E4095;
+  font-family: '2dumbregular', serif;
 }
 
 h1 {
@@ -11,9 +12,14 @@ h1 {
 
 h2 {
   font-size: 1.5em;
-  font-family: '2dumbregular', Arial, sans-serif;
-  color: #FFCC29;
+  font-family: '3dumbregular', Arial, sans-serif;
+  color: #00A859;
   margin-bottom: 20px;
+}
+
+label {
+  font-family: '3dumbregular', Arial, sans-serif;
+  font-size: 1.2em;
 }
 
 .oc-header {
@@ -22,7 +28,7 @@ h2 {
 }
 
 .oc-content {
-  background-color: #00A859;
+  background-color: #FFCC29;
   padding: 1em;
 }
 
@@ -32,4 +38,29 @@ h2 {
   font-size: 0.9em;
   color: #FFFFFF;
   margin-top: 1em;
+}
+
+.oc-game-list div {
+  text-align: center;
+  vertical-align: center;
+}
+
+.oc-game {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.oc-top-game-wrapper {
+
+}
+
+.oc-footer a:link,
+.oc-footer a:visited,
+.oc-footer a:hover,
+.oc-footer a:active {
+  color: #FFCC29;
+}
+
+#oc-loading {
+  text-align: center;
 }

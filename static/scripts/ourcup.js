@@ -15,11 +15,14 @@ OurCup = {
   },
 
   onGeoLocateSuccess: function(position){
-    OurCup.log(position.coords.latitude+","+position.coords.longitude);
     $('#oc-loading').hide();
+    OurCup.log(position.coords.latitude+","+position.coords.longitude);
+    $( "#oc-results" ).load("/picks/location/"+position.coords.latitude+"/"+position.coords.longitude);
+    OurCup.log("Wrote location-based results")
   },
 
   onGeoLocateError: function(error){
+    $('#oc-loading').hide();
     switch(error.code) {
         case "unsupported":
             OurCup.log("Browser doesn't support GeoLocation.");
@@ -37,6 +40,13 @@ OurCup = {
             OurCup.log("An unknown error occurred.");
             break;
     }
+    $( "#oc-results" ).load("/select-zipcode");
+  },
+
+  onPickGamesWithZip: function(){
+    var zip = $("#oc-zipcode").val();
+    OurCup.log('Checking games with zip '+zip);
+    $( "#oc-results" ).load("/picks/zipcode/"+zip);
   },
 
   log: function(str){
