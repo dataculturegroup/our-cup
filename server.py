@@ -50,6 +50,7 @@ def picks_for_location(lat,lng):
     except:
         # geocoding failed for some reason, so fall back to making user pick location by zip
         logger.error("Couldn't get picks for ["+str(lat)+","+str(lng)+"]")
+        logger.exception('')
         return render_template('select-zip-code.html',
             error="Sorry, we couldn't automatically find your location!")
 
