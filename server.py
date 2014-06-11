@@ -1,4 +1,4 @@
-import logging, requests, json
+import logging, requests, json, os
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
@@ -12,7 +12,7 @@ logger = logging.getLogger('world-cup-server')
 logger.info("---------------------------------------------------------------------------")
 
 # connect to database
-db = acs.db.CensusDataManager('sqlite:///acs.db')
+db = acs.db.CensusDataManager('sqlite:///'+os.path.dirname(os.path.realpath(__file__))+'/acs.db')
 logger.info("Connected to db")
 
 picker = worldcup.fixtures.Picker()
