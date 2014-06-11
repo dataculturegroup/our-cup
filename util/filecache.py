@@ -19,10 +19,11 @@ def md5_key(string):
     m.update(string)
     return m.hexdigest()
 
-def set_dir(dir = DEFAULT_DIR):
+def set_dir(new_dir = DEFAULT_DIR):
     '''
     Don't need to call this, unless you want to override the default location
     '''
+    dir = new_dir
     if not os.path.exists(dir):
         os.makedirs(dir)
     logging.debug("filecache now using "+dir)
