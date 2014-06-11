@@ -8,3 +8,9 @@ To dowload the ACS data
 5. By the "Refine your search results:" field, search for topic B05006 and click go
 6. Pick the "2012 ACS 5-year estimates" result and click it
 7. Click download and then click ok, then click download again
+
+To download the Zip-Code Equivalence Table
+------------------------------------------
+
+1. Visit the Census 2010 [2010 ZIP Code Tabulation Area (ZCTA) Relationship Files Page](http://www.census.gov/geo/maps-data/data/zcta_rel_download.html)
+2. Download the [2010 ZCTA to Census Tract Relationship File](http://www.census.gov/geo/maps-data/data/docs/rel/zcta_tract_rel_10.txt)

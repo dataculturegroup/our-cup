@@ -2,9 +2,9 @@ import logging, csv, os
 from collections import namedtuple
 from iso3166 import countries
 
-CensusTractRecord = namedtuple('CensusTractRecord',['id','id2','label','tract','county','state','country','pop_by_country'])
+TractPopulationRecord = namedtuple('TractPopulationRecord',['id','id2','label','tract','county','state','country','pop_by_country'])
 
-class ForeignBorn(object):
+class PopulationDataManager(object):
     '''
     Wrapper around B05006 state census tract files (from American Census Fact Finder):
     PLACE OF BIRTH FOR THE FOREIGN-BORN POPULATION IN THE UNITED STATES
@@ -42,7 +42,7 @@ class ForeignBorn(object):
             census_tract = label_parts[0].strip().replace('Census Tract','')
             county = label_parts[1].strip()
             state = label_parts[2].strip()
-            rec = CensusTractRecord(row[0],row[1],row[2],census_tract,county,state,'USA',pop_by_country)
+            rec = TractPopulationRecord(row[0],row[1],row[2],census_tract,county,state,'USA',pop_by_country)
             self.records.append(rec)
         self._logger.debug('    done')
 
@@ -58,3 +58,22 @@ class ForeignBorn(object):
                     self._colHeaderToAlpha2Map[row[0]] = country_code.alpha3
                 except:
                     continue
+
+TractZipCodeRecord = namedtuple('TractZipCodeRecord',['zip_code','state_id','county_id','tract_id'])
+
+class ZipCodeDataManager(object):
+
+    def __init__(self):
+        self._logger = logging.getLogger(__name__)
+        self.headers = None
+        self.subheaders = None
+        self.records = []
+        self._logger.debug("Create ZipCodeDataManager")
+
+    def loadFromCsv(self, csv_path):
+        self._logger.debug("  loading from csv "+csv_path)
+        csvfile = open( csv_path )
+        csvreader = csv.reader(csvfile)
+        csvreader.next()    # dump header row
+        self.records = [TractZipCodeRecord(row[0],row[1],row[2],row[3]) for row in csvreader]
+        self._logger.debug("  loaded "+str(len(self.records))+" rows")
