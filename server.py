@@ -2,7 +2,7 @@ import logging, requests, json, os
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
-import acs.db, acs.data, worldcup.fixtures, util.geo
+import acs.db, acs.data, worldcup.fixtures, util.geo, util.filecache
 
 app = Flask(__name__)
 
@@ -16,6 +16,9 @@ db = acs.db.CensusDataManager('sqlite:///'+os.path.dirname(os.path.realpath(__fi
 logger.info("Connected to db")
 
 picker = worldcup.fixtures.Picker()
+
+# setup cache dir correctly
+util.filecache.set_dir(os.path.dirname(os.path.realpath(__file__))+"/cache")
 
 @app.route("/")
 def index():
