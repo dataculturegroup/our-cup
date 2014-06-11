@@ -23,6 +23,7 @@ def set_dir(new_dir = DEFAULT_DIR):
     '''
     Don't need to call this, unless you want to override the default location
     '''
+    global cache_dir
     cache_dir = new_dir
     if not os.path.exists(cache_dir):
         os.makedirs(cache_dir)
@@ -32,6 +33,7 @@ def contains(key):
     '''
     Returns true if a file named by key is in the cache dir
     '''
+    global cache_dir
     return os.path.isfile(os.path.join(cache_dir,key))
 
 def get(key):
@@ -39,6 +41,7 @@ def get(key):
     Returns the contents of the file named by key from the cache dir.
     Returns None if file doesn't exist
     '''
+    global cache_dir
     if os.path.isfile(os.path.join(cache_dir,key)):
         with codecs.open(os.path.join(cache_dir,key), mode="r",encoding='utf-8') as myfile:
             return myfile.read()
@@ -48,6 +51,7 @@ def put(key,content):
     '''
     Creates a file in the cache dir named by key, with the content in it
     '''
+    global cache_dir
     logging.debug("filecache: writing "+str(key)+" in "+cache_dir)
     text_file = codecs.open(os.path.join(cache_dir,key), encoding='utf-8', mode="w")
     text_file.write(content.decode('utf-8'))
