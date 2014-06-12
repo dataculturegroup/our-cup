@@ -32,7 +32,8 @@ def picks_for_zip_code(zip_code):
         logger.debug("   found "+str(len(tract_id2s))+" tracts: "+" ".join(tract_id2s))
         pop_map = db.countryPopulationByTractId2List(tract_id2s)
         games = picker.by_population(pop_map)[:5]
-        return render_template('_games.html', games=games)
+        return render_template('_games.html', games=games, 
+            intro="Here's game with the most local fans in "+str(zip_code)+"")
     except:
         return render_template('_select-zip-code.html',
             error="Sorry, we couldn't find any information for the zip code '"+zip_code+"'!")
@@ -42,11 +43,13 @@ def picks_for_location(lat,lng):
     try:
         logger.debug("Picks for location: ["+str(lat)+","+str(lng)+"]")
         place = util.geo.reverse_geocode(lat,lng)
+        location_description = place['County']['name']+", "+place['State']['code']
         logger.debug("  location details: "+json.dumps(place))
         tract_id2 = place['Block']['FIPS'][:-4]
         pop_map = db.countryPopulationByTractId2(tract_id2)
         games = picker.by_population(pop_map)[:5]
-        return render_template('_games.html', games=games)
+        return render_template('_games.html', games=games, 
+            intro="Here's the game with the most local fans in your part of "+location_description)
     except:
         # geocoding failed for some reason, so fall back to making user pick location by zip
         logger.error("Couldn't get picks for ["+str(lat)+","+str(lng)+"]")

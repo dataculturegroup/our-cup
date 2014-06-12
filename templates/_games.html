@@ -1,6 +1,9 @@
 
 <div class="oc-top-game-wrapper">
 	<h2>You Need to Watch this Game</h2>
+	{% if intro %}
+	<p>{{intro}}</p>
+	{% endif %}
 	<div class="oc-game-list">
 		{% for game in games[:1] %}
 			{% include "_one-game.html" %}
