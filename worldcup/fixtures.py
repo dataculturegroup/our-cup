@@ -1,4 +1,4 @@
-import json, os, logging, csv
+import json, os, logging, csv, copy
 from collections import namedtuple
 from operator import itemgetter
 
@@ -12,8 +12,7 @@ class Picker(object):
         self._translator = CountryCodeTranslator()
         
     def by_population(self, country_alpha3_to_pop_map):
-        # TODO: change this to clone the one in memory
-        all_games = json.load(open(self._json_file_path))
+        all_games = copy.deepcopy(self._fixtures)
         country_alpha3_to_pop_map['USA'] = 1 # juice the numbers
         for game in all_games:
             team1_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team1']).iso]
