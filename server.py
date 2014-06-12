@@ -32,9 +32,9 @@ def picks_for_zip_code(zip_code):
         logger.debug("   found "+str(len(tract_id2s))+" tracts: "+" ".join(tract_id2s))
         pop_map = db.countryPopulationByTractId2List(tract_id2s)
         games = picker.by_population(pop_map)[:5]
-        return render_template('games.html', games=games)
+        return render_template('_games.html', games=games)
     except:
-        return render_template('select-zip-code.html',
+        return render_template('_select-zip-code.html',
             error="Sorry, we couldn't find any information for the zip code '"+zip_code+"'!")
 
 @app.route("/picks/location/<lat>/<lng>")
@@ -46,12 +46,12 @@ def picks_for_location(lat,lng):
         tract_id2 = place['Block']['FIPS'][:-4]
         pop_map = db.countryPopulationByTractId2(tract_id2)
         games = picker.by_population(pop_map)[:5]
-        return render_template('games.html', games=games)
+        return render_template('_games.html', games=games)
     except:
         # geocoding failed for some reason, so fall back to making user pick location by zip
         logger.error("Couldn't get picks for ["+str(lat)+","+str(lng)+"]")
         logger.exception('')
-        return render_template('select-zip-code.html',
+        return render_template('_select-zip-code.html',
             error="Sorry, we couldn't automatically find your location!")
 
 if __name__ == "__main__":

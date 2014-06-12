@@ -15,7 +15,8 @@ OurCup = {
   },
 
   onGeoLocateSuccess: function(position){
-    $('#oc-loading').hide();
+    $('#oc-results').hide();
+    $('#oc-loading').show();
     OurCup.log(position.coords.latitude+","+position.coords.longitude);
     OurCup.updateResultsFrom("/picks/location/"+position.coords.latitude+"/"+position.coords.longitude);
   },
