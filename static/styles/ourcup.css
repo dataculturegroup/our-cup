@@ -13,8 +13,9 @@ h1 {
 h2 {
   font-size: 1.5em;
   font-family: '3dumbregular', Arial, sans-serif;
-  color: #00A859;
+  color: #3E4095;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 
 label {
