@@ -24,10 +24,6 @@ util.filecache.set_dir(os.path.dirname(os.path.realpath(__file__))+"/cache")
 def index():
     return render_template("home.html")
 
-@app.route("/select-zipcode")
-def select_zip_code():
-    return render_template('select-zip-code.html')
-
 @app.route("/picks/zipcode/<zip_code>")
 def picks_for_zip_code(zip_code):
     try:
