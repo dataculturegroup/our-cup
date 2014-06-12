@@ -58,6 +58,10 @@ label {
   padding-bottom: 1em;
 }
 
+.oc-game-details {
+  margin-bottom: 0.5em;
+}
+
 .oc-top-game-wrapper {
 
 }
@@ -71,4 +75,8 @@ label {
 
 #oc-loading {
   text-align: center;
+}
+
+.oc-flag {
+  border: 1px solid #000000;
 }

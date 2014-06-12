@@ -1,19 +1,19 @@
 <div class="oc-game">
-	<div class="row">
+	<div class="row oc-game-details">
 		<div class="col-xs-10 col-xs-offset-1">
-			<b>{{game['date']}}</b> - <a href="{{game['previewURL']}}">match preview</a>
+			<b>{{game['date']}}</b> - <a href="{{game['previewURL']}}">preview</a>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-4 col-xs-offset-1">
-			<img src="/static/images/flags-by-fifa-code/{{game['team1Country'].fifa}}.png" class="img-responsive"/>
+			<img src="/static/images/flags-by-fifa-code/{{game['team1Country'].fifa}}.png" class="img-responsive oc-flag"/>
 			{{game['team1Country'].name}}
 		</div>
 		<div class="col-xs-2">
 			<h2><big>vs.</big></h2>
 		</div>
 		<div class="col-xs-4">
-			<img src="/static/images/flags-by-fifa-code/{{game['team2Country'].fifa}}.png" class="img-responsive"/>
+			<img src="/static/images/flags-by-fifa-code/{{game['team2Country'].fifa}}.png" class="img-responsive oc-flag"/>
 			{{game['team2Country'].name}}
 		</div>
 	</div>
