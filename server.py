@@ -30,12 +30,16 @@ def select_zip_code():
 
 @app.route("/picks/zipcode/<zip_code>")
 def picks_for_zip_code(zip_code):
-    logger.debug("Picks for Zip: "+zip_code)
-    tract_id2s = db.tractId2sInZipCode(zip_code)
-    logger.debug("   found "+str(len(tract_id2s))+" tracts: "+" ".join(tract_id2s))
-    pop_map = db.countryPopulationByTractId2List(tract_id2s)
-    games = picker.by_population(pop_map)[:5]
-    return render_template('games.html', games=games)
+    try:
+        logger.debug("Picks for Zip: "+zip_code)
+        tract_id2s = db.tractId2sInZipCode(zip_code)
+        logger.debug("   found "+str(len(tract_id2s))+" tracts: "+" ".join(tract_id2s))
+        pop_map = db.countryPopulationByTractId2List(tract_id2s)
+        games = picker.by_population(pop_map)[:5]
+        return render_template('games.html', games=games)
+    except:
+        return render_template('select-zip-code.html',
+            error="Sorry, we couldn't find any information for the zip code '"+zip_code+"'!")
 
 @app.route("/picks/location/<lat>/<lng>")
 def picks_for_location(lat,lng):
