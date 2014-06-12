@@ -17,8 +17,7 @@ OurCup = {
   onGeoLocateSuccess: function(position){
     $('#oc-loading').hide();
     OurCup.log(position.coords.latitude+","+position.coords.longitude);
-    $( "#oc-results" ).load("/picks/location/"+position.coords.latitude+"/"+position.coords.longitude);
-    OurCup.log("Wrote location-based results")
+    OurCup.updateResultsFrom("/picks/location/"+position.coords.latitude+"/"+position.coords.longitude);
   },
 
   onGeoLocateError: function(error){
@@ -40,13 +39,22 @@ OurCup = {
             OurCup.log("An unknown error occurred.");
             break;
     }
-    $( "#oc-results" ).load("/select-zipcode");
+    OurCup.updateResultsFrom("/select-zipcode");
   },
 
   onPickGamesWithZip: function(){
     var zip = $("#oc-zipcode").val();
     OurCup.log('Checking games with zip '+zip);
-    $( "#oc-results" ).load("/picks/zipcode/"+zip);
+    OurCup.updateResultsFrom("/picks/zipcode/"+zip);
+  },
+
+  updateResultsFrom: function(url){
+    $('#oc-results').hide();
+    $('#oc-loading').show();
+    $( "#oc-results" ).load(url, function(){
+      $('#oc-loading').hide();
+      $('#oc-results').show();
+    });
   },
 
   log: function(str){
