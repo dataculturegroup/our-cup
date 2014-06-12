@@ -13,7 +13,7 @@ class Picker(object):
         
     def by_population(self, country_alpha3_to_pop_map):
         all_games = copy.deepcopy(self._fixtures)
-        country_alpha3_to_pop_map['USA'] = 1 # juice the numbers
+        country_alpha3_to_pop_map['USA'] = 1 # change the score so US doesn't show up very much
         for game in all_games:
             team1_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team1']).iso]
             team2_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team2']).iso]

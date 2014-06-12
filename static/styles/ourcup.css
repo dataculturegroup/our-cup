@@ -33,6 +33,13 @@ label {
   padding: 1em;
 }
 
+.oc-content a:link,
+.oc-content a:visited,
+.oc-content a:hover,
+.oc-content a:active {
+  color: #3E4095;
+}
+
 .oc-footer {
   background-color: #3E4095;
   text-align: center;
