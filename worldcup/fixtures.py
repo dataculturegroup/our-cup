@@ -1,4 +1,5 @@
 import json, os, logging, csv
+from collections import namedtuple
 from operator import itemgetter
 
 class Picker(object):
@@ -11,17 +12,24 @@ class Picker(object):
         self._translator = CountryCodeTranslator()
         
     def by_population(self, country_alpha3_to_pop_map):
+        # TODO: change this to clone the one in memory
         all_games = json.load(open(self._json_file_path))
         country_alpha3_to_pop_map['USA'] = 1 # juice the numbers
         for game in all_games:
-            team1_pop = country_alpha3_to_pop_map[self._translator.fifa2iso(game['team1'])]
-            team2_pop = country_alpha3_to_pop_map[self._translator.fifa2iso(game['team2'])]
+            team1_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team1']).iso]
+            team2_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team2']).iso]
             game['score'] = team1_pop + team2_pop
+
         prioritized_games = sorted(all_games, key=itemgetter('score'), reverse=True)
+        for game in prioritized_games:
+            game['team1Country'] = self._translator.getByFifaCode(game['team1'])
+            game['team2Country'] = self._translator.getByFifaCode(game['team2'])
         return prioritized_games
 
     def participating_fifa_country_codes(self):
         return set([game['team1'] for game in self._fixtures] + [game['team2'] for game in self._fixtures])
+
+FifaCountryCodeRecord = namedtuple('FifaCountryCodeRecord',['name','ioc','fifa','iso'])
 
 class CountryCodeTranslator(object):
 
@@ -31,13 +39,13 @@ class CountryCodeTranslator(object):
         csvfile = open(self._csv_file_path, 'rb')
         csvreader = csv.reader(csvfile)
         self._headers = csvreader.next()
-        self._fifa2iso = {}
+        self._fifa2info = {}
         for row in csvreader:
-            self._fifa2iso[row[2]] = row[3]
+            self._fifa2info[row[2]] = FifaCountryCodeRecord(row[0], row[1], row[2], row[3])
         self._logger.debug('Loaded data from '+self._csv_file_path)
 
-    def fifa2iso(self, fifa_alpha3):
+    def getByFifaCode(self, fifa_alpha3):
         '''
         Sourced from http://simple.wikipedia.org/wiki/Comparison_of_IOC,_FIFA,_and_ISO_3166_country_codes
         '''
-        return self._fifa2iso[fifa_alpha3]
+        return self._fifa2info[fifa_alpha3]

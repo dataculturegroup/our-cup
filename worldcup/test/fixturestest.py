@@ -17,5 +17,6 @@ class CountryCodeTranslatorTest(unittest.TestCase):
 
     def testCreate(self):
         translator = worldcup.fixtures.CountryCodeTranslator()
-        self.assertEquals(translator.fifa2iso('BRA'),'BRA')
-        self.assertEquals(translator.fifa2iso('NED'),'NLD')
+        self.assertEquals(translator.getByFifaCode('BRA').iso,'BRA')
+        self.assertEquals(translator.getByFifaCode('BRA').name,'Brazil')
+        self.assertEquals(translator.getByFifaCode('NED').iso,'NLD')
