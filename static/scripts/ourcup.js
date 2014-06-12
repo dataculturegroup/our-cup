@@ -3,7 +3,6 @@ OurCup = {
 
   initialize: function(){
     OurCup.log("initialize");
-    OurCup.geolocate();
   },
 
   geolocate: function(){
