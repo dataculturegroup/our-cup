@@ -21,8 +21,10 @@
 <h2>Check Another Place</h2>
 {% include '_zip-code-form.html' %}
 
-<script>
-$('html, body').animate({
-    scrollTop: $("#oc-data-wrapper").offset().top
-}, 200);
-</script>
+{% if scroll_to_results==True %}
+	<script>
+	$('html, body').animate({
+	    scrollTop: $("#oc-data-wrapper").offset().top
+	}, 200);
+	</script>
+{% endif %}
