@@ -1,4 +1,4 @@
-import json, os, logging, csv, copy
+import json, os, logging, csv, copy, datetime
 from collections import namedtuple
 from operator import itemgetter
 
@@ -23,6 +23,7 @@ class Picker(object):
         for game in prioritized_games:
             game['team1Country'] = self._translator.getByFifaCode(game['team1'])
             game['team2Country'] = self._translator.getByFifaCode(game['team2'])
+            game['date'] = datetime.datetime.strptime(game['date'], '%Y/%m/%d')
         return prioritized_games
 
     def participating_fifa_country_codes(self):
