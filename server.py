@@ -40,6 +40,19 @@ def permalink_picks_for_zip_code(zip_code):
         return render_template('home-with-error.html',
             error="Sorry, we couldn't find any information for the zip code "+zip_code+"!")
 
+@app.route("/api/zipcode/<zip_code>.json")
+def api_picks_for_zip_code(zip_code):
+    try:
+        logger.debug("API for Zip: "+zip_code)
+        games = _games_for_zip_code(zip_code)
+        results = {'status':'ok','location':zip_code,'results':games}
+        return jsonify(results)
+    except:
+        logger.error("Couldn't get api picks for ["+str(zip_code)+"]")
+        logger.exception('')
+        return jsonify({'status':'error','location':zip_code,'results':[],
+            'error':"Sorry, we couldn't find any information for the zip code "+zip_code+"!"})
+
 @app.route("/picks/zipcode/<zip_code>")
 def picks_for_zip_code(zip_code):
     try:
@@ -71,6 +84,19 @@ def permalink_picks_for_location(lat,lng):
         logger.exception('')
         return render_template('home-with-error.html',
             error="Sorry, we couldn't automatically find your location!")
+
+@app.route("/api/location/<lat>/<lng>.json")
+def api_picks_for_location(lat,lng):
+    try:
+        logger.debug("Picks for location: ["+str(lat)+","+str(lng)+"]")
+        [location_description,games] = _games_for_location(lat,lng)
+        results = {'status':'ok','location':location_description,'results':games}
+        return jsonify(results)
+    except:
+        logger.error("Couldn't get api picks for ["+str(lat)+","+str(lng)+"]")
+        logger.exception('')
+        return jsonify({'status':'error','location':str(lat)+','+str(lng),'results':[],
+            'error':"Sorry, we couldn't find any information for that location!"})
 
 @app.route("/picks/location/<lat>/<lng>")
 def picks_for_location(lat,lng):
