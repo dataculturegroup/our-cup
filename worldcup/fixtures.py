@@ -6,7 +6,7 @@ class Picker(object):
 
     def __init__(self):
         self._logger = logging.getLogger(__name__)
-        self._json_file_path = os.path.dirname(os.path.realpath(__file__))+'/data/world_cup_2014_games.json'
+        self._json_file_path = os.path.dirname(os.path.realpath(__file__))+'/data/world_cup_2015_games.json'
         self._fixtures = json.load(open(self._json_file_path))
         self._logger.info("loaded from "+self._json_file_path)
         self._translator = CountryCodeTranslator()

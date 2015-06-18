@@ -1,25 +1,24 @@
 import requests, sys, json, os, logging
+from dateutil.parser import parse
 
-MATCH_DAYS = 20
-FOOTBALL_DB_BASE_URL = "http://footballdb.herokuapp.com/api/v1/event/world.2014/round/"
-
-all_games = []
+WORLD_CUP_JSON_MATCH_URL = "http://localhost:3000/matches/"
 
 print("Starting to fetch games:")
+all_games = requests.get(WORLD_CUP_JSON_MATCH_URL).json()
+game_data = []
 
-for day in range(1,MATCH_DAYS):
-    print("  round "+str(day))
-    url = FOOTBALL_DB_BASE_URL+str(day)
-    r = requests.get(url)
-    info = r.json()
-    for game in info['games']:
-        all_games.append({
-            'date': game['play_at'],
-            'team1': game['team1_code'],
-            'team2': game['team2_code'],
-        })
+for game in all_games:
+    game_date = parse(game['datetime'])
+    if 'code' not in game['home_team']:
+        continue
+    game_data.append({
+        'date': str(game_date.year)+'/'+str(game_date.month)+'/'+str(game_date.day),
+        'team1': game['home_team']['code'],
+        'team2': game['away_team']['code'],
+        'previewURL':""
+    })
 
-with open(os.path.join('../','app','static','data','world_cup_2014_games.json'), 'w') as outfile:
-    json.dump(all_games, outfile)
+with open(os.path.join('../','worldcup','data','world_cup_2015_games.json'), 'w') as outfile:
+    json.dump(game_data, outfile)
 
 print("Done")

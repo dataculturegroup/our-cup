@@ -1,7 +1,10 @@
 <div class="oc-game">
 	<div class="row oc-game-details">
 		<div class="col-xs-10 col-xs-offset-1">
-			<b>{{game['date'].strftime('%a, %b %d')}}</b> - <a href="{{game['previewURL']}}">preview</a>
+		<b>{{game['date'].strftime('%a, %b %d')}}</b>
+		{% if game['previewURL'] %}
+			- <a href="{{game['previewURL']}}">preview</a>
+		{% endif %}
 		</div>
 	</div>
 	<div class="row">
