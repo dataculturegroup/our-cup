@@ -14,8 +14,8 @@ class PopulationDataManagerTest(unittest.TestCase):
         dataset.loadFromStateCsvFile( os.path.dirname(os.path.realpath(__file__))+self.TEST_CSV_PATH )
         self.assertEqual(dataset.headers[0],'GEO.id')
         self.assertEqual(dataset.headers[1],'GEO.id2')
-        self.assertEqual(dataset.subheaders[0],'Id')
-        self.assertEqual(dataset.subheaders[1],'Id2')
+        self.assertEqual(dataset.sub_headers[0], 'Id')
+        self.assertEqual(dataset.sub_headers[1], 'Id2')
 
 class ZipCodeDataManagerTest(unittest.TestCase):
 

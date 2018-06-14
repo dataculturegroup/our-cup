@@ -4,3 +4,4 @@ data/ACS*
 *.log
 cache
 venv
+.idea

@@ -2,6 +2,8 @@ import json, os, logging, csv, copy, datetime
 from collections import namedtuple
 from operator import itemgetter
 
+basedir = os.path.dirname(os.path.abspath(__file__))
+
 class Picker(object):
 
     def __init__(self):
@@ -13,7 +15,7 @@ class Picker(object):
         
     def by_population(self, country_alpha3_to_pop_map):
         all_games = copy.deepcopy(self._fixtures)
-        country_alpha3_to_pop_map['USA'] = 1 # change the score so US doesn't show up very much
+        country_alpha3_to_pop_map['USA'] = 1  # change the score so US doesn't show up very much
         for game in all_games:
             team1_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team1']).iso]
             team2_pop = country_alpha3_to_pop_map[self._translator.getByFifaCode(game['team2']).iso]
@@ -35,10 +37,10 @@ class CountryCodeTranslator(object):
 
     def __init__(self):
         self._logger = logging.getLogger(__name__)
-        self._csv_file_path = os.path.dirname(os.path.realpath(__file__))+'/data/ioc-fifa-iso-alpha3.csv'
-        csvfile = open(self._csv_file_path, 'rb')
+        self._csv_file_path = os.path.join(basedir, 'data', 'ioc-fifa-iso-alpha3.csv')
+        csvfile = open(self._csv_file_path, 'r')
         csvreader = csv.reader(csvfile)
-        self._headers = csvreader.next()
+        self._headers = next(csvreader)
         self._fifa2info = {}
         for row in csvreader:
             self._fifa2info[row[2]] = FifaCountryCodeRecord(row[0], row[1], row[2], row[3])
