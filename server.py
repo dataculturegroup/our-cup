@@ -5,9 +5,9 @@ from flask import Flask, render_template, jsonify
 
 import acs.db
 import acs.data
-import worldcup.fixtures
 import util.geo
 import util.filecache
+import worldcup.match_picker
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ logger.info("-------------------------------------------------------------------
 db = acs.db.CensusDataManager('sqlite:///'+os.path.dirname(os.path.realpath(__file__))+'/wc-2018.db')
 logger.info("Connected to db")
 
-picker = worldcup.fixtures.Picker()
+picker = worldcup.match_picker.MatchPicker()
 
 # setup cache dir correctly
 util.filecache.set_dir(os.path.dirname(os.path.realpath(__file__))+"/cache")
@@ -128,10 +128,10 @@ def picks_for_location(lat,lng):
                                permalink="http://ourcup.info/l/"+str(round(float(lat), 3))+"/"+str(round(float(lng), 3)),
                                intro="Here's the game with the most local fans in your part of "+location_description,
                                scroll_to_results=False)
-    except:
+    except Exception as e:
         # geocoding failed for some reason, so fall back to making user pick location by zip
         logger.error("Couldn't get picks for ["+str(lat)+","+str(lng)+"]")
-        logger.exception('')
+        logger.exception(e)
         return render_template('_select-zip-code.html',
                                error="Sorry, we couldn't automatically find your location!")
 

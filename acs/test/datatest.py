@@ -2,6 +2,7 @@ import unittest, os.path
 
 import acs.data
 
+
 class PopulationDataManagerTest(unittest.TestCase):
 
     TEST_CSV_PATH = '/fixtures/ACS_12_5YR_B05006-MA/ACS_12_5YR_B05006_with_ann.csv'
@@ -17,6 +18,7 @@ class PopulationDataManagerTest(unittest.TestCase):
         self.assertEqual(dataset.sub_headers[0], 'Id')
         self.assertEqual(dataset.sub_headers[1], 'Id2')
 
+
 class ZipCodeDataManagerTest(unittest.TestCase):
 
     TEST_CSV_PATH = '/fixtures/zcta_tract_rel_10-partial.csv'
@@ -30,5 +32,5 @@ class ZipCodeDataManagerTest(unittest.TestCase):
         zeroTwoOneFourThreeTracts = [r for r in dataset.records if r.zip_code=='02143']
         self.assertEquals(len(zeroTwoOneFourThreeTracts),7)
         for record in dataset.records:
-            self.assertEqual(record.state_id,'25')
-            self.assertEqual(record.county_id,'017')
+            self.assertEqual(record.state_id, '25')
+            self.assertEqual(record.county_id, '017')

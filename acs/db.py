@@ -1,9 +1,10 @@
 import logging, json
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import distinct
+import operator
 
 Base = declarative_base()
 
@@ -150,10 +151,12 @@ class CensusDataManager:
     def _combinePopulations(self, rows):
         country_to_pop = {}
         # prefill stuff
-        for alpha2 in json.loads(rows[0].pop_by_county_json):
-            country_to_pop[alpha2] = 0
+        for alpha in json.loads(rows[0].pop_by_county_json):
+            country_to_pop[alpha] = 0
         for row in rows:
             pop_info = json.loads(row.pop_by_county_json)
             for alpha2 in pop_info:
-                country_to_pop[alpha2] += pop_info[alpha2]
-        return country_to_pop
+                country_to_pop[alpha] += pop_info[alpha2]
+        results = [{'country': k, 'population': v} for k, v in country_to_pop.items()]
+        results = sorted(results, key=operator.itemgetter('population'), reverse=True)
+        return results
