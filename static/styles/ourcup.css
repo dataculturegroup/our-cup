@@ -1,51 +1,55 @@
 body {
-  background-color: #3E4095;
-  font-family: '2dumbregular', serif;
+  background-color: #d20a11;
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 30px;
 }
 
 h1 {
   font-size: 4em;
-  font-family: '3dumbregular', Arial, sans-serif;
-  color: #FFCC29;
-  margin-bottom: 20px;
+  font-family: 'Chewy', cursive;
+  color: #f4edd2;
+  margin-bottom: 30px;
+  font-weight: 300;
 }
 
 h2 {
   font-size: 1.5em;
-  font-family: '3dumbregular', Arial, sans-serif;
-  color: #3E4095;
+  font-family: 'Chewy', cursive;
+  color: #0092d5;
   margin-bottom: 20px;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 label {
-  font-family: '3dumbregular', Arial, sans-serif;
+  font-family: 'Chewy', cursive;
   font-size: 1.2em;
 }
 
+button {
+  font-family: 'Chewy', cursive;
+}
+
 .oc-header {
-  background-color: #3E4095;
   text-align: center;
 }
 
 .oc-content {
-  background-color: #FFCC29;
-  padding: 1em;
+  background-color: #f4edd2;
+  padding: 30px;
 }
 
 .oc-content a:link,
 .oc-content a:visited,
 .oc-content a:hover,
 .oc-content a:active {
-  color: #3E4095;
+  color: #0092d5;
 }
 
 .oc-footer {
-  background-color: #3E4095;
   text-align: center;
   font-size: 0.9em;
   color: #FFFFFF;
-  margin-top: 1em;
+  margin-top: 30px;
 }
 
 .oc-game-list div {
@@ -70,7 +74,7 @@ label {
 .oc-footer a:visited,
 .oc-footer a:hover,
 .oc-footer a:active {
-  color: #FFCC29;
+  color: #f4edd2;
 }
 
 #oc-loading {
@@ -79,4 +83,8 @@ label {
 
 .oc-flag {
   border: 1px solid #000000;
+}
+
+.alert {
+  margin-top: 30px;
 }

@@ -1,10 +1,11 @@
 
-{% if error %}
-<div class="alert alert-warning">{{error}}</div>
-{% endif %}
-
 <h2>Search for Games</h2>
+
 {% include '_zip-code-form.html' %}
+
+{% if error %}
+  <div class="alert alert-danger">{{error}}</div>
+{% endif %}
 
 <script>
 $(function(){
