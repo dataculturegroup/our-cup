@@ -155,8 +155,8 @@ class CensusDataManager:
             country_to_pop[alpha] = 0
         for row in rows:
             pop_info = json.loads(row.pop_by_county_json)
-            for alpha2 in pop_info:
-                country_to_pop[alpha] += pop_info[alpha2]
+            for alpha in pop_info:
+                country_to_pop[alpha] += pop_info[alpha]
         results = [{'country': k, 'population': v} for k, v in country_to_pop.items()]
         results = sorted(results, key=operator.itemgetter('population'), reverse=True)
         return results
