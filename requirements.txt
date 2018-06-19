@@ -1,5 +1,6 @@
-requests
-unicodecsv
-sqlalchemy
-flask
-iso3166
+requests==2.18.4
+flask==1.0.2
+iso3166==0.6
+py-dateutil==2.2
+gunicorn==19.8.1
+flask_sqlalchemy==2.3.2

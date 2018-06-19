@@ -1,6 +1,7 @@
-data/ACS*
 *.pyc
-*.db
 *.log
 cache
 venv
+.idea
+update-server.sh
+*.db
