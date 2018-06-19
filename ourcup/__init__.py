@@ -3,10 +3,10 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-VERSION = '0.2'
+VERSION = '1.3.0'
 
 # setup logging
-logging.basicConfig(level=logging.DEBUG,
+logging.basicConfig(level=logging.INFO,
                     format="[%(asctime)s][%(levelname)s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s")
 logger = logging.getLogger(__name__)
 logger.info("---------------------------------------------------------------------------")
