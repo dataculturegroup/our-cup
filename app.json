@@ -1,0 +1,9 @@
+{
+  "name": "OurCup",
+  "description": "Recommendations for world cup games to watch in your community based where your neighbors are from",
+  "scripts": {
+    "dokku": {
+      "predepploy": "./release-tasks.sh"
+    }
+  }
+}

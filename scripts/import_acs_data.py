@@ -1,7 +1,9 @@
 import logging
 import os
-import acs.data
-import acs.db
+
+from ourcup import db
+from ourcup.acs.population import PopulationDataManager
+from ourcup.acs.zip_code import ZipCodeDataManager
 
 basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -16,14 +18,13 @@ logger.info("===================================================================
 logger.info("Importing ACS data:")
 
 # create database
-db = acs.db.CensusDataManager('sqlite:///wc-2018.db')
 logger.info("Connected to db")
 
 if IMPORT_ZIP_CODE_DATA:
     # this can take 5 minutes or so
     logger.info("---------------------------------------------------------------------------")
     # load all the ZipCode data into memory
-    dataset = acs.data.ZipCodeDataManager()
+    dataset = ZipCodeDataManager()
     logger.info("Loading ZipCode dataset from 'data' dir")
     dataset.loadFromCsv(os.path.join(basedir, 'data', 'zcta_tract_rel_10.csv'))
     # insert it all into a database
@@ -45,7 +46,7 @@ if IMPORT_ZIP_CODE_DATA:
 if IMPORT_POPULATION_DATA:
     logger.info("---------------------------------------------------------------------------")
     # load all the ACS population data into memory
-    dataset = acs.data.PopulationDataManager()
+    dataset = PopulationDataManager()
     logger.info("Loading Population dataset from 'data' dir")
     dataset.loadAllStateCsvs([
         os.path.join(basedir, 'data', 'ACS_16_5YR_B05006-1', 'ACS_16_5YR_B05006_with_ann.csv'),
