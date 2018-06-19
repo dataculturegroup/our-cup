@@ -16,7 +16,8 @@ class CensusDataManager:
         self._createTables()
 
     def _createTables(self):
-        self._alchemy_db.create_all
+        self._logger.info("Creating tables")
+        self._alchemy_db.create_all()
 
     def addPopulationRecord(self, tract_population):
         try:
