@@ -104,7 +104,7 @@ def api_picks_for_location(lat,lng):
 def picks_for_location(lat,lng):
     try:
         logger.debug("Picks for location: ["+str(lat)+","+str(lng)+"]")
-        [location_description,games] = _games_for_location(lat,lng)
+        [location_description, games] = _games_for_location(lat, lng)
         return render_template('_games.html',
                                games=games,
                                permalink="http://ourcup.info/l/"+str(round(float(lat), 3))+"/"+str(round(float(lng), 3)),
@@ -126,8 +126,8 @@ def _games_for_zip_code(zip_code):
     return games
 
 
-def _games_for_location(lat,lng):
-    place = ourcup.util.geo.reverse_geocode(lat,lng)
+def _games_for_location(lat, lng):
+    place = ourcup.util.geo.reverse_geocode(lat, lng)
     location_description = place['County']['name']+", "+place['State']['code']
     logger.debug("  location details: "+json.dumps(place))
     tract_id2 = place['Block']['FIPS'][:-4]

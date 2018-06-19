@@ -1,8 +1,8 @@
 import unittest
 import os.path
 
-from acs.population import PopulationDataManager
-from acs.zip_code import ZipCodeDataManager
+from ourcup.acs.population import PopulationDataManager
+from ourcup.acs.zip_code import ZipCodeDataManager
 
 
 class PopulationDataManagerTest(unittest.TestCase):
@@ -14,7 +14,7 @@ class PopulationDataManagerTest(unittest.TestCase):
     def testLoadFromStateCsv(self):
         data_set = PopulationDataManager()
         self.assertTrue(data_set is not None)
-        data_set.loadFromStateCsvFile( os.path.dirname(os.path.realpath(__file__))+self.TEST_CSV_PATH )
+        data_set.loadFromStateCsvFile(os.path.dirname(os.path.realpath(__file__))+self.TEST_CSV_PATH)
         self.assertEqual(data_set.headers[0], 'GEO.id')
         self.assertEqual(data_set.headers[1], 'GEO.id2')
         self.assertEqual(data_set.sub_headers[0], 'Id')

@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 VERSION = '1.3.0'
 
 # setup logging
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.DEBUG,
                     format="[%(asctime)s][%(levelname)s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s")
 logger = logging.getLogger(__name__)
 logger.info("---------------------------------------------------------------------------")
