@@ -7,7 +7,7 @@ import operator
 from ourcup.acs.models import PopulationInfo, ZipCodeInfo
 
 
-class CensusDataManager:
+class DatabaseManager:
 
     def __init__(self, alchemy_db):
         self._logger = logging.getLogger(__name__)

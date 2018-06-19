@@ -19,13 +19,14 @@ class MatchPicker(object):
         self._logger = logging.getLogger(__name__)
         self._json_file_path = FIXTURES_JSON_FILE
         self._fixtures = json.load(open(self._json_file_path))
-        self._logger.info("loaded from "+self._json_file_path)
+        self._logger.info("loading fixtures from "+self._json_file_path)
         self._translator = CountryCodes()
 
     def by_population(self, country_pop_data):
         all_games = copy.deepcopy(self._fixtures)
-        # country_alpha3_to_pop_map['USA'] = 1  # change the score so US doesn't show up very much, commented out because USA isn't in it!
-        country_alpha3_to_pop_map = {m['country']:m['population'] for m in country_pop_data}
+        # change the score so US doesn't show up very much, commented out because USA isn't in it!
+        # country_alpha3_to_pop_map['USA'] = 1
+        country_alpha3_to_pop_map = {m['country']: m['population'] for m in country_pop_data}
         for game in all_games:
             logger.debug("{} vs. {}".format(game['team1'], game['team2']))
             try:

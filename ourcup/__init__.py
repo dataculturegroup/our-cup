@@ -13,7 +13,7 @@ logger.info("-------------------------------------------------------------------
 
 # setup cache dir correctly
 basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-logging.info("Loaded from basedir {}".format(basedir))
+logger.info("Loaded from basedir {}".format(basedir))
 import ourcup.util.filecache
 ourcup.util.filecache.set_dir(os.path.join(basedir, "cache"))
 
@@ -24,9 +24,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 alchemy_db = SQLAlchemy(app)
 
 # connect to database
-import ourcup.acs.manager
-db = ourcup.acs.manager.CensusDataManager(alchemy_db)
-logger.info("Connected to db")
+import ourcup.acs.database
+db = ourcup.acs.database.DatabaseManager(alchemy_db)
 
 import ourcup.fixtures.match_picker
 picker = ourcup.fixtures.match_picker.MatchPicker()

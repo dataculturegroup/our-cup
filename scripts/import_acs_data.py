@@ -15,10 +15,7 @@ logging.basicConfig(format="[%(asctime)s][%(levelname)s] %(name)s %(filename)s:%
                     level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 logger.info("================================================================================")
-logger.info("Importing ACS data:")
-
-# create database
-logger.info("Connected to db")
+logger.info("Importing data:")
 
 if IMPORT_ZIP_CODE_DATA:
     # this can take 5 minutes or so
