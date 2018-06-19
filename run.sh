@@ -1,1 +1,1 @@
-gunicorn server:app
+gunicorn ourcup:server:app

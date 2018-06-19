@@ -1,0 +1,90 @@
+body {
+  background-color: #d20a11;
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 30px;
+}
+
+h1 {
+  font-size: 4em;
+  font-family: 'Chewy', cursive;
+  color: #f4edd2;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-family: 'Chewy', cursive;
+  color: #0092d5;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+label {
+  font-family: 'Chewy', cursive;
+  font-size: 1.2em;
+}
+
+button {
+  font-family: 'Chewy', cursive;
+}
+
+.oc-header {
+  text-align: center;
+}
+
+.oc-content {
+  background-color: #f4edd2;
+  padding: 30px;
+}
+
+.oc-content a:link,
+.oc-content a:visited,
+.oc-content a:hover,
+.oc-content a:active {
+  color: #0092d5;
+}
+
+.oc-footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: #FFFFFF;
+  margin-top: 30px;
+}
+
+.oc-game-list div {
+  text-align: center;
+  vertical-align: center;
+}
+
+.oc-game {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.oc-game-details {
+  margin-bottom: 0.5em;
+}
+
+.oc-top-game-wrapper {
+
+}
+
+.oc-footer a:link,
+.oc-footer a:visited,
+.oc-footer a:hover,
+.oc-footer a:active {
+  color: #f4edd2;
+}
+
+#oc-loading {
+  text-align: center;
+}
+
+.oc-flag {
+  border: 1px solid #000000;
+}
+
+.alert {
+  margin-top: 30px;
+}

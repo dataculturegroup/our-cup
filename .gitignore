@@ -1,6 +1,4 @@
-data/ACS*
 *.pyc
-*.db
 *.log
 cache
 venv

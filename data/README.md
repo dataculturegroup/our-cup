@@ -19,3 +19,5 @@ To dowload and update the ACS data
 6. Pick the most recent "ACS 5-year estimates" result and click it
 7. Click download, pick data use, click ok, then click download again
 8. Repeat from step 4 to select the other half of the states 
+9. Open both "_with_ann" files and save them in utf8 encoding so we can import them correctly.
+10. Edit `import_acs_data.py` to put in the path to both files

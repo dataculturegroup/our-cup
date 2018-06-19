@@ -5,11 +5,12 @@ import acs.db
 
 basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-IMPORT_ZIP_CODE_DATA = False
+IMPORT_ZIP_CODE_DATA = True
 IMPORT_POPULATION_DATA = True
 
 # setup logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(format="[%(asctime)s][%(levelname)s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s",
+                    level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 logger.info("================================================================================")
 logger.info("Importing ACS data:")
