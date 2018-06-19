@@ -19,7 +19,7 @@ def md5_key(string):
     Use this to generate filenae keys
     '''
     m = hashlib.md5()
-    m.update(string)
+    m.update(string.encode('utf-8'))
     return m.hexdigest()
 
 
