@@ -60,6 +60,7 @@ def put(key,content):
     '''
     global cache_dir
     logger.debug("caching "+str(key)+" in "+cache_dir)
+    logger.debug("  {}".format(content))
     text_file = codecs.open(os.path.join(cache_dir,key), encoding='utf-8', mode="w")
     text_file.write(content.decode('utf-8'))
     text_file.close()
