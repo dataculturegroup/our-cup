@@ -1,6 +1,7 @@
 import logging
 import json
 from sqlalchemy import distinct
+from sqlalchemy.exc import OperationalError
 import operator
 
 from ourcup.acs.models import PopulationInfo, ZipCodeInfo
@@ -50,10 +51,18 @@ class CensusDataManager:
         return True
 
     def emptyZipCodeTable(self):
-        self._alchemy_db.session.query(ZipCodeInfo).delete()
+        try:
+            self._alchemy_db.session.query(ZipCodeInfo).delete()
+        except OperationalError:
+            self._logger.warning("Couldn't empty zip code table")
+
 
     def emptyPopulationTable(self):
-        self._alchemy_db.session.query(PopulationInfo).delete()
+        try:
+            self._alchemy_db.session.query(PopulationInfo).delete()
+        except OperationalError:
+            self._logger.warning("Couldn't empty population data table")
+
 
     def states(self):
         cache_key = 'states'
