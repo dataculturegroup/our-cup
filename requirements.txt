@@ -1,6 +1,7 @@
-requests==2.18.4
-flask==1.0.2
-iso3166==0.6
+requests==2.22.0
+flask==1.0.3
+iso3166==1.0
 py-dateutil==2.2
-gunicorn==19.8.1
-flask_sqlalchemy==2.3.2
+gunicorn==19.9.0
+flask_sqlalchemy==2.4.0
+emojiflags==0.1.1

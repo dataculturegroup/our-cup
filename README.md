@@ -12,7 +12,7 @@ Dependencies
 This is built for Python 3.
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Installation
@@ -20,30 +20,35 @@ Installation
 
 1. Follow the instructions in `data/README.md` to download the latest data you need
 
-2. Run the two scripts in the `scripts` directory:
+2. Run the scriptsin the `scripts` directory to create the ACS population database:
 ```
-python3 -m scripts.download_fixtures
 python3 -m scripts.import_acs_data
 ```
 
 3. Make sure to create a `cache` directory and make writable by the appropriate user
 
-Data Source for 2018
+Data Source for 2019
 --------------------
 
-The [Open Football project has published](https://github.com/openfootball/world-cup.json) an easy-to 
-use JSON file of the fixtures.  We download and use that from here:
+[Software for Good](https://worldcup.sfg.io) hosts data in JSON format:
 
-  https://raw.githubusercontent.com/openfootball/world-cup.json/master/2018/worldcup.json
+  https://worldcup.sfg.io/matches
 
 Tests
 -----
 
-There are a handful of unit tests scattered throughout the modules.  You can run them all by running `python3 test.py`.
+There are a handful of unit tests scattered throughout the modules.  You can run them all by running
+`python test.py`.
+
+Running Locally
+---------------
+
+* Run locally with Flask server: `python run.py`
+* Run locally with Gunicorn: `./run.sh`
 
 Deploying
 ---------
 
-This is built to deploy to a containerized hosting service like Heroku. The database ends up being too
-big to check into GitHub directly (>100MB), so you should make sure there is a predeploy hook to generate the 
-database at release time (this can take 5 to 10 minutes).
+This is built to deploy to a containerized hosting service like Heroku. The database ends up being
+too big to check into GitHub directly (>100MB), so you should make sure there is a predeploy hook to
+generate the database at release time (this can take 5 to 10 minutes).

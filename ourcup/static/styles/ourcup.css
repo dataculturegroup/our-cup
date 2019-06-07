@@ -1,5 +1,5 @@
 body {
-  background-color: #d20a11;
+  background-color: #3a344e;
   font-family: 'Open Sans', sans-serif;
   padding-top: 30px;
   font-size: 18px;
@@ -8,7 +8,7 @@ body {
 h1 {
   font-size: 4em;
   font-family: 'Chewy', cursive;
-  color: #f4edd2;
+  color: #ffffff;
   margin-bottom: 30px;
   font-weight: 300;
 }
@@ -16,7 +16,7 @@ h1 {
 h2 {
   font-size: 1.5em;
   font-family: 'Chewy', cursive;
-  color: #0092d5;
+  color: #3a344e;
   margin-bottom: 20px;
   font-weight: 300;
 }
@@ -35,7 +35,7 @@ button {
 }
 
 .oc-content {
-  background-color: #f4edd2;
+  background-color: #92b9e1;
   padding: 30px;
 }
 
@@ -43,7 +43,7 @@ button {
 .oc-content a:visited,
 .oc-content a:hover,
 .oc-content a:active {
-  color: #0092d5;
+  color: #3a344e;
 }
 
 .oc-footer {
@@ -56,6 +56,7 @@ button {
 .oc-game-list div {
   text-align: center;
   vertical-align: center;
+  font-size: 14px;
 }
 
 .oc-game {
@@ -75,7 +76,7 @@ button {
 .oc-footer a:visited,
 .oc-footer a:hover,
 .oc-footer a:active {
-  color: #f4edd2;
+  color: #92b9e1;
 }
 
 #oc-loading {
@@ -83,7 +84,10 @@ button {
 }
 
 .oc-flag {
-  border: 1px solid #000000;
+  font-size: 120px;
+  display: block;
+  margin-top: -30px;
+  margin-bottom: -30px;
 }
 
 .alert {

@@ -7,6 +7,7 @@ class CountryCodesTest(unittest.TestCase):
 
     def testCreate(self):
         translator = CountryCodes()
-        self.assertEquals(translator.getByFifaCode('BRA').iso,'BRA')
-        self.assertEquals(translator.getByFifaCode('BRA').name,'Brazil')
-        self.assertEquals(translator.getByFifaCode('NED').iso,'NLD')
+        self.assertEqual(translator.getByFifaAlpha3('BRA').iso, 'BRA')
+        self.assertEqual(translator.getByFifaAlpha3('BRA').name, 'Brazil')
+        self.assertEqual(translator.getByFifaAlpha3('NED').iso, 'NLD')
+        self.assertEqual(translator.getByFifaAlpha3('BRA').emoji, '🇧🇷')

@@ -9,8 +9,8 @@ class PickerTest(unittest.TestCase):
         picker = MatchPicker()
         self.assertTrue(picker._fixtures is not None)
 
-    def testParticipatingFifaCountryCodes(self):
+    def testParticipatingCountryCodes(self):
         picker = MatchPicker()
-        countries = picker.participating_fifa_country_codes()
-        self.assertEquals(len(countries), 32)
+        countries = picker.participating_country_codes()
+        self.assertEquals(len(countries), 24)
 
