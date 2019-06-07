@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-VERSION = '1.3.0'
+VERSION = '1.4.0'
 
 # setup logging
 logging.basicConfig(level=logging.DEBUG,
