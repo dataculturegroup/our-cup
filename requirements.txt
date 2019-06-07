@@ -1,4 +1,4 @@
-requests==2.22.0
+requests>=2.20.0
 flask==1.0.3
 iso3166==1.0
 py-dateutil==2.2
