@@ -7,7 +7,7 @@ body {
 
 h1 {
   font-size: 4em;
-  font-family: 'Chewy', cursive;
+  font-family: 'Covered By Your Grace', cursive;
   color: #ffffff;
   margin-bottom: 30px;
   font-weight: 300;
@@ -15,19 +15,18 @@ h1 {
 
 h2 {
   font-size: 1.5em;
-  font-family: 'Chewy', cursive;
+  font-family: 'Covered By Your Grace', cursive;
   color: #3a344e;
   margin-bottom: 20px;
   font-weight: 300;
 }
 
 label {
-  font-family: 'Chewy', cursive;
+  font-family: 'Covered By Your Grace', cursive;
   font-size: 1.2em;
 }
 
 button {
-  font-family: 'Chewy', cursive;
 }
 
 .oc-header {
