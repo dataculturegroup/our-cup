@@ -23,9 +23,9 @@ def permalink_picks_for_zip_code(zip_code):
                                permalink="http://ourcup.info/z/"+str(zip_code),
                                intro="Here's game with the most local fans in "+str(zip_code)+"",
                                scroll_to_results=True)
-    except:
+    except Exception as e:
         logger.error("Couldn't get picks for ["+str(zip_code)+"]")
-        logger.exception('')
+        logger.exception(e)
         return render_template('home-with-error.html',
                                error="Sorry, we couldn't find any information for the zip code "+zip_code+"!")
 
@@ -37,9 +37,9 @@ def api_picks_for_zip_code(zip_code):
         games = _games_for_zip_code(zip_code)
         results = {'status': 'ok','location': zip_code,'results': games}
         return jsonify(results)
-    except:
+    except Exception as e:
         logger.error("Couldn't get api picks for ["+str(zip_code)+"]")
-        logger.exception('')
+        logger.exception(e)
         return jsonify({
             'status': 'error',
             'location': zip_code,
@@ -58,9 +58,9 @@ def picks_for_zip_code(zip_code):
                                permalink="http://ourcup.info/z/"+str(zip_code),
                                intro="Here's game with the most local fans in "+str(zip_code)+"",
                                scroll_to_results=True)
-    except:
+    except Exception as e:
         logger.error("Couldn't get picks for ["+str(zip_code)+"]")
-        logger.exception('')
+        logger.exception(e)
         return render_template('_select-zip-code.html',
                                error="Sorry, we couldn't find any information for the zip code "+zip_code+"!")
 
@@ -75,9 +75,9 @@ def permalink_picks_for_location(lat,lng):
                                permalink="http://ourcup.info/l/"+str(round(float(lat), 3))+"/"+str(round(float(lng), 3)),
                                intro="Here's the game with the most local fans in your part of "+location_description,
                                scroll_to_results=False)
-    except:
+    except Exception as e:
         logger.error("Couldn't get picks for ["+str(lat)+","+str(lng)+"]")
-        logger.exception('')
+        logger.exception(e)
         return render_template('home-with-error.html',
                                error="Sorry, we couldn't automatically find your location!")
 
@@ -89,9 +89,9 @@ def api_picks_for_location(lat,lng):
         [location_description,games] = _games_for_location(lat,lng)
         results = {'status': 'ok', 'location': location_description, 'results': games}
         return jsonify(results)
-    except:
+    except Exception as e:
         logger.error("Couldn't get api picks for ["+str(lat)+","+str(lng)+"]")
-        logger.exception('')
+        logger.exception(e)
         return jsonify({
             'status': 'error',
             'location': str(lat)+','+str(lng),

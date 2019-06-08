@@ -9,14 +9,14 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-4 col-xs-offset-1">
-			<img src="/static/images/flags-by-fifa-code/{{game['team1Country'].fifa}}.png" class="img-responsive oc-flag"/>
+			<span class="oc-flag">{{ game['team1Country'].emoji }}</span>
 			{{game['team1Country'].name}}
 		</div>
 		<div class="col-xs-2">
-			<h2><big>vs.</big></h2>
+			<h2>vs.</h2>
 		</div>
 		<div class="col-xs-4">
-			<img src="/static/images/flags-by-fifa-code/{{game['team2Country'].fifa}}.png" class="img-responsive oc-flag"/>
+            <span class="oc-flag">{{ game['team2Country'].emoji }}</span>
 			{{game['team2Country'].name}}
 		</div>
 	</div>
