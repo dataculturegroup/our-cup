@@ -5,3 +5,4 @@ venv
 .idea
 update-server.sh
 *.db
+.env
