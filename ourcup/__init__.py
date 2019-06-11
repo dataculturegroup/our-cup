@@ -2,14 +2,18 @@ import logging
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
 
-VERSION = '1.4.0'
+VERSION = '1.4.1'
 
 # setup logging
 logging.basicConfig(level=logging.DEBUG,
                     format="[%(asctime)s][%(levelname)s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s")
 logger = logging.getLogger(__name__)
 logger.info("---------------------------------------------------------------------------")
+
+# load in config
+load_dotenv()
 
 # setup cache dir correctly
 basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

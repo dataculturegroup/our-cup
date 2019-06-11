@@ -20,7 +20,7 @@ Installation
 
 1. Follow the instructions in `data/README.md` to download the latest data you need
 
-2. Run the scriptsin the `scripts` directory to create the ACS population database:
+2. Run the scriptsi n the `scripts` directory to create the ACS population database:
 ```
 python3 -m scripts.import_acs_data
 ```
@@ -52,3 +52,8 @@ Deploying
 This is built to deploy to a containerized hosting service like Heroku. The database ends up being
 too big to check into GitHub directly (>100MB), so you should make sure there is a predeploy hook to
 generate the database at release time (this can take 5 to 10 minutes).
+
+Also make sure to set the following env variables, as needed:
+* GOOGLE_ANALYICS_ID
+* MATOMO_HOST
+* MATOMO_SITE_ID

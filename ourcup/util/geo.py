@@ -6,11 +6,12 @@ import ourcup.util.filecache as filecache
 
 logger = logging.getLogger(__name__)
 
-'''
-Cache these results to reduce load on their server, and hopefully stay under the use limit radar.
-Uses the FCC block API endpoint: https://geo.fcc.gov/api/census/#!/area/get_area
-'''
+
 def reverse_geocode(lat, lng):
+    """
+    Cache these results to reduce load on their server, and hopefully stay under the use limit radar.
+    Uses the FCC block API endpoint: https://geo.fcc.gov/api/census/#!/area/get_area
+    """
     payload = {
         'format': 'json',
         'latitude': round(float(lat), 3),
