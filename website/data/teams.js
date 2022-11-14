@@ -1,4 +1,4 @@
-teamData = {
+OurCup.data.teams = {
   "QAT": {
     "alpha3": "QAT",
     "flag": "🇶🇦",

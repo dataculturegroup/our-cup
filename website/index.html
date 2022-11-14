@@ -17,14 +17,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/ourcup.css" type="text/css" charset="utf-8" />
 
+    <script type="text/javascript">
+      OurCup = {
+        "data": {},
+      };
+    </script>
+    <script src="data/counties.js"></script>
+    <script src="data/teams.js"></script>
+    <script src="data/fixtures.js"></script>
+    <script src="data/recommendations.js"></script>
+
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="scripts/interaction-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
+    <script src="scripts/interaction-observer.js"></script>
+
     <script src="scripts/scrolling.js"></script>
-    <script src="scripts/county-data.js"></script>
-    <script src="scripts/team-data.js"></script>
-    <script src="scripts/matches.js"></script>
-    <script src="scripts/data.js"></script>
+    <script src="scripts/app.js"></script>
   </head>
 
   <body>
@@ -91,8 +99,71 @@
       <section id="interactive">
         <h2>Where do you live?</h2>
         <p>Find out which fans live near you and get links to their food, music, culture, and when their teams are playing.<p>
-        <button class="btn btn-primary btn-lg" onclick="OurCupData.handleAutodetect()">autodetect</button>
-        <button class="btn btn-secondary btn-lg" onclick="OurCupData.updateResultsFromCounty('25025', 'Suffolk County', 'MA')">test</button>
+        <button class="btn btn-success btn-lg" onclick="OurCup.app.handleAutodetect()">autodetect</button>
+        <p>or pick your county</p>
+        <select name="state" id="state-select" class="form-select" onChange="OurCup.app.updateCounties(this)">
+        	<option value="AL">Alabama</option>
+        	<option value="AK">Alaska</option>
+        	<option value="AZ">Arizona</option>
+        	<option value="AR">Arkansas</option>
+        	<option value="CA">California</option>
+        	<option value="CO">Colorado</option>
+        	<option value="CT">Connecticut</option>
+        	<option value="DE">Delaware</option>
+        	<option value="DC">District Of Columbia</option>
+        	<option value="FL">Florida</option>
+        	<option value="GA">Georgia</option>
+        	<option value="HI">Hawaii</option>
+        	<option value="ID">Idaho</option>
+        	<option value="IL">Illinois</option>
+        	<option value="IN">Indiana</option>
+        	<option value="IA">Iowa</option>
+        	<option value="KS">Kansas</option>
+        	<option value="KY">Kentucky</option>
+        	<option value="LA">Louisiana</option>
+        	<option value="ME">Maine</option>
+        	<option value="MD">Maryland</option>
+        	<option value="MA">Massachusetts</option>
+        	<option value="MI">Michigan</option>
+        	<option value="MN">Minnesota</option>
+        	<option value="MS">Mississippi</option>
+        	<option value="MO">Missouri</option>
+        	<option value="MT">Montana</option>
+        	<option value="NE">Nebraska</option>
+        	<option value="NV">Nevada</option>
+        	<option value="NH">New Hampshire</option>
+        	<option value="NJ">New Jersey</option>
+        	<option value="NM">New Mexico</option>
+        	<option value="NY">New York</option>
+        	<option value="NC">North Carolina</option>
+        	<option value="ND">North Dakota</option>
+        	<option value="OH">Ohio</option>
+        	<option value="OK">Oklahoma</option>
+        	<option value="OR">Oregon</option>
+        	<option value="PA">Pennsylvania</option>
+        	<option value="RI">Rhode Island</option>
+        	<option value="SC">South Carolina</option>
+        	<option value="SD">South Dakota</option>
+        	<option value="TN">Tennessee</option>
+        	<option value="TX">Texas</option>
+        	<option value="UT">Utah</option>
+        	<option value="VT">Vermont</option>
+        	<option value="VA">Virginia</option>
+        	<option value="WA">Washington</option>
+        	<option value="WV">West Virginia</option>
+        	<option value="WI">Wisconsin</option>
+        	<option value="WY">Wyoming</option>
+        </select>
+        <select name="county" id="county-select" class="form-select" >
+        </select>
+        <button
+          class="btn btn-secondary"
+          onclick="OurCup.app.updateResultsFromCounty(
+            d3.select('#county-select').node().value,
+            'Suffolk County',
+            'MA'); return false;">
+          go
+        </button>
 
         <div id="statusWrapper">
           <div class="spinner-border" role="status">
@@ -133,7 +204,7 @@
     </footer>
 
     <script type="text/javascript">
-      OurCupScrolling.initialize();
+      OurCup.scrolling.initialize();
     </script>
   </body>
 

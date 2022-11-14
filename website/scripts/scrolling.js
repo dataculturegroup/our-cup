@@ -1,5 +1,5 @@
 
-OurCupScrolling = {
+OurCup.scrolling = {
 
   backdrops: [
     { 'src': 'images/russia-cup-celebration.jpg',
@@ -20,36 +20,36 @@ OurCupScrolling = {
   ],
 
   initialize: function() {
-    OurCupScrolling.scroller = scrollama();
+    OurCup.scrolling.scroller = scrollama();
     var main = d3.select("main");
     var scrolly = main.select("#scrolly");
-    OurCupScrolling.figure = scrolly.select("#backdrop");
+    OurCup.scrolling.figure = scrolly.select("#backdrop");
     var article =scrolly.select("article");
-    OurCupScrolling.step = article.selectAll(".step");
-    OurCupScrolling.handleResize();
-    OurCupScrolling.setBackdropImage(0);
-    OurCupScrolling.scroller
+    OurCup.scrolling.step = article.selectAll(".step");
+    OurCup.scrolling.handleResize();
+    OurCup.scrolling.setBackdropImage(0);
+    OurCup.scrolling.scroller
       .setup({
         step: "#scrolly article .step",
         offset: 0.8,
         debug: false
       })
-      .onStepEnter(OurCupScrolling.handleStepEnter)
-      .onStepExit(OurCupScrolling.handleStepExit);
+      .onStepEnter(OurCup.scrolling.handleStepEnter)
+      .onStepExit(OurCup.scrolling.handleStepExit);
   },
 
   setBackdropImage: function(index) {
-    OurCupScrolling.figure.select("img")
-      .attr('src', OurCupScrolling.backdrops[index].src)
+    OurCup.scrolling.figure.select("img")
+      .attr('src', OurCup.scrolling.backdrops[index].src)
       .attr('class', 'fade-in');
   },
 
   handleStepEnter: function(stepInfo) { // stepInfo = { element, directihandle, index }
     // chandlesole.log(stepInfo);
-    OurCupScrolling.step.classed("is-active", function (d, i) {  // highlight current step
+    OurCup.scrolling.step.classed("is-active", function (d, i) {  // highlight current step
       return i === stepInfo.index;
     });
-    OurCupScrolling.setBackdropImage(stepInfo.index)
+    OurCup.scrolling.setBackdropImage(stepInfo.index)
   },
 
   handleStepExit: function(stepInfo) {
@@ -57,15 +57,15 @@ OurCupScrolling = {
 
   handleResize: function() {
     var stepH = Math.floor(window.innerHeight * 1); // update step heights
-    OurCupScrolling.step.style("height", stepH + "px");
+    OurCup.scrolling.step.style("height", stepH + "px");
     var figureHeight = window.innerHeight;
     var figureMarginTop = 0;
-    OurCupScrolling.figure
+    OurCup.scrolling.figure
       .style("height", figureHeight + "px")
       .style("top", figureMarginTop + "px");
-    OurCupScrolling.figure.select(".wrapper")
+    OurCup.scrolling.figure.select(".wrapper")
       .style("height", figureHeight + "px")
-    OurCupScrolling.scroller.resize(); // tell scrollama to update new element dimensihandles
+    OurCup.scrolling.scroller.resize(); // tell scrollama to update new element dimensihandles
   }
 
 };

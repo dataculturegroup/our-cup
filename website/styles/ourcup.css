@@ -153,7 +153,7 @@ em, i {
   margin-bottom: -30px;
 }
 
-.matches b {
+.OurCup.data.fixtures b {
   font-variant: all-small-caps;
   font-size: 1.5rem;
   color: #EB1C81;
@@ -175,6 +175,10 @@ footer {
   padding: 5rem 0 1rem 0;
   text-align: center;
   font-size: 1rem;
+}
+
+a, a:hover {
+  color: #EB1C81;
 }
 
 footer a {

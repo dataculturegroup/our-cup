@@ -702,7 +702,7 @@ IntersectionObserver.prototype._hasCrossedThreshold =
   for (var i = 0; i < this.thresholds.length; i++) {
     var threshold = this.thresholds[i];
 
-    // Return true if an entry matches a threshold or if the new ratio
+    // Return true if an entry OurCup.data.fixtures a threshold or if the new ratio
     // and the old ratio are on the opposite sides of a threshold.
     if (threshold == oldRatio || threshold == newRatio ||
         threshold < oldRatio !== threshold < newRatio) {
