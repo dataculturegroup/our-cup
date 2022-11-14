@@ -1,6 +1,10 @@
 
 OurCup.app = {
 
+  initialize: function() {
+    OurCup.app.updateCounties('AL');
+  },
+
   handleAutodetect: function(){
     d3.select('#recsWrapper').style('display', 'none');
     OurCup.app.updateStatus(true, "Detecting your location...");
@@ -44,8 +48,7 @@ OurCup.app = {
                                                          data.results[0].state_code));
   },
 
-  updateCounties: function(element) {
-    var state = element.value;
+  updateCounties: function(state) {
     var stateCounties = OurCup.data.counties.filter(c => c.state == state);
     var options = stateCounties.map(c => "<option value=\""+c.fips+"\">"+c.name+"</option>")
     d3.select('#county-select').html(options);
@@ -56,8 +59,8 @@ OurCup.app = {
       fips = '0'+fips;
     }
     d3.select('#recsWrapper').style('display', 'none');
-    var titleText = "Top Teams for "+countyName+", "+stateCode;
-    var title = d3.select('#recsTitle').text(titleText);
+    var titleText = "Top Teams for<br />"+countyName+", "+stateCode;
+    var title = d3.select('#recsTitle').html(titleText);
     var topTeams = OurCup.data.recommendations[fips];
     var content = "";
     topTeams.forEach(function(team, index){

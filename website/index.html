@@ -100,8 +100,8 @@
         <h2>Where do you live?</h2>
         <p>Find out which fans live near you and get links to their food, music, culture, and when their teams are playing.<p>
         <button class="btn btn-success btn-lg" onclick="OurCup.app.handleAutodetect()">autodetect</button>
-        <p>or pick your county</p>
-        <select name="state" id="state-select" class="form-select" onChange="OurCup.app.updateCounties(this)">
+        <p>or pick your state & county:</p>
+        <select name="state" id="state-select" class="form-select" onChange="OurCup.app.updateCounties(this.value)">
         	<option value="AL">Alabama</option>
         	<option value="AK">Alaska</option>
         	<option value="AZ">Arizona</option>
@@ -160,8 +160,8 @@
           class="btn btn-secondary"
           onclick="OurCup.app.updateResultsFromCounty(
             d3.select('#county-select').node().value,
-            'Suffolk County',
-            'MA'); return false;">
+            d3.select('#county-select').node().options[d3.select('#county-select').node().selectedIndex].text,
+            d3.select('#state-select').node().value); return false;">
           go
         </button>
 
@@ -192,6 +192,7 @@
                 Northeastern University <a href="http://dataculture.northeastern.edu/">Data Culture Group</a>.
                 <br />
                 Based on data from the <a href="http://data.census.gov/">U.S. Census American Community Survey</a>,
+                the <a href="https://geo.fcc.gov/api/census/">FCC Census API</a>,
                 and <a href="https://worldcupjson">worldcupjson.net</a>.
                 <br />
                 Source code on <a href="https://github.com/dataculturegroup/our-cup">GitHub</a>.
@@ -205,6 +206,7 @@
 
     <script type="text/javascript">
       OurCup.scrolling.initialize();
+      OurCup.app.initialize();
     </script>
   </body>
 
