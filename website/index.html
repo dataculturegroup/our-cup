@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Find out the best world cup games to watch, based on where your neighbors are from.">
+    <meta name="keywords" content="world cup, census, data, soccer">
+    <meta name="author" content="Rahul Bhargava, Data Culture Group, Northeastern University">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144-precomposed.png">
+    <link rel="Shortcut Icon" href="images/favicon.ico" type="image/x-icon">
+
+    <title>Our Cup - connect with your neighbors around the 2022 Men's World Cup</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/ourcup.css" type="text/css" charset="utf-8" />
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="scripts/interaction-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="scripts/scrolling.js"></script>
+    <script src="scripts/county-data.js"></script>
+    <script src="scripts/team-data.js"></script>
+    <script src="scripts/matches.js"></script>
+    <script src="scripts/data.js"></script>
+  </head>
+
+  <body>
+
+
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+      			<h1>OurCup</h1>
+      			<p>
+      				America is a nation of immigrants. Find out who lives near you and what teams they'll be supporting in the World Cup.
+              Celebrate their music, food, and culture.
+      			</p>
+          </div>
+        </div>
+      </div>
+		</header>
+
+    <main>
+      <section id="scrolly">
+
+        <figure id="backdrop">
+          <div class="wrapper">
+  				  <img id="backdrop-img"/>
+          </div>
+  			</figure>
+
+  			<article>
+  				<div class="step" data-step="1">
+  					<p>
+              Every four year, the world comes together to celebrate and revel in the joy of soccer. More than <i>half
+              the planet</i> watched the 2018 tournament in Russia.
+            </p>
+  				</div>
+  				<div class="step" data-step="2">
+  					<p>
+              This year Qatar hosts the men's competition, in their oil-rich kingdom of searing heat. They bribed
+              corrupt FIFA, the sport's global governing body, to win the right to host it.
+            </p>
+  				</div>
+  				<div class="step" data-step="3">
+  					<p>
+              Immigrant labor has worked years to create 8 new stadiums, with few protections and significant evidence
+              of forced labor in searing 100+ degree temperatures.
+            </p>
+  				</div>
+  				<div class="step" data-step="4">
+  					<p>
+              But for many of the countries and players, this is the chance of a lifetime. Instead of <i>celebrating</i> the
+              tournament and it human rights tolls, this year let's instead honor and learn about the countries and cultures
+              coming together.
+            </p>
+  				</div>
+          <div class="step" data-step="4">
+  					<p>
+              Your neighbors will be tuning in to support their teams and celebrate their culture. <i>Taste</i> their food. <i>Listen</i> to
+              their music. <i>Visit</i> their restaurants. <i>Learn</i> from their citizens. Celebrate their cultures, instead of FIFA's corruption.
+            </p>
+  				</div>
+  			</article>
+  		</section>
+
+      <section id="interactive">
+        <h2>Where do you live?</h2>
+        <p>Find out which fans live near you and get links to their food, music, culture, and when their teams are playing.<p>
+        <button class="btn btn-primary btn-lg" onclick="OurCupData.handleAutodetect()">autodetect</button>
+        <button class="btn btn-secondary btn-lg" onclick="OurCupData.updateResultsFromCounty('25025', 'Suffolk County', 'MA')">test</button>
+
+        <div id="statusWrapper">
+          <div class="spinner-border" role="status">
+          </div>
+          <div id="status"></div>
+        </div>
+
+        <div id="recsWrapper">
+          <h2 id="recsTitle"></h2>
+          <div class="container-fluid">
+            <div class="row" id="countryCardWrapper">
+              <!-- JS code will fill in cards for countries here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>
+                A project by <a href="https://camd.northeastern.edu/faculty/rahul-bhargava/">Rahul Bhargava</a> at the
+                Northeastern University <a href="http://dataculture.northeastern.edu/">Data Culture Group</a>.
+                <br />
+                Based on data from the <a href="http://data.census.gov/">U.S. Census American Community Survey</a>,
+                and <a href="https://worldcupjson">worldcupjson.net</a>.
+                <br />
+                Source code on <a href="https://github.com/dataculturegroup/our-cup">GitHub</a>.
+                <br />
+              <a href="https://twitter.com/intent/tweet?screen_name=rahulbot" class="twitter-mention-button" data-size="large" data-dnt="true">Tweet to @rahulbot</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      OurCupScrolling.initialize();
+    </script>
+  </body>
+
+</html>
