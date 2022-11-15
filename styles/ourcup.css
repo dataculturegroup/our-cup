@@ -110,6 +110,17 @@ em, i {
   color: #0088CC;
 }
 
+#backdrop-caption {
+  position: relative;
+  top: -2.5rem;
+  color: #000;
+  background-color: white;
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0 0.5rem;
+  opacity: 0.4;
+}
+
 .step {
   filter: drop-shadow(0px 0px 8px #000);
 }

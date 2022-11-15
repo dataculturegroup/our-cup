@@ -11,7 +11,7 @@
 
     <title>Our Cup - soccer is a window to the world</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="styles/ourcup.css" type="text/css" charset="utf-8" />
 
     <script type="text/javascript">
@@ -63,6 +63,7 @@
           <div class="wrapper">
   				  <img id="backdrop-img"/>
           </div>
+          <div id="backdrop-caption"></div>
   			</figure>
 
   			<article>
@@ -235,6 +236,23 @@
       OurCup.scrolling.initialize();
       OurCup.app.initialize();
     </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.mediacloud.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
   </body>
 
 </html>

@@ -42,6 +42,7 @@ OurCup.scrolling = {
     OurCup.scrolling.figure.select("img")
       .attr('src', OurCup.scrolling.backdrops[index].src)
       .attr('class', 'fade-in');
+    d3.select("#backdrop-caption").html(OurCup.scrolling.backdrops[index].credit)
   },
 
   handleStepEnter: (stepInfo) => { // stepInfo = { element, directihandle, index }
