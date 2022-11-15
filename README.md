@@ -14,3 +14,9 @@ Deploying
 ---------
 
 This is built to deploy to a flat HTML server.
+
+TODO:
+* parse and add game times
+* write more countries
+* social sharing (with flags?)
+* URL reloading

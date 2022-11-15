@@ -6,6 +6,7 @@ OurCup.app = {
   },
 
   handleAutodetect: function(){
+    d3.selectAll('#interactive button').property('disabled', true);
     d3.select('#recsWrapper').style('display', 'none');
     OurCup.app.updateStatus(true, "Detecting your location...");
     if (navigator.geolocation) {
@@ -20,6 +21,7 @@ OurCup.app = {
   },
 
   handleGeoLocateError: function(error){
+    d3.selectAll('#interactive button').property('disabled', false);
     OurCup.app.updateStatus(true, "Couldn't detect your location - sorry!");
     switch(error.code) {
         case "unsupported":
@@ -55,13 +57,25 @@ OurCup.app = {
   },
 
   updateResultsFromCounty: function(fips, countyName, stateCode) {
+    d3.selectAll('#interactive button').property('disabled', true);
     if (fips.length == 4) {
       fips = '0'+fips;
     }
     d3.select('#recsWrapper').style('display', 'none');
-    var titleText = "Top Teams for<br />"+countyName+", "+stateCode;
-    var title = d3.select('#recsTitle').html(titleText);
+    // recommendatinos are pre-computed for every county in the US
     var topTeams = OurCup.data.recommendations[fips];
+    // title shows location
+    var titleText = "Top Teams for<br />"+countyName+", "+stateCode;
+    d3.select('#recsTitle').html(titleText);
+    // intro summarizes recommendations
+    var introText = "Many of your neighbors are from ";
+    var teamNames = topTeams.map(t => {
+      var teamInfo = OurCup.data.teams[t];
+      return teamInfo.flag + " " + teamInfo.name;
+    })
+    introText += teamNames[0] + ", " + teamNames[1] + " and " + teamNames[2] + ".";
+    d3.select('#recsSummary').html(introText);
+    // one card for each team
     var content = "";
     topTeams.forEach(function(team, index){
       d3.select('#team-card-'+team)
@@ -80,6 +94,10 @@ OurCup.app = {
       if (teamInfo.intro) {
         content+= teamInfo.intro+" ";
       }
+      if (teamInfo.recipeUrl) {
+        content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+teamInfo.demonym+" restaurant near you on Yelp</a>, ";
+        content+= "or make a <a href=\""+teamInfo.recipeUrl+"\">"+teamInfo.demonym+" recipe from epicurious</a> for dinner tonight. ";
+      }
       if (teamInfo.wikipediaUrl) {
         content+= "📖 Learn about <a href=\""+teamInfo.wikipediaUrl+"\">"+teamInfo.name+" on Wikipedia</a>, ";
         content+= "or read from some local journalists on <a href=\""+teamInfo.globalVoicesUrl+"\"> Global Voices "+teamInfo.name+"</a>. ";
@@ -88,10 +106,6 @@ OurCup.app = {
         content+= "🎵 Use Spotify to listen to "+teamInfo.spotify.map(
           function(i){return "<a href=\""+i.url+"\">"+i.name+"</a>"}).join(", or ")
           +". ";
-      }
-      if (teamInfo.recipeUrl) {
-        content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+teamInfo.demonym+" restaurant near you on Yelp</a>, ";
-        content+= "or make a <a href=\""+teamInfo.recipeUrl+"\">"+teamInfo.demonym+" recipe from epicuious</a> for dinner tonight. ";
       }
       content+= "</p>";
       content+= "<p class=\"OurCup.data.fixtures\">"
@@ -124,6 +138,7 @@ OurCup.app = {
       OurCup.app.updateStatus(false, "Ready");
       d3.select('#countryCardWrapper').html(content);
       d3.select('#recsWrapper').style('display', 'block');
+      d3.selectAll('#interactive button').property('disabled', false);
     });
   },
 
