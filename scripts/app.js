@@ -3,6 +3,14 @@ OurCup.app = {
 
   initialize: function() {
     OurCup.app.updateCounties('AL');
+    const url = new URL(window.location);
+    const preloadFips = url.searchParams.get('fips');
+    if(preloadFips){
+      const matchedCounty = OurCup.data.counties.filter(c => c.fips == preloadFips);
+      if(matchedCounty.length == 1) {
+        OurCup.app.updateResultsFromCounty(matchedCounty[0].fips.toString(), matchedCounty[0].name, matchedCounty[0].state)
+      }
+    }
   },
 
   handleAutodetect: function(){
@@ -56,14 +64,21 @@ OurCup.app = {
     d3.select('#county-select').html(options);
   },
 
+  updateUrl: function(fips) {
+    const url = new URL(window.location);
+    url.searchParams.set('fips', fips);
+    window.history.pushState({}, '', url);
+  },
+
   updateResultsFromCounty: function(fips, countyName, stateCode) {
+    OurCup.app.updateUrl(fips);
     d3.selectAll('#interactive button').property('disabled', true);
     if (fips.length == 4) {
       fips = '0'+fips;
     }
     d3.select('#recsWrapper').style('display', 'none');
     // recommendatinos are pre-computed for every county in the US
-    var topTeams = OurCup.data.recommendations[fips];
+    var topTeams = OurCup.data.recommendations[fips.toString()];
     // title shows location
     var titleText = "Top Teams for<br />"+countyName+", "+stateCode;
     d3.select('#recsTitle').html(titleText);
@@ -107,6 +122,9 @@ OurCup.app = {
           function(i){return "<a href=\""+i.url+"\">"+i.name+"</a>"}).join(", or ")
           +". ";
       }
+      if (teamInfo.teamGuide) {
+        content+= "⚽️ Read about the "+teamInfo.demonym+" team on <a href=\""+teamInfo.teamGuide+"\">Guardian Team Guide<a/>";
+      }
       content+= "</p>";
       content+= "<p class=\"OurCup.data.fixtures\">"
       content+= "<b>Games to watch</b>"
@@ -116,6 +134,8 @@ OurCup.app = {
         content+= OurCup.data.teams[i.home_team_country].flag+" "+i.home_team.name;
         content+= " vs. ";
         content+= OurCup.data.teams[i.away_team_country].flag+" "+i.away_team.name;
+        content+= "<br/>";
+        content+= "on "+i.datetime.substring(0,10);
         content+= "</li>";
       })
       content+= "</ul>";
@@ -123,6 +143,7 @@ OurCup.app = {
       content+= "</div></div>";
     });
     delay(1).then(() => {
+      d3.select('#interactive').node().scrollIntoView();
       OurCup.app.updateStatus(true, "Located. Gathering census data...");
       return delay(1000);
     }).then(() => {
@@ -139,6 +160,7 @@ OurCup.app = {
       d3.select('#countryCardWrapper').html(content);
       d3.select('#recsWrapper').style('display', 'block');
       d3.selectAll('#interactive button').property('disabled', false);
+      d3.select('#countryCardWrapper').node().scrollIntoView();
     });
   },
 

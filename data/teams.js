@@ -5,6 +5,7 @@ OurCup.data.teams = {
     "name": "Qatar",
     "demonym": "Qatari",
     "foodSearch": "middle eastern",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/04/world-cup-2022-team-guide-qatar",
   },
   "ECU": {
     "alpha3": "ECU",
@@ -12,6 +13,7 @@ OurCup.data.teams = {
     "name": "Ecuador",
     "demonym": "Ecuadorian",
     "foodSearch": "latin american",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/03/world-cup-2022-team-guide-ecuador",
   },
   "SEN": {
     "alpha3": "SEN",
@@ -19,12 +21,14 @@ OurCup.data.teams = {
     "name": "Senegal",
     "demonym": "Senegalese",
     "foodSearch": "west african",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/04/world-cup-2022-senegal-team-guide",
   },
   "NED": {
     "alpha3": "NED",
     "flag": "🇳🇱",
     "name": "Netherlands",
     "demonym": "Dutch",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/03/world-cup-2022-team-guide-netherlands",
   },
   "ENG": {
     "alpha3": "ENG",
@@ -32,6 +36,7 @@ OurCup.data.teams = {
     "name": "England",
     "demonym": "English",
     "foodSearch": "british",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/05/world-cup-2022-team-guide-england",
   },
   "IRN": {
     "alpha3": "IRN",
@@ -39,6 +44,7 @@ OurCup.data.teams = {
     "name": "Iran",
     "demonym": "Iranian",
     "foodSearch": "middle eastern",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/05/world-cup-2022-team-guide-iran",
   },
   "WAL": {
     "alpha3": "WAL",
@@ -46,6 +52,7 @@ OurCup.data.teams = {
     "name": "Wales",
     "demonym": "Welsch",
     "foodSearch": "british",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/06/world-cup-2022-team-guide-part-8-wales",
   },
   "ARG": {
     "alpha3": "ARG",
@@ -53,6 +60,7 @@ OurCup.data.teams = {
     "name": "Argentina",
     "demonym": "Argentinian",
     "foodSearch": "latin american",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/07/world-cup-2022-team-guide-argentina",
   },
   "KSA": {
     "alpha3": "KSA",
@@ -60,6 +68,7 @@ OurCup.data.teams = {
     "name": "Saudi Arabia",
     "demonym": "Saudi",
     "foodSearch": "middle eastern",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/08/world-cup-2022-team-guide-saudi-arabia",
   },
   "MEX": {
     "alpha3": "MEX",
@@ -67,30 +76,35 @@ OurCup.data.teams = {
     "name": "Mexico",
     "demonym": "Mexican",
     "foodSearch": "latin american",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/07/world-cup-2022-team-guide-mexico",
   },
   "POL": {
     "alpha3": "POL",
     "flag": "🇵🇱",
     "name": "Poland",
     "demonym": "Polish",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/08/world-cup-2022-team-guide-poland",
   },
   "FRA": {
     "alpha3": "FRA",
     "flag": "🇫🇷",
     "name": "France",
     "demonym": "French",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/10/world-cup-2022-team-guide-france",
   },
   "AUS": {
     "alpha3": "AUS",
     "flag": "🇦🇺",
     "name": "Australia",
     "demonym": "Australian",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/09/world-cup-2022-team-guide-australia",
   },
   "DEN": {
     "alpha3": "DEN",
     "flag": "🇩🇰",
     "name": "Denmark",
     "demonym": "Danish",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/09/world-cup-2022-team-guide-part-14-denmark",
   },
   "TUN": {
     "alpha3": "TUN",
@@ -98,12 +112,14 @@ OurCup.data.teams = {
     "name": "Tunisia",
     "demonym": "Tunisian",
     "foodSearch": "north african",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/10/world-cup-2022-team-guide-tunisia",
   },
   "ESP": {
     "alpha3": "ESP",
     "flag": "🇪🇸",
     "name": "Spain",
     "demonym": "Spanish",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/12/world-cup-2022-team-guide-spain",
   },
   "CRC": {
     "alpha3": "CRC",
@@ -111,18 +127,21 @@ OurCup.data.teams = {
     "name": "Costa Rica",
     "demonym": "Tico",
     "foodSearch": "latin american, costa rican",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/11/world-cup-2022-team-guide-costa-rica",
   },
   "GER": {
     "alpha3": "GER",
     "flag": "🇩🇪",
     "name": "Germany",
     "demonym": "German",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/11/world-cup-2022-team-guide-germany",
   },
   "JPN": {
     "alpha3": "JPN",
     "flag": "🇯🇵",
     "name": "Japan",
     "demonym": "Japanese",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/12/world-cup-2022-team-guide-japan",
   },
   "BEL": {
     "alpha3": "BEL",
@@ -130,12 +149,14 @@ OurCup.data.teams = {
     "name": "Belgium",
     "demonym": "Belgian",
     "foodSearch": "frites",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/13/world-cup-2022-belgium-team-guide",
   },
   "CAN": {
     "alpha3": "CAN",
     "flag": "🇨🇦",
     "name": "Canada",
     "demonym": "Canadian",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/13/world-cup-2022-team-guides-part-22-canada",
   },
   "MAR": {
     "alpha3": "MAR",
@@ -143,12 +164,14 @@ OurCup.data.teams = {
     "name": "Morocco",
     "demonym": "Moroccan",
     "foodSearch": "north african",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/14/world-cup-2022-team-guide-24-morocco",
   },
   "CRO": {
     "alpha3": "CRO",
     "flag": "🇭🇷",
     "name": "Croatia",
     "demonym": "Croatian",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/14/world-cup-2022-team-guides-part-23-croatia",
   },
   "BRA": {
     "alpha3": "BRA",
@@ -161,6 +184,7 @@ OurCup.data.teams = {
     "spotify": [{"name": "Pagode", "url": "https://open.spotify.com/playlist/3U903ICkXhjRoPgPrG4O1j"},
                 {"name": "Samba", "url": "https://open.spotify.com/playlist/3xh2sgnL4trGV8rlHTfjgv"}],
     "recipeUrl": "https://www.epicurious.com/search/brazilian",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/15/world-cup-2022-team-guide-25-brazil",
   },
   "SRB": {
     "alpha3": "SRB",
@@ -168,12 +192,14 @@ OurCup.data.teams = {
     "name": "Serbia",
     "demonym": "Serbian",
     "foodSearch": "balkan",
+    "teamGuide": "",
   },
   "SUI": {
     "alpha3": "SUI",
     "flag": "🇨🇭",
     "name": "Switzerland",
     "demonym": "Swiss",
+    "teamGuide": "",
   },
   "CMR": {
     "alpha3": "CMR",
@@ -181,12 +207,14 @@ OurCup.data.teams = {
     "name": "Cameroon",
     "demonym": "Cameroonian",
     "foodSearch": "west african",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/15/world-cup-2022-team-guide-cameroon",
   },
   "POR": {
     "alpha3": "POR",
     "flag": "🇵🇹",
     "name": "Portugal",
     "demonym": "Portuguese",
+    "teamGuide": "",
   },
   "GHA": {
     "alpha3": "GHA",
@@ -194,6 +222,7 @@ OurCup.data.teams = {
     "name": "Ghana",
     "demonym": "Ghanian",
     "foodSearch": "west african",
+    "teamGuide": "",
   },
   "URU": {
     "alpha3": "URU",
@@ -201,11 +230,20 @@ OurCup.data.teams = {
     "name": "Uruguay",
     "demonym": "Uruguayan",
     "foodSearch": "latin american",
+    "teamGuide": "",
   },
   "KOR": {
     "alpha3": "KOR",
     "flag": "🇰🇷",
     "name": "South Korea",
     "demonym": "Korean",
+    "teamGuide": "",
   },
+  "USA": {
+    "alpha3": "USA",
+    "flag": "🇺🇸",
+    "name": "United States",
+    "demonym": "American",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/06/world-cup-2022-team-guide-usa",
+  }
 };
