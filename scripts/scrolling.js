@@ -19,7 +19,7 @@ OurCup.scrolling = {
     },
   ],
 
-  initialize: function() {
+  initialize: () => {
     OurCup.scrolling.scroller = scrollama();
     var main = d3.select("main");
     var scrolly = main.select("#scrolly");
@@ -38,24 +38,22 @@ OurCup.scrolling = {
       .onStepExit(OurCup.scrolling.handleStepExit);
   },
 
-  setBackdropImage: function(index) {
+  setBackdropImage: (index) => {
     OurCup.scrolling.figure.select("img")
       .attr('src', OurCup.scrolling.backdrops[index].src)
       .attr('class', 'fade-in');
   },
 
-  handleStepEnter: function(stepInfo) { // stepInfo = { element, directihandle, index }
+  handleStepEnter: (stepInfo) => { // stepInfo = { element, directihandle, index }
     // chandlesole.log(stepInfo);
-    OurCup.scrolling.step.classed("is-active", function (d, i) {  // highlight current step
-      return i === stepInfo.index;
-    });
+    OurCup.scrolling.step.classed("is-active", (d, i) => i === stepInfo.index);
     OurCup.scrolling.setBackdropImage(stepInfo.index)
   },
 
-  handleStepExit: function(stepInfo) {
+  handleStepExit: (stepInfo) => {
   },
 
-  handleResize: function() {
+  handleResize: () => {
     var stepH = Math.floor(window.innerHeight * 1); // update step heights
     OurCup.scrolling.step.style("height", stepH + "px");
     var figureHeight = window.innerHeight;

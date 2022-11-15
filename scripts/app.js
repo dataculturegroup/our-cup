@@ -1,7 +1,7 @@
 
 OurCup.app = {
 
-  initialize: function() {
+  initialize: () => {
     OurCup.app.updateCounties('AL');
     const url = new URL(window.location);
     const preloadFips = url.searchParams.get('fips');
@@ -13,7 +13,7 @@ OurCup.app = {
     }
   },
 
-  handleAutodetect: function(){
+  handleAutodetect: () => {
     d3.selectAll('#interactive button').property('disabled', true);
     d3.select('#recsWrapper').style('display', 'none');
     OurCup.app.updateStatus(true, "Detecting your location...");
@@ -24,11 +24,11 @@ OurCup.app = {
     }
   },
 
-  handleGeoLocateSuccess: function(position){
+  handleGeoLocateSuccess: (position) => {
     OurCup.app.updateResultsFromLatLng(position.coords.latitude, position.coords.longitude);
   },
 
-  handleGeoLocateError: function(error){
+  handleGeoLocateError: (error) => {
     d3.selectAll('#interactive button').property('disabled', false);
     OurCup.app.updateStatus(true, "Couldn't detect your location - sorry!");
     switch(error.code) {
@@ -50,7 +50,7 @@ OurCup.app = {
     }
   },
 
-  updateResultsFromLatLng: function(lat,lng) {
+  updateResultsFromLatLng: (lat,lng) => {
     fetch("https://geo.fcc.gov/api/census/area?lat="+lat+"&lon="+lng+"&censusYear=2020&format=json")
       .then((response) => response.json())
       .then((data) => OurCup.app.updateResultsFromCounty(data.results[0].county_fips,
@@ -58,19 +58,19 @@ OurCup.app = {
                                                          data.results[0].state_code));
   },
 
-  updateCounties: function(state) {
+  updateCounties: (state) => {
     var stateCounties = OurCup.data.counties.filter(c => c.state == state);
     var options = stateCounties.map(c => "<option value=\""+c.fips+"\">"+c.name+"</option>")
     d3.select('#county-select').html(options);
   },
 
-  updateUrl: function(fips) {
+  updateUrl: (fips) => {
     const url = new URL(window.location);
     url.searchParams.set('fips', fips);
     window.history.pushState({}, '', url);
   },
 
-  updateResultsFromCounty: function(fips, countyName, stateCode) {
+  updateResultsFromCounty: (fips, countyName, stateCode) => {
     OurCup.app.updateUrl(fips);
     d3.selectAll('#interactive button').property('disabled', true);
     if (fips.length == 4) {
@@ -92,7 +92,7 @@ OurCup.app = {
     d3.select('#recsSummary').html(introText);
     // one card for each team
     var content = "";
-    topTeams.forEach(function(team, index){
+    topTeams.forEach((team, index) => {
       d3.select('#team-card-'+team)
         .style('display', 'block');
       var teamInfo = OurCup.data.teams[team];
@@ -118,9 +118,7 @@ OurCup.app = {
         content+= "or read from some local journalists on <a href=\""+teamInfo.globalVoicesUrl+"\"> Global Voices "+teamInfo.name+"</a>. ";
       }
       if (teamInfo.spotify) {
-        content+= "🎵 Use Spotify to listen to "+teamInfo.spotify.map(
-          function(i){return "<a href=\""+i.url+"\">"+i.name+"</a>"}).join(", or ")
-          +". ";
+        content+= "🎵 Use Spotify to listen to "+teamInfo.spotify.map(i => "<a href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
       }
       if (teamInfo.teamGuide) {
         content+= "⚽️ Read about the "+teamInfo.demonym+" team on <a href=\""+teamInfo.teamGuide+"\">Guardian Team Guide<a/>";
@@ -164,7 +162,7 @@ OurCup.app = {
     });
   },
 
-  updateStatus: function(show, msg) {
+  updateStatus: (show, msg) => {
     d3.select("#statusWrapper").style("display", (show) ? "block" : "none");
     d3.select("#status").html(msg);
   },
@@ -172,6 +170,4 @@ OurCup.app = {
 };
 
 // https://stackoverflow.com/questions/39538473/using-settimeout-on-promise-chain
-function delay(t, v) {
-  return new Promise(resolve => setTimeout(resolve, t, v));
-}
+const delay = (t, v) => new Promise(resolve => setTimeout(resolve, t, v));
