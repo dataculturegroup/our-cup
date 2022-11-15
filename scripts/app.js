@@ -160,7 +160,7 @@ OurCup.app = {
       d3.select('#countryCardWrapper').html(content);
       d3.select('#recsWrapper').style('display', 'block');
       d3.selectAll('#interactive button').property('disabled', false);
-      d3.select('#countryCardWrapper').node().scrollIntoView();
+      d3.select('#recsWrapper').node().scrollIntoView();
     });
   },
 
