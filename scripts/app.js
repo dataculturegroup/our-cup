@@ -106,8 +106,9 @@ OurCup.app = {
       if (t.foodSearch) {
         foodQuery += ", "+t.foodSearch;
       }
-      const yelpUrl = "https://www.yelp.com/search?find_desc="+foodQuery+
+      const yelpUrl = "https://www.yelp.com/search?find_desc="+encodeURIComponent(foodQuery)+
                     "&find_loc="+encodeURIComponent(countyName)+"%2C+"+stateCode;
+      const yummlyUrl = "https://www.yummly.com/recipes?q="+encodeURIComponent(foodQuery);
       content+= "<div class=\"col-md-4\" class=\"team-card\" id=\"team-card-BRA\"><div class=\"team\">";
       content+= "<h3>"+t.name+"</h3>";
       content+= "<span class=\"flag\">"+t.flag+"</span>";
@@ -115,10 +116,8 @@ OurCup.app = {
       if (t.intro) {
         content+= t.intro+" ";
       }
-      if (t.recipeUrl) {
-        content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+t.demonym+" restaurant near you on Yelp</a>, ";
-        content+= "or make a <a href=\""+t.recipeUrl+"\">"+t.demonym+" recipe from epicurious</a> for dinner tonight. ";
-      }
+      content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+t.demonym+" restaurant near you on Yelp</a>, ";
+      content+= "or make a <a href=\""+yummlyUrl+"\">"+t.demonym+" recipes from Yummly</a> for dinner tonight. ";
       if (t.wikipediaUrl) {
         content+= "📖 Learn about <a href=\""+t.wikipediaUrl+"\">"+t.name+" on Wikipedia</a>, ";
         content+= "or read from some local journalists on <a href=\""+t.globalVoicesUrl+"\"> Global Voices "+t.name+"</a>. ";
