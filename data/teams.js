@@ -255,6 +255,7 @@ OurCup.data.teams = {
     "alpha3": "CAN",
     "flag": "🇨🇦",
     "name": "Canada",
+    "foodSearch": "poutine",
     "demonym": "Canadian",
     "teamGuide": "https://www.theguardian.com/football/2022/nov/13/world-cup-2022-team-guides-part-22-canada",
     "intro": "",
