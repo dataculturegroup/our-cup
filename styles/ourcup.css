@@ -63,7 +63,7 @@ figure {
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	z-index: 0;
-  background-color: #471705;
+  background-color: #000;
 }
 
 figure div.wrapper {
@@ -177,7 +177,7 @@ em, i {
   color: #0088CC;
 }
 
-ul {
+.team ul {
   list-style-type: none;
   margin:0;
   padding: 0;
@@ -190,8 +190,7 @@ ul li {
 footer {
   color: #fff;
   background-color: #0044CC;
-  padding: 5rem 0 1rem 0;
-  text-align: center;
+  padding: 2rem 0 1rem 0;
   font-size: 1rem;
 }
 
@@ -207,6 +206,10 @@ footer a:hover {
 }
 footer a:visited {
   color: #fff;
+}
+
+footer b {
+  font-variant: all-small-caps;
 }
 
 #statusWrapper {

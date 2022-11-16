@@ -21,10 +21,10 @@ OurCup.scrolling = {
 
   initialize: () => {
     OurCup.scrolling.scroller = scrollama();
-    var main = d3.select("main");
-    var scrolly = main.select("#scrolly");
+    const main = d3.select("main");
+    const scrolly = main.select("#scrolly");
     OurCup.scrolling.figure = scrolly.select("#backdrop");
-    var article =scrolly.select("article");
+    const article =scrolly.select("article");
     OurCup.scrolling.step = article.selectAll(".step");
     OurCup.scrolling.handleResize();
     OurCup.scrolling.setBackdropImage(0);
@@ -55,10 +55,10 @@ OurCup.scrolling = {
   },
 
   handleResize: () => {
-    var stepH = Math.floor(window.innerHeight * 1); // update step heights
+    const stepH = Math.floor(window.innerHeight * 1); // update step heights
     OurCup.scrolling.step.style("height", stepH + "px");
-    var figureHeight = window.innerHeight;
-    var figureMarginTop = 0;
+    const figureHeight = window.innerHeight;
+    const figureMarginTop = 0;
     OurCup.scrolling.figure
       .style("height", figureHeight + "px")
       .style("top", figureMarginTop + "px");

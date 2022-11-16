@@ -59,8 +59,8 @@ OurCup.app = {
   },
 
   updateCounties: (state) => {
-    var stateCounties = OurCup.data.counties.filter(c => c.state == state);
-    var options = stateCounties.map(c => "<option value=\""+c.fips+"\">"+c.name+"</option>")
+    const stateCounties = OurCup.data.counties.filter(c => c.state == state);
+    const options = stateCounties.map(c => "<option value=\""+c.fips+"\">"+c.name+"</option>")
     d3.select('#county-select').html(options);
   },
 
@@ -78,56 +78,62 @@ OurCup.app = {
     }
     d3.select('#recsWrapper').style('display', 'none');
     // recommendatinos are pre-computed for every county in the US
-    var topTeams = OurCup.data.recommendations[fips.toString()];
+    const topTeamNames = OurCup.data.recommendations[fips.toString()];
+    const topTeams = topTeamNames.map(t => OurCup.data.teams[t]);
+
     // title shows location
-    var titleText = "Top Teams for<br />"+countyName+", "+stateCode;
+    const titleText = "Top Teams for<br />"+countyName+", "+stateCode;
     d3.select('#recsTitle').html(titleText);
+
     // intro summarizes recommendations
-    var introText = "Many of your neighbors are from ";
-    var teamNames = topTeams.map(t => {
-      var teamInfo = OurCup.data.teams[t];
-      return teamInfo.flag + " " + teamInfo.name;
-    })
-    introText += teamNames[0] + ", " + teamNames[1] + " and " + teamNames[2] + ".";
+    let introText = "Many of your neighbors are from ";
+    let teamNames = topTeams.map(t => t.flag + " " + t.name);
+    introText += teamNames[0] + ", " + teamNames[1] + " and " + teamNames[2] + ". ";
+    const shareLink = "https://ourcup.info/?fips="+fips;
+    introText += "<br /><a href=\""+shareLink+"\">Link directly to these results</a>.<br />";
+    const tweetLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("My "+countyName+", "+stateCode+" neighbors support "+
+      topTeams.map(t => t.flag).join(" ")+" #worldcup. Visit "+shareLink+" to explore their culture - food, news & music. "+
+      "(#ourcup via @rahulbot)");
+    introText += "<a href=\""+tweetLink+"\">Share on Twitter</a>";
     d3.select('#recsSummary').html(introText);
+
     // one card for each team
-    var content = "";
-    topTeams.forEach((team, index) => {
-      d3.select('#team-card-'+team)
+    let content = "";
+    topTeams.forEach(t => {
+      d3.select('#team-card-'+t.name)
         .style('display', 'block');
-      var teamInfo = OurCup.data.teams[team];
-      var foodQuery = teamInfo.demonym;
-      if (teamInfo.foodSearch) {
-        foodQuery += ", "+teamInfo.foodSearch;
+      let foodQuery = t.demonym;
+      if (t.foodSearch) {
+        foodQuery += ", "+t.foodSearch;
       }
-      var yelpUrl = "https://www.yelp.com/search?find_desc="+foodQuery+
+      const yelpUrl = "https://www.yelp.com/search?find_desc="+foodQuery+
                     "&find_loc="+encodeURIComponent(countyName)+"%2C+"+stateCode;
       content+= "<div class=\"col-md-4\" class=\"team-card\" id=\"team-card-BRA\"><div class=\"team\">";
-      content+= "<h3>"+teamInfo.name+"</h3>";
-      content+= "<span class=\"flag\">"+teamInfo.flag+"</span>";
+      content+= "<h3>"+t.name+"</h3>";
+      content+= "<span class=\"flag\">"+t.flag+"</span>";
       content+= "<p>";
-      if (teamInfo.intro) {
-        content+= teamInfo.intro+" ";
+      if (t.intro) {
+        content+= t.intro+" ";
       }
-      if (teamInfo.recipeUrl) {
-        content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+teamInfo.demonym+" restaurant near you on Yelp</a>, ";
-        content+= "or make a <a href=\""+teamInfo.recipeUrl+"\">"+teamInfo.demonym+" recipe from epicurious</a> for dinner tonight. ";
+      if (t.recipeUrl) {
+        content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+t.demonym+" restaurant near you on Yelp</a>, ";
+        content+= "or make a <a href=\""+t.recipeUrl+"\">"+t.demonym+" recipe from epicurious</a> for dinner tonight. ";
       }
-      if (teamInfo.wikipediaUrl) {
-        content+= "📖 Learn about <a href=\""+teamInfo.wikipediaUrl+"\">"+teamInfo.name+" on Wikipedia</a>, ";
-        content+= "or read from some local journalists on <a href=\""+teamInfo.globalVoicesUrl+"\"> Global Voices "+teamInfo.name+"</a>. ";
+      if (t.wikipediaUrl) {
+        content+= "📖 Learn about <a href=\""+t.wikipediaUrl+"\">"+t.name+" on Wikipedia</a>, ";
+        content+= "or read from some local journalists on <a href=\""+t.globalVoicesUrl+"\"> Global Voices "+t.name+"</a>. ";
       }
-      if (teamInfo.spotify) {
-        content+= "🎵 Use Spotify to listen to "+teamInfo.spotify.map(i => "<a href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
+      if (t.spotify) {
+        content+= "🎵 Use Spotify to listen to "+t.spotify.map(i => "<a href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
       }
-      if (teamInfo.teamGuide) {
-        content+= "⚽️ Read about the "+teamInfo.demonym+" team on <a href=\""+teamInfo.teamGuide+"\">Guardian Team Guide<a/>";
+      if (t.teamGuide) {
+        content+= "⚽️ Read about the "+t.demonym+" team on <a href=\""+t.teamGuide+"\">Guardian Team Guide<a/>";
       }
       content+= "</p>";
       content+= "<p class=\"OurCup.data.fixtures\">"
       content+= "<b>Games to watch</b>"
       content+= "<ul>";
-      OurCup.data.fixtures.filter(i => (i.home_team_country == team) || (i.away_team_country == team)).forEach(i => {
+      OurCup.data.fixtures.filter(i => (i.home_team_country == t.name) || (i.away_team_country == t.name)).forEach(i => {
         content+= "<li>";
         content+= OurCup.data.teams[i.home_team_country].flag+" "+i.home_team.name;
         content+= " vs. ";
@@ -140,9 +146,11 @@ OurCup.app = {
       content+= "</p>";
       content+= "</div></div>";
     });
+
+    // show user feedback so they understand what went into this
     delay(1).then(() => {
       d3.select('#interactive').node().scrollIntoView();
-      OurCup.app.updateStatus(true, "Located. Gathering census data...");
+      OurCup.app.updateStatus(true, "Gathering census data...");
       return delay(1000);
     }).then(() => {
       OurCup.app.updateStatus(true, "Doing some math...");
