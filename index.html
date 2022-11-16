@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Find out the best world cup games to watch, based on where your neighbors are from.">
+    <meta name="keywords" content="world cup, census, data, soccer">
+    <meta name="author" content="Rahul Bhargava, Data Culture Group, Northeastern University">
+
+    <title>Our Cup - soccer is a window to the world</title>
+
+    <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="styles/ourcup.css" type="text/css" charset="utf-8" />
+
+    <script type="text/javascript">
+      OurCup = {
+        "data": {},
+      };
+    </script>
+    <script src="data/counties.js"></script>
+    <script src="data/teams.js"></script>
+    <script src="data/fixtures.js"></script>
+    <script src="data/recommendations.js"></script>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="scripts/interaction-observer.js"></script>
+
+    <script src="scripts/scrolling.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+
+  <body>
+
+
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+      			<h1>Our Cup</h1>
+      			<p>
+              The World Cup is the world's biggest sporting event.
+              Immigrants from all the participating countries live in the US.
+              Take time to find out which fans lives near you -
+              learn about their homes, celebrate their culture, and support their businesses.
+              Make it <i>Our Cup</i>.
+      			</p>
+            <p class="small">
+              (scroll for more, or <a href="#interactive">skip to the end</a>)
+            </p>
+            <img src="images/scroll-down.gif" alt="scroll down" height="100">
+          </div>
+        </div>
+      </div>
+		</header>
+
+    <main>
+      <section id="scrolly">
+
+        <figure id="backdrop">
+          <div class="wrapper">
+  				  <img id="backdrop-img"/>
+          </div>
+          <div id="backdrop-caption"></div>
+  			</figure>
+
+  			<article>
+  				<div class="step" data-step="1">
+  					<p>
+              Every four years the world comes together to celebrate highs and lows of soccer.
+              More than half the planet watched the 2018 tournament in Russia.
+              FIFA, the sport's global governing body, orchestrates the process and <a href="https://www.sportspromedia.com/news/fifa-finances-2021-revenue/">rakes in billions</a>.
+            </p>
+  				</div>
+  				<div class="step" data-step="2">
+  					<p>
+              Qatar is the host for the men's competition.
+              Controversy has plagued the planning since the very moment it was awarded to them.
+              It is so hot they were forced to reschedule to the cooler month of December.
+              Their selection as a host was <a href="https://www.nytimes.com/2020/04/06/sports/soccer/qatar-and-russia-bribery-world-cup-fifa.html">due to extensive bribes</a>.
+            </p>
+  				</div>
+  				<div class="step" data-step="3">
+  					<p>
+              The tiny nation has little soccer infrastruture, so they've brought in countless numbers of migrant labor to
+              create 8 new stadiums, with few protections and
+              <a href="https://www.amnesty.org/en/latest/campaigns/2016/03/qatar-world-cup-of-shame/">significant evidence of abuse</a>.
+            </p>
+  				</div>
+  				<div class="step" data-step="4">
+  					<p>
+              But for many of the players, and fans, this is the chance of a lifetime.
+              So instead of celebrating Qatar and FIFA this year, let's focus on them.
+              Every World Cup fan has a story about the joys of connecting with someone from across the globe,
+              learning about their culture, community, and journey.
+            </p>
+  				</div>
+          <div class="step" data-step="4">
+  					<p>
+              Use the button below to find out who your neighbors are supporting.
+              Then get out there and taste their food, listen to their music, support their restaurants, and learn from their home.
+              Celebrate their cultures, instead of FIFA's corruption.
+              Make it <em>Our Cup</em>.
+            </p>
+  				</div>
+  			</article>
+  		</section>
+
+      <a name="#interactive" />
+      <section id="interactive">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <h2>Where do you live?</h2>
+              <p>Find out which fans live near you and get links to their food, music, news, and when their teams are playing.<p>
+              <button class="btn btn-primary btn-lg" onclick="OurCup.app.handleAutodetect()">Locate Me Now</button>
+              <p>or <a href="#pick-manually" onClick="d3.select('#manual-selection').style('display','block');return false;">manually pick your state & county</a></p>
+              <div id="manual-selection">
+                <select name="state" id="state-select" class="form-select" onChange="OurCup.app.updateCounties(this.value)">
+                	<option value="AL">Alabama</option>
+                	<option value="AK">Alaska</option>
+                	<option value="AZ">Arizona</option>
+                	<option value="AR">Arkansas</option>
+                	<option value="CA">California</option>
+                	<option value="CO">Colorado</option>
+                	<option value="CT">Connecticut</option>
+                	<option value="DE">Delaware</option>
+                	<option value="DC">District Of Columbia</option>
+                	<option value="FL">Florida</option>
+                	<option value="GA">Georgia</option>
+                	<option value="HI">Hawaii</option>
+                	<option value="ID">Idaho</option>
+                	<option value="IL">Illinois</option>
+                	<option value="IN">Indiana</option>
+                	<option value="IA">Iowa</option>
+                	<option value="KS">Kansas</option>
+                	<option value="KY">Kentucky</option>
+                	<option value="LA">Louisiana</option>
+                	<option value="ME">Maine</option>
+                	<option value="MD">Maryland</option>
+                	<option value="MA">Massachusetts</option>
+                	<option value="MI">Michigan</option>
+                	<option value="MN">Minnesota</option>
+                	<option value="MS">Mississippi</option>
+                	<option value="MO">Missouri</option>
+                	<option value="MT">Montana</option>
+                	<option value="NE">Nebraska</option>
+                	<option value="NV">Nevada</option>
+                	<option value="NH">New Hampshire</option>
+                	<option value="NJ">New Jersey</option>
+                	<option value="NM">New Mexico</option>
+                	<option value="NY">New York</option>
+                	<option value="NC">North Carolina</option>
+                	<option value="ND">North Dakota</option>
+                	<option value="OH">Ohio</option>
+                	<option value="OK">Oklahoma</option>
+                	<option value="OR">Oregon</option>
+                	<option value="PA">Pennsylvania</option>
+                	<option value="RI">Rhode Island</option>
+                	<option value="SC">South Carolina</option>
+                	<option value="SD">South Dakota</option>
+                	<option value="TN">Tennessee</option>
+                	<option value="TX">Texas</option>
+                	<option value="UT">Utah</option>
+                	<option value="VT">Vermont</option>
+                	<option value="VA">Virginia</option>
+                	<option value="WA">Washington</option>
+                	<option value="WV">West Virginia</option>
+                	<option value="WI">Wisconsin</option>
+                	<option value="WY">Wyoming</option>
+                </select>
+                <select name="county" id="county-select" class="form-select" >
+                </select>
+                <button
+                  class="btn btn-primary"
+                  onclick="OurCup.app.updateResultsFromCounty(
+                    d3.select('#county-select').node().value,
+                    d3.select('#county-select').node().options[d3.select('#county-select').node().selectedIndex].text,
+                    d3.select('#state-select').node().value); return false;">
+                  Locate Me
+                </button>
+              </div>
+
+              <div id="statusWrapper">
+                <div class="spinner-border" role="status">
+                </div>
+                <div id="status"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="recsWrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <h2 id="recsTitle"></h2>
+                <p id="recsSummary"></p>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row" id="countryCardWrapper">
+              <!-- JS code will fill in cards for countries here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>
+                A project by <a href="https://camd.northeastern.edu/faculty/rahul-bhargava/">Rahul Bhargava</a> at the
+                Northeastern University <a href="http://dataculture.northeastern.edu/">Data Culture Group</a>.
+                <br />
+                Based on data from the <a href="http://data.census.gov/">U.S. Census American Community Survey</a>,
+                the <a href="https://geo.fcc.gov/api/census/">FCC Census API</a>,
+                and <a href="https://worldcupjson">worldcupjson.net</a>.
+                <br />
+                Source code on <a href="https://github.com/dataculturegroup/our-cup">GitHub</a>.
+                <br />
+              <a href="https://twitter.com/intent/tweet?screen_name=rahulbot" class="twitter-mention-button" data-size="large" data-dnt="true">Tweet to @rahulbot</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      OurCup.scrolling.initialize();
+      OurCup.app.initialize();
+    </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.mediacloud.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
+  </body>
+
+</html>

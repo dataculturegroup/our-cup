@@ -1,8 +1,1 @@
-*.pyc
-*.log
-cache
-venv
-.idea
-update-server.sh
-*.db
-.env
+.DS_Store

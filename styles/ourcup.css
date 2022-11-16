@@ -1,0 +1,223 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Garamond, serif;
+  color: #471705;
+  font-size: 1.25rem;
+  background-color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+p.small {
+  font-size: 1rem;
+}
+
+h1 {
+  color: #0044CC;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+h3 {
+  font-family: "Gill Sans", sans-serif;
+  margin-top: 1rem;
+  font-variant: all-small-caps;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#scrolly {
+	position: relative;
+}
+
+article {
+	position: relative;
+	padding: 0;
+	max-width: 50rem;
+	margin: 0 auto;
+}
+
+figure {
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
+	width: 100%;
+  height: 100%;
+	margin: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	z-index: 0;
+  background-color: #471705;
+}
+
+figure div.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+figure img {
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.fade-out {
+  animation: fadeOut 0.5s;
+}
+
+
+figure p {
+	text-align: center;
+	padding: 1rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-size: 8rem;
+	font-weight: 900;
+	color: #fff;
+}
+
+em, i {
+  color: #0088CC;
+}
+
+#backdrop-caption {
+  position: relative;
+  top: -2.5rem;
+  color: #000;
+  background-color: white;
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0 0.5rem;
+  opacity: 0.4;
+}
+
+.step {
+  filter: drop-shadow(0px 0px 8px #000);
+}
+
+.step:last-child {
+	margin-bottom: 0;
+}
+
+.step.is-active p {
+}
+
+.step p {
+  border-radius: 0.5rem;
+	text-align: center;
+	padding: 1rem;
+	font-size: 1.5rem;
+	background-color: #fff;
+  margin: 0 2rem;
+}
+
+#interactive {
+  text-align: center;
+  padding: 2rem 0 4rem 0;
+  min-height: 1000px;
+}
+
+#recsWrapper {
+  display: none;
+  margin-top: 2rem;
+}
+
+.team-card {
+  display: none;
+}
+
+.team {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 2px solid #471705;
+
+  border-radius: 0.25rem;
+}
+
+.flag {
+  font-size: 120px;
+  display: block;
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+
+.OurCup.data.fixtures b {
+  font-variant: all-small-caps;
+  font-size: 1.5rem;
+  color: #0088CC;
+}
+
+ul {
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: .25rem;
+}
+
+footer {
+  color: #fff;
+  background-color: #0044CC;
+  padding: 5rem 0 1rem 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+a, a:hover {
+  color: #0088CC;
+}
+
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: #fff;
+}
+footer a:visited {
+  color: #fff;
+}
+
+#statusWrapper {
+  display: none;
+}
+
+#manual-selection {
+  display:none;
+  margin-bottom: 1rem;
+}
+
+.form-select {
+  margin-bottom: 0.5rem
+}
