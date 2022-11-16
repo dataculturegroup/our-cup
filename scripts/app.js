@@ -89,7 +89,7 @@ OurCup.app = {
     let introText = "Many of your neighbors are from ";
     let teamNames = topTeams.map(t => t.flag + " " + t.name);
     introText += teamNames[0] + ", " + teamNames[1] + " and " + teamNames[2] + ". ";
-    const shareLink = "https://ourcup.info/?fips="+fips;
+    const shareLink = "https://dataculture.northeastern.edu/ourcup/?fips="+fips;
     introText += "<br /><a href=\""+shareLink+"\">Link directly to these results</a>.<br />";
     const tweetLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("My "+countyName+", "+stateCode+" neighbors support "+
       topTeams.map(t => t.flag).join(" ")+" #worldcup. Visit "+shareLink+" to explore their culture - food, news & music. "+
@@ -132,7 +132,7 @@ OurCup.app = {
       content+= "<p class=\"OurCup.data.fixtures\">"
       content+= "<b>Games to watch</b>"
       content+= "<ul>";
-      OurCup.data.fixtures.filter(i => (i.home_team_country == t.name) || (i.away_team_country == t.name)).forEach(i => {
+      OurCup.data.fixtures.filter(i => (i.home_team_country == t.alpha3) || (i.away_team_country == t.alpha3)).forEach(i => {
         content+= "<li>";
         content+= OurCup.data.teams[i.home_team_country].flag+" "+i.home_team.name;
         content+= " vs. ";
