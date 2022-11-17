@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en-US">
 
   <head>
 
@@ -50,6 +49,7 @@
             <p class="small">
               (scroll for more, or <a href="#interactive">skip to the end</a>)
             </p>
+            <div id="google_translate_element"></div>
             <img src="images/scroll-down.gif" alt="scroll down" height="100">
           </div>
         </div>
@@ -71,7 +71,7 @@
   					<p>
               Every four years the world comes together to celebrate highs and lows of soccer.
               More than half the planet watched the 2018 tournament in Russia.
-              FIFA, the sport's global governing body, orchestrates the process and <a href="https://www.sportspromedia.com/news/fifa-finances-2021-revenue/">rakes in billions</a>.
+              FIFA, the sport's global governing body, orchestrates the process and <a target=_blank href="https://www.sportspromedia.com/news/fifa-finances-2021-revenue/">rakes in billions</a>.
             </p>
   				</div>
   				<div class="step" data-step="2">
@@ -79,14 +79,14 @@
               Qatar is the host for the men's competition.
               Controversy has plagued the planning since the very moment it was awarded to them.
               It is so hot they were forced to reschedule to the cooler month of December.
-              Their selection as a host was <a href="https://www.nytimes.com/2020/04/06/sports/soccer/qatar-and-russia-bribery-world-cup-fifa.html">due to extensive bribes</a>.
+              Their selection as a host was <a target=_blank href="https://www.nytimes.com/2020/04/06/sports/soccer/qatar-and-russia-bribery-world-cup-fifa.html">due to extensive bribes</a>.
             </p>
   				</div>
   				<div class="step" data-step="3">
   					<p>
               The tiny nation has little soccer infrastruture, so they've brought in countless numbers of migrant labor to
               create 8 new stadiums, with few protections and
-              <a href="https://www.amnesty.org/en/latest/campaigns/2016/03/qatar-world-cup-of-shame/">significant evidence of abuse</a>.
+              <a target=_blank href="https://www.amnesty.org/en/latest/campaigns/2016/03/qatar-world-cup-of-shame/">significant evidence of abuse</a>.
             </p>
   				</div>
   				<div class="step" data-step="4">
@@ -116,7 +116,8 @@
               <h2>Where do you live?</h2>
               <p>Find out which fans live near you and get links to their food, music, news, and when their teams are playing.<p>
               <button class="btn btn-primary btn-lg" onclick="OurCup.app.handleAutodetect()">Locate Me Now</button>
-              <p>or <a href="#pick-manually" onClick="d3.select('#manual-selection').style('display','block');return false;">manually pick your state & county</a></p>
+              or
+              <button class="btn btn-outline-primary btn-lg" onClick="d3.select('#manual-selection').style('display','block');return false;">Manually Pick</button>
               <div id="manual-selection">
                 <select name="state" id="state-select" class="form-select" onChange="OurCup.app.updateCounties(this.value)">
                 	<option value="AL">Alabama</option>
@@ -261,6 +262,16 @@
       })();
     </script>
     <!-- End Matomo Code -->
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {pageLanguage: 'en'},
+                    'google_translate_element'
+                );
+            }
+        </script>
 
   </body>
 

@@ -137,7 +137,7 @@ em, i {
 
 .step p {
   border-radius: 0.5rem;
-	text-align: center;
+  text-align: center;
 	padding: 1rem;
 	font-size: 1.5rem;
 	background-color: #fff;
@@ -163,8 +163,15 @@ em, i {
   margin-top: 2rem;
   padding: 1rem;
   border: 2px solid #471705;
-
   border-radius: 0.25rem;
+  text-align: left;
+}
+
+.team h3, .team .flag {
+  text-align: center;
+}
+
+.team p {
 }
 
 .flag {

@@ -125,20 +125,19 @@ OurCup.app = {
         content+= "🎵 Use Spotify to listen to "+t.spotify.map(i => "<a target=_blank href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
       }
       if (t.teamGuide) {
-        content+= "⚽️ Read about the "+t.demonym+" team on <a target=_blank href=\""+t.teamGuide+"\">Guardian Team Guide<a/>";
+        content+= "⚽️ Read about the "+t.demonym+" team on <a target=_blank href=\""+t.teamGuide+"\">Guardian Team Guide<a/>.";
       }
       content+= "</p>";
       content+= "<p class=\"OurCup.data.fixtures\">"
       content+= "<b>Games to watch</b>"
       content+= "<ul>";
       OurCup.data.fixtures.filter(i => (i.home_team_country == t.alpha3) || (i.away_team_country == t.alpha3)).forEach(i => {
-        content+= "<li>";
-        content+= OurCup.data.teams[i.home_team_country].flag+" "+i.home_team.name;
-        content+= " vs. ";
-        content+= OurCup.data.teams[i.away_team_country].flag+" "+i.away_team.name;
-        content+= "<br/>";
-        content+= "on "+i.datetime.substring(5,7)+"/"+i.datetime.substring(8,10);
-        content+= "</li>";
+        content+= "<li>" +
+                  i.datetime.substring(5,7)+"/"+i.datetime.substring(8,10)+": "+
+                  OurCup.data.teams[i.home_team_country].flag+" "+i.home_team.name+
+                  " vs. "+
+                  OurCup.data.teams[i.away_team_country].flag+" "+i.away_team.name+
+                  "</li>";
       })
       content+= "</ul>";
       content+= "</p>";
@@ -157,7 +156,7 @@ OurCup.app = {
       OurCup.app.updateStatus(true, "Calculating top teams...");
       return delay(1000);
     }).then(() => {
-      OurCup.app.updateStatus(true, "Getting fixtures...");
+      OurCup.app.updateStatus(true, "Finding games...");
       return delay(1000);
     }).then(() => {
       OurCup.app.updateStatus(false, "Ready");
