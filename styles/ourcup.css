@@ -109,8 +109,9 @@ figure p {
 	color: #fff;
 }
 
-em, i {
-  color: #0044CC;
+em {
+  font-weight: bold;
+  font-style: normal; 
 }
 
 #backdrop-caption {
