@@ -215,17 +215,7 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 offset-lg-3">
-            <p><b>Data Sources</b></p>
-            <ul>
-              <li>Estimates of foreign-born populations are from the <a target=_blank href="http://data.census.gov/">U.S. Census American Community Survey</a>.</li>
-              <li>The <a target=_blank href="https://geo.fcc.gov/api/census/">FCC Census API</a> provides mapping from latitude/langitude to Census FIPS county ids.</li>
-              <li>Fixture lists and dates are from <a target=_blank href="https://worldcupjson">worldcupjson.net</a>.</li>
-              <li>Playlists are from the <a target=_blank href="https://everynoise.com/countries.html">everynoise.com genres by country</a>.</li>
-              <li>Resturant search is powered by <a target=_blank href="https://www.yelp.com">Yelp</a>.</li>
-              <li>Recipes links go to <a target=_blank href="https://yummly.com/recipes">yummly</a>.</li>
-              <li>Team summaries are from <a target=_blank href="https://www.theguardian.com/football/world-cup-football">The Guardian.com local experts network</a>.</li>
-            </ul>
+          <div class="col-lg-4">
             <p><b>Credits</b></p>
             <p>
               A project by <a target=_blank href="https://camd.northeastern.edu/faculty/rahul-bhargava/">Rahul Bhargava</a> at the
@@ -237,6 +227,29 @@
               <br />
               <a target=_blank href="https://twitter.com/intent/tweet?screen_name=rahulbot" class="twitter-mention-button" data-size="large" data-dnt="true">Tweet to @rahulbot</a>.
             </p>
+          </div>
+          <div class="col-lg-4">
+            <p><b>Caveats and Small Print</b></p>
+            <p>
+              I decided to make some simplifying assumptions throughout to make the small project work. For instance, some participating
+              countries are so small that the Census doesn't count them individually. For places like that I've picked a reasonable larger
+              category - an example being the use of "Other Middle Eastern" in place of "Qatar". This inflates the estimated populaton of
+              fans for that team. This also plays out in the restaurant search and recipes, where I similarly included regional cuisines, or
+              well known ones, to boost the potential for a match. Examples are "middle eastern" being used for Qatari food, and "poutine" being
+              included in Canadian restaurant searches.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <p><b>Data Sources</b></p>
+            <ul>
+              <li>Estimates of foreign-born populations are from the <a target=_blank href="http://data.census.gov/">U.S. Census American Community Survey</a>.</li>
+              <li>The <a target=_blank href="https://geo.fcc.gov/api/census/">FCC Census API</a> provides mapping from latitude/langitude to Census FIPS county ids.</li>
+              <li>Fixture lists and dates are from <a target=_blank href="https://worldcupjson">worldcupjson.net</a>.</li>
+              <li>Playlists are from the <a target=_blank href="https://everynoise.com/countries.html">everynoise.com genres by country</a>.</li>
+              <li>Resturant search is powered by <a target=_blank href="https://www.yelp.com">Yelp</a>.</li>
+              <li>Recipes links go to <a target=_blank href="https://yummly.com/recipes">yummly</a>.</li>
+              <li>Team summaries are from <a target=_blank href="https://www.theguardian.com/football/world-cup-football">The Guardian.com local experts network</a>.</li>
+            </ul>
           </div>
         </div>
       </div>
