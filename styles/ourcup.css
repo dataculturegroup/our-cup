@@ -91,6 +91,9 @@ figure img {
   animation: fadeOut 0.5s;
 }
 
+figure {
+  overflow: hidden;
+}
 
 figure p {
 	text-align: center;
