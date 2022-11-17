@@ -90,11 +90,10 @@ OurCup.app = {
     let teamNames = topTeams.map(t => t.flag + " " + t.name);
     introText += teamNames[0] + ", " + teamNames[1] + " and " + teamNames[2] + ". ";
     const shareLink = "https://dataculture.northeastern.edu/ourcup/?fips="+fips;
-    introText += "<br /><a href=\""+shareLink+"\">Link directly to these results</a>.<br />";
     const tweetLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("My "+countyName+", "+stateCode+" neighbors support "+
       topTeams.map(t => t.flag).join(" ")+" #worldcup. Visit "+shareLink+" to explore their culture - food, news & music. "+
       "(#ourcup via @rahulbot)");
-    introText += "<a href=\""+tweetLink+"\">Share on Twitter</a>";
+    introText += "<a href=\""+tweetLink+"\" target=_blank>Share on Twitter</a>";
     d3.select('#recsSummary').html(introText);
 
     // one card for each team
@@ -116,17 +115,17 @@ OurCup.app = {
       if (t.intro) {
         content+= t.intro+" ";
       }
-      content+= "🍲 Support a local business - find a <a href=\""+yelpUrl+"\">"+t.demonym+" restaurant near you on Yelp</a>, ";
-      content+= "or make a <a href=\""+yummlyUrl+"\">"+t.demonym+" recipes from Yummly</a> for dinner tonight. ";
+      content+= "🍲 Support a local business - find a <a target=_blank href=\""+yelpUrl+"\">"+t.demonym+" restaurant near you on Yelp</a>, ";
+      content+= "or make a <a target=_blank href=\""+yummlyUrl+"\">"+t.demonym+" recipe from Yummly</a>. ";
       if (t.wikipediaUrl) {
-        content+= "📖 Learn about <a href=\""+t.wikipediaUrl+"\">"+t.name+" on Wikipedia</a>, ";
-        content+= "or read from some local journalists on <a href=\""+t.globalVoicesUrl+"\"> Global Voices "+t.name+"</a>. ";
+        content+= "📖 Learn about <a target=_blank href=\""+t.wikipediaUrl+"\">"+t.name+" on Wikipedia</a>, ";
+        content+= "or read from some local journalists on <a target=_blank href=\""+t.globalVoicesUrl+"\"> Global Voices "+t.name+"</a>. ";
       }
       if (t.spotify) {
-        content+= "🎵 Use Spotify to listen to "+t.spotify.map(i => "<a href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
+        content+= "🎵 Use Spotify to listen to "+t.spotify.map(i => "<a target=_blank href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
       }
       if (t.teamGuide) {
-        content+= "⚽️ Read about the "+t.demonym+" team on <a href=\""+t.teamGuide+"\">Guardian Team Guide<a/>";
+        content+= "⚽️ Read about the "+t.demonym+" team on <a target=_blank href=\""+t.teamGuide+"\">Guardian Team Guide<a/>";
       }
       content+= "</p>";
       content+= "<p class=\"OurCup.data.fixtures\">"
@@ -138,7 +137,7 @@ OurCup.app = {
         content+= " vs. ";
         content+= OurCup.data.teams[i.away_team_country].flag+" "+i.away_team.name;
         content+= "<br/>";
-        content+= "on "+i.datetime.substring(0,10);
+        content+= "on "+i.datetime.substring(5,7)+"/"+i.datetime.substring(8,10);
         content+= "</li>";
       })
       content+= "</ul>";

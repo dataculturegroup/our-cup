@@ -1601,12 +1601,7 @@ OurCup.data.counties = [
   },
   {
     "fips": 11001,
-    "name": "District of Columbia",
-    "state": "DC"
-  },
-  {
-    "fips": 11001,
-    "name": "District of Columbia",
+    "name": "Washington",
     "state": "DC"
   },
   {
