@@ -11,7 +11,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/middle-east-north-africa/qatar/",
     "spotify": [{"name": "Gulf Hip Hop", "url": "https://open.spotify.com/playlist/39DfjCVzK3pnszkIPeXN17"},
                 {"name": "Middle Eastern traditinoal", "url": "https://open.spotify.com/playlist/5cE06uG59oxYp9v8hrffC1"}],
-
+    "colors": [
+      "#800000",
+      "#FFFFFF"
+    ],
   },
   "ECU": {
     "alpha3": "ECU",
@@ -25,6 +28,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/latin-america/ecuador/",
     "spotify": [{"name": "local cumbia", "url": "https://open.spotify.com/playlist/1cvTdLpuq8sbNEHAATPcYL"},
                 {"name": "today's top tracks", "url": "https://open.spotify.com/playlist/37i9dQZEVXbJlM6nvL1nD1"}],
+    "colors": [
+      "#FFFF00",
+      "#0000FF",
+      "#FF0000"
+    ],
   },
   "SEN": {
     "alpha3": "SEN",
@@ -38,6 +46,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/sub-saharan-africa/senegal/",
     "spotify": [{"name": "traditional", "url": "https://open.spotify.com/playlist/03Mf30p0BCtJuzdN9NfxaR"},
                 {"name": "local top 50", "url": "https://open.spotify.com/playlist/4QN7G9dvUwKIVZ8rmDfUFq"}],
+    "colors": [
+      "#008000",
+      "#FFFF00",
+      "#FF0000"
+    ],
   },
   "NED": {
     "alpha3": "NED",
@@ -50,6 +63,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/netherlands/",
     "spotify": [{"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbKCF6dqVpDkS"},
                 {"name": "Dutch death metal", "url": "https://open.spotify.com/playlist/2Rgdp2J6IIrc45k9CCGRPo"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF",
+      "#0000FF"
+    ],
   },
   "ENG": {
     "alpha3": "ENG",
@@ -63,6 +81,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/united-kingdom/",
     "spotify": [{"name": "brit pop", "url": "https://open.spotify.com/playlist/5H4y9vLqOhWGn0xsExGxKb"},
                 {"name": "UK top 50", "url": "https://open.spotify.com/playlist/1QM1qz09ZzsAPiXphF1l4S"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF",
+      "#0000CC"
+    ],
   },
   "IRN": {
     "alpha3": "IRN",
@@ -76,6 +99,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/middle-east-north-africa/iran/",
     "spotify": [{"name": "Persion Pop", "url": "https://open.spotify.com/playlist/62paYyUDreCL0yKTKXxJtF"},
                 {"name": "Iranian metal", "url": "https://open.spotify.com/playlist/3DcaooMgdPz0sO6hPGsepj"}],
+    "colors": [
+      "#008000",
+      "#FFFFFF",
+      "#FF0000"
+    ],
   },
   "WAL": {
     "alpha3": "WAL",
@@ -89,6 +117,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/united-kingdom/",
     "spotify": [{"name": "local pop", "url": "https://open.spotify.com/playlist/37i9dQZF1DWTTqqNdOCTBs"},
                 {"name": "UK top 50", "url": "https://open.spotify.com/playlist/1QM1qz09ZzsAPiXphF1l4S"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF",
+      "#0000CC"
+    ],
   },
   "ARG": {
     "alpha3": "ARG",
@@ -102,6 +135,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/latin-america/argentina/",
     "spotify": [{"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbMMy2roB9myp"},
                 {"name": "local folk", "url": "https://open.spotify.com/playlist/5c81UwzYNYiV0qlSA9eQ8x"}],
+    "colors": [
+      "#75AADB",
+      "#FFFFFF"
+    ],
   },
   "KSA": {
     "alpha3": "KSA",
@@ -115,6 +152,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/middle-east-north-africa/saudi-arabia/",
     "spotify": [{"name": "top songs", "url": "https://open.spotify.com/playlist/37i9dQZEVXbO839WGRmpu1"},
                 {"name": "Gulf hip hop", "url": "https://open.spotify.com/playlist/39DfjCVzK3pnszkIPeXN17"}],
+    "colors": [
+      "#008000",
+      "#FFFFFF"
+    ],
   },
   "MEX": {
     "alpha3": "MEX",
@@ -127,6 +168,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/latin-america/mexico/",
     "spotify": [{"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbO3qyFxbkOE1"},
                 {"name": "Mexican garage rock", "url": "https://open.spotify.com/playlist/4bLGhvzA5nZGS6gxwRWtZt"}],
+    "colors": [
+      "#008000",
+      "#FFFFFF",
+      "#FF0000"
+    ],
   },
   "POL": {
     "alpha3": "POL",
@@ -139,6 +185,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/eastern-central-europe/poland/",
     "spotify": [{"name": "classic Polish folk", "url": "https://open.spotify.com/playlist/2EIFvjN0Z1AYk4rtCBo0JK"},
                 {"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbN6itCcaL3Tt"}],
+    "colors": [
+      "#FFFFFF",
+      "#FF0000"
+    ],
   },
   "FRA": {
     "alpha3": "FRA",
@@ -151,6 +201,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/france/",
     "spotify": [{"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbIPWwFssbupI"},
                 {"name": "rap from Marseille", "url": "https://open.spotify.com/playlist/5nMh3IcKI0h3bfeiwdoUrW"}],
+    "colors": [
+      "#0000FF",
+      "#FFFFFF",
+      "#FF0000"
+    ],
   },
   "AUS": {
     "alpha3": "AUS",
@@ -163,6 +218,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/oceania/australia/",
     "spotify": [{"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbJPcfkRz0wJ0"},
                 {"name": "Brisbane punk", "url": "https://open.spotify.com/playlist/7p0kJWBVE4VFrVW6zs25kC"}],
+    "colors": [
+      "#008000",
+      "#FFD700"
+    ],
   },
   "DEN": {
     "alpha3": "DEN",
@@ -175,6 +234,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/denmark/",
     "spotify": [{"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbL3J0k32lWnN"},
                 {"name": "Danish choir songs", "url": "https://open.spotify.com/playlist/4OiGOl4fr9CWcZnnYPZelX"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
   },
   "TUN": {
     "alpha3": "TUN",
@@ -188,6 +251,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/middle-east-north-africa/tunisia/",
     "spotify": [{"name": "reggae Marghreb", "url": "https://open.spotify.com/playlist/0t0Qv3Tj7sI4Th3T2zwhsj"},
                 {"name": "local top 50", "url": "https://open.spotify.com/playlist/7cnRnsLaFv86jhB1S5jG8A"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
   },
   "ESP": {
     "alpha3": "ESP",
@@ -200,6 +267,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/spain/",
     "spotify": [{"name": "Catalan folk", "url": "https://open.spotify.com/playlist/5u9pZQoofDO0UjHvSplvoO"},
                 {"name": "Spanish rock", "url": "https://open.spotify.com/playlist/0tcS9Y1tCt0Ffh2CdTXybt"}],
+    "colors": [
+      "#FF0000",
+      "#FFD700"
+    ],
   },
   "CRC": {
     "alpha3": "CRC",
@@ -213,6 +284,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/latin-america/costa-rica/",
     "spotify": [{"name": "Tico punk", "url": "https://open.spotify.com/playlist/6axTSLEMCgsU2LWhux4t4l"},
                 {"name": "Tico rap", "url": "https://open.spotify.com/playlist/1fjDuZGOYrXCcXMHakyPTX"}],
+    "colors": [
+      "#0000FF",
+      "#FFFFFF",
+      "#FF0000"
+    ],
   },
   "GER": {
     "alpha3": "GER",
@@ -225,6 +301,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/germany/",
     "spotify": [{"name": "German dance", "url": "https://open.spotify.com/playlist/0ociygIFg7QypC1T9v1g7x"},
                 {"name": "indie folk", "url": "https://open.spotify.com/playlist/1bx8VTvb9Thu8MWpnhuP6k"}],
+    "colors": [
+      "#000000",
+      "#FF0000",
+      "#FFD700"
+    ],
   },
   "JPN": {
     "alpha3": "JPN",
@@ -237,6 +318,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/east-asia/japan/",
     "spotify": [{"name": "J-Pop", "url": "https://open.spotify.com/playlist/3leFycE2a7uXZyuC6DQbdQ"},
                 {"name": "japanese folk", "url": "https://open.spotify.com/playlist/11BBxVtTjfsyGuQ5IjckSo"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
   },
   "BEL": {
     "alpha3": "BEL",
@@ -250,6 +335,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/belgium/",
     "spotify": [{"name": "Belgian EDM", "url": "https://open.spotify.com/playlist/3YjCK5F0D78d0WXHcwQ7tq"},
                 {"name": "Flemish folk", "url": "https://open.spotify.com/playlist/2fiAtiIalythHfTVGJRJWM"}],
+    "colors": [
+      "#000000",
+      "#FFFF00",
+      "#75AADB",
+    ],
   },
   "CAN": {
     "alpha3": "CAN",
@@ -263,6 +353,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/north-america/canada/",
     "spotify": [{"name": "indigenous hip hop", "url": "https://open.spotify.com/playlist/6SW6yY3dGizTklZ4w3zqhN"},
                 {"name": "Canadian country", "url": "https://open.spotify.com/playlist/72nKBOJxfLUr3iuUUMn2nV"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
   },
   "MAR": {
     "alpha3": "MAR",
@@ -276,6 +370,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/middle-east-north-africa/morocco/",
     "spotify": [{"name": "Saharan folk", "url": "https://open.spotify.com/playlist/60AI6c3kybZCkWZl2ju3DF"},
                 {"name": "local pop", "url": "https://open.spotify.com/playlist/1hpVVlVuXSAO50dZOEATah"}],
+    "colors": [
+      "#C22229",
+      "#006230"
+    ],
   },
   "CRO": {
     "alpha3": "CRO",
@@ -288,6 +386,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/eastern-central-europe/croatia/",
     "spotify": [{"name": "local folk", "url": "https://open.spotify.com/playlist/0L2bKJfUZ2qyl3rpWtckuv"},
                 {"name": "local hip hop", "url": "https://open.spotify.com/playlist/3VlYo96GLw7e1ceEDaZq0w"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF",
+      "#0000FF"
+    ],
   },
   "BRA": {
     "alpha3": "BRA",
@@ -300,6 +403,10 @@ OurCup.data.teams = {
     "spotify": [{"name": "Pagode", "url": "https://open.spotify.com/playlist/3U903ICkXhjRoPgPrG4O1j"},
                 {"name": "Brazilian bloco", "url": "https://open.spotify.com/playlist/1jzzzEuEkAoffrhTAJN4bH"}],
     "teamGuide": "https://www.theguardian.com/football/2022/nov/15/world-cup-2022-team-guide-25-brazil",
+    "colors": [
+      "#008000",
+      "#FFFF00"
+    ],
   },
   "SRB": {
     "alpha3": "SRB",
@@ -313,18 +420,27 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/eastern-central-europe/serbia/",
     "spotify": [{"name": "regional folk", "url": "https://open.spotify.com/playlist/4yAZkbRWxLUEqjoFfxF6wq"},
                 {"name": "local top 50", "url": "https://open.spotify.com/playlist/4lNKrQuO4j1P7PS3duC1Ov"}],
+    "colors": [
+      "#FF0000",
+      "#0000CC",
+      "#FFFFFF"
+    ],
   },
   "SUI": {
     "alpha3": "SUI",
     "flag": "🇨🇭",
     "name": "Switzerland",
     "demonym": "Swiss",
-    "teamGuide": "https://www.theguardian.com/football/2022/nov/16/world-cup-2022-team-guide-28-switzerland?CMP=Share_iOSApp_Other",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/16/world-cup-2022-team-guide-28-switzerland",
     "intro": "",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Switzerland",
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/switzerland/",
     "spotify": [{"name": "accordian folk", "url": "https://open.spotify.com/playlist/5X9EYWYljr2BUBQy4mdIgI"},
                 {"name": "local top 50", "url": "https://open.spotify.com/playlist/2aJewgqTCoxAsI7D0wJqQS"}],
+    "colors": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
   },
   "CMR": {
     "alpha3": "CMR",
@@ -338,6 +454,11 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/sub-saharan-africa/cameroon/",
     "spotify": [{"name": "Makossa", "url": "https://open.spotify.com/playlist/4N68ytC6eBFQsGr5nmE5rU"},
                 {"name": "local pop", "url": "https://open.spotify.com/playlist/70ncNURblCmX34p15Y47gm"}],
+    "colors": [
+      "#008000",
+      "#FF0000",
+      "#FFFF00"
+    ],
   },
   "POR": {
     "alpha3": "POR",
@@ -350,6 +471,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/western-europe/portugal/",
     "spotify": [{"name": "Fado", "url": "https://open.spotify.com/playlist/5yLmmznzjfw9EnWo1MFtdL"},
                 {"name": "local rock", "url": "https://open.spotify.com/playlist/6k201S3pA59wTeZ9NZ386Y"}],
+    "colors": [
+      "#008000",
+      "#FF0000"
+    ],
   },
   "GHA": {
     "alpha3": "GHA",
@@ -357,12 +482,18 @@ OurCup.data.teams = {
     "name": "Ghana",
     "demonym": "Ghanian",
     "foodSearch": "west african",
-    "teamGuide": "",
+    "teamGuide": "https://www.theguardian.com/football/2022/nov/17/world-cup-2022-team-guide-ghana",
     "intro": "",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ghana",
     "globalVoicesUrl": "https://globalvoices.org/-/world/sub-saharan-africa/ghana/",
     "spotify": [{"name": "Azonto", "url": "https://open.spotify.com/playlist/2i8bdWfRsaWbyrwBEZauU2"},
                 {"name": "Ghanian gospel", "url": "https://open.spotify.com/playlist/4OgjqkP9pt1HNq5eZwLmoZ"}],
+    "colors": [
+      "#FF0000",
+      "#FFFF00",
+      "#008000",
+      "#000000"
+    ],
   },
   "URU": {
     "alpha3": "URU",
@@ -376,6 +507,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/latin-america/uruguay/",
     "spotify": [{"name": "Candombe", "url": "https://open.spotify.com/playlist/6Rm0X40eYTZ64DJQmiPUIO"},
                 {"name": "local Cumbia", "url": "https://open.spotify.com/playlist/4zZQU9EV9Q3uH3wX23kCvA"}],
+    "colors": [
+      "#0000FF",
+      "#FFFFFF"
+    ],
   },
   "KOR": {
     "alpha3": "KOR",
@@ -388,6 +523,12 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/east-asia/south-korea/",
     "spotify": [{"name": "K-Pop", "url": "https://open.spotify.com/playlist/3T1Rft817cZ3pguTvaWaz3"},
                 {"name": "local rap", "url": "https://open.spotify.com/playlist/0thomPcNswX7vGOyBvHxMQ"}],
+    "colors": [
+      "#FFFFFF",
+      "#FF0000",
+      "#0000FF",
+      "#000000"
+    ],
   },
   "USA": {
     "alpha3": "USA",
@@ -400,5 +541,10 @@ OurCup.data.teams = {
     "globalVoicesUrl": "https://globalvoices.org/-/world/north-america/usa/",
     "spotify": [{"name": "New Orleans funk", "url": "https://open.spotify.com/playlist/5PunWS8lpbtXO1j0jQHNzI"},
                 {"name": "local top 50", "url": "https://open.spotify.com/playlist/37i9dQZEVXbLRQDuF5jeBp"}],
-  }
+    "colors": [
+      "#FF0000",
+      "#FFFFFF",
+      "#00008B"
+    ],
+  },
 };

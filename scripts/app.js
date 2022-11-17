@@ -99,8 +99,6 @@ OurCup.app = {
     // one card for each team
     let content = "";
     topTeams.forEach(t => {
-      d3.select('#team-card-'+t.name)
-        .style('display', 'block');
       let foodQuery = t.demonym;
       if (t.foodSearch) {
         foodQuery += ", "+t.foodSearch;
@@ -125,9 +123,14 @@ OurCup.app = {
         content+= "🎵 Use Spotify to listen to "+t.spotify.map(i => "<a target=_blank href=\""+i.url+"\">"+i.name+"</a>").join(", or ")+". ";
       }
       if (t.teamGuide) {
-        content+= "⚽️ Read about the "+t.demonym+" team on <a target=_blank href=\""+t.teamGuide+"\">Guardian Team Guide<a/>.";
+        content+= "⚽️ Read about the "+t.demonym+" team on <a target=_blank href=\""+t.teamGuide+"\">Guardian Team Guide<a/>. ";
       }
+      content+= "See a map of <a href=\"#immigrant-map\" onClick=\"d3.select('#"+t.alpha3+"-map').style('display','block');return false;\"> "+t.demonym+" immigrants live</a> across the US.";
       content+= "</p>";
+      content+= "<div id=\""+t.alpha3+"-map\" style=\"display:none\">"+
+                "<p><b>Map of "+t.demonym+" immigrants</b>"+
+                "<img width=\"100%\" src=\"images/map-raw-pop/"+t.alpha3+".png\" alt=\"map of US counties showing where the most "+t.demonym+" immigrants live \">"+
+                "</p></div>";
       content+= "<p class=\"OurCup.data.fixtures\">"
       content+= "<b>Games to watch</b>"
       content+= "<ul>";
