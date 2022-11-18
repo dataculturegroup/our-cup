@@ -63,7 +63,7 @@ figure {
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	z-index: 0;
-  background-color: #000;
+  background-color: #333;
 }
 
 figure div.wrapper {
@@ -111,7 +111,7 @@ figure p {
 
 em {
   font-weight: bold;
-  font-style: normal; 
+  font-style: normal;
 }
 
 #backdrop-caption {
@@ -200,7 +200,7 @@ ul li {
 
 footer {
   color: #fff;
-  background-color: #0044CC;
+  background-color: #333333;
   padding: 2rem 0 1rem 0;
   font-size: 1rem;
 }

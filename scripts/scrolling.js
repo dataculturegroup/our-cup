@@ -4,18 +4,23 @@ OurCup.scrolling = {
   backdrops: [
     { 'src': 'images/russia-cup-celebration.jpg',
       'credit': 'Kremlin.ru, CC BY 4.0',
+      'alt': 'photo of French national soccer team celebrating their win of the 2018 world up in Russia',
     },
     { 'src': 'images/money-shower-fifa.jpg',
-      'credit': 'Philipp Schmidli/Getty Images'
+      'credit': 'Philipp Schmidli/Getty Images',
+      'alt': 'photo of FIFA head being showered in fake dollar bills by a protester who interrupted a press conference',
     },
     { 'src': 'images/qatar-workers.jpg',
-      'credit': 'Kai Pfaffenbach / Reuters'
+      'credit': 'Kai Pfaffenbach / Reuters',
+      'alt': 'photo of migrant workers walking in front of an under construction stadium in Qatar',
     },
     { 'src': 'images/team-flags.jpg',
-      'credit': null
+      'credit': null,
+      'alt': 'digital image of a grid of flags, one for each country in the world cup this year',
     },
     { 'src': 'images/serving-fans.jpg',
-      'credit': 'Jane Stockdale'
+      'credit': 'Jane Stockdale',
+      'alt': 'photo of soccer fans from different countries watching a game together',
     },
   ],
 
@@ -39,10 +44,12 @@ OurCup.scrolling = {
   },
 
   setBackdropImage: (index) => {
+    const img = OurCup.scrolling.backdrops[index]
     OurCup.scrolling.figure.select("img")
-      .attr('src', OurCup.scrolling.backdrops[index].src)
+      .attr('src', img.src)
+      .attr('alt', img.alt)
       .attr('class', 'fade-in');
-    d3.select("#backdrop-caption").html(OurCup.scrolling.backdrops[index].credit)
+    d3.select("#backdrop-caption").html(img.credit)
   },
 
   handleStepEnter: (stepInfo) => { // stepInfo = { element, directihandle, index }
