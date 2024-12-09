@@ -90,10 +90,10 @@ OurCup.app = {
     let teamNames = topTeams.map(t => t.flag + " " + t.name);
     introText += teamNames[0] + ", " + teamNames[1] + " and " + teamNames[2] + ". ";
     const shareLink = "https://dataculture.northeastern.edu/ourcup/?fips="+fips;
-    const tweetLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("My "+countyName+", "+stateCode+" neighbors support "+
+    const tweetLink = "https://bsky.app/intent/compose?text="+encodeURIComponent("My "+countyName+", "+stateCode+" neighbors support "+
       topTeams.map(t => t.flag).join(" ")+" #worldcup. Visit "+shareLink+" to explore their culture - food, news & music. "+
       "(#ourcup via @rahulbot)");
-    introText += "<a href=\""+tweetLink+"\" target=_blank>Share on Twitter</a>";
+    introText += "<a href=\""+tweetLink+"\" target=_blank>Share on Bluesky</a>";
     d3.select('#recsSummary').html(introText);
 
     // one card for each team
