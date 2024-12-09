@@ -33,13 +33,13 @@ OurCup.app = {
     OurCup.app.updateStatus(true, "Couldn't detect your location - sorry!");
     switch(error.code) {
         case "unsupported":
-            OurCup.log("Browser doesn't support GeoLocation.");
+            OurCup.log("Browser doesn't support Geolocation.");
             break;
         case error.PERMISSION_DENIED:
             OurCup.log("User denied the request for Geolocation.");
             break;
         case error.POSITION_UNAVAILABLE:
-            OurCup.log("Location information is unavailable.");
+            OurCup.log("location information is unavailable.");
             break;
         case error.TIMEOUT:
             OurCup.log("The request to get user location timed out.");
@@ -134,12 +134,12 @@ OurCup.app = {
       content+= "<p class=\"OurCup.data.fixtures\">"
       content+= "<b>Games to watch</b>"
       content+= "<ul>";
-      OurCup.data.fixtures.filter(i => (i.home_team_country == t.alpha3) || (i.away_team_country == t.alpha3)).forEach(i => {
+      OurCup.data.fixtures.filter(i => (i.homeTeam == t.alpha3) || (i.awayTeam == t.alpha3)).forEach(i => {
         content+= "<li>" +
-                  i.datetime.substring(5,7)+"/"+i.datetime.substring(8,10)+": "+
-                  OurCup.data.teams[i.home_team_country].flag+" "+i.home_team.name+
+                  i.dateUTC.substring(5,7)+"/"+i.dateUTC.substring(8,10)+": "+
+                  OurCup.data.teams[i.homeTeam].flag+" "+t.name+
                   " vs. "+
-                  OurCup.data.teams[i.away_team_country].flag+" "+i.away_team.name+
+                  OurCup.data.teams[i.awayTeam].flag+" "+OurCup.data.teams[i.awayTeam].name+
                   "</li>";
       })
       content+= "</ul>";
