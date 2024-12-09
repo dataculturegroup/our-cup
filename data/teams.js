@@ -511,7 +511,7 @@ OurCup.data.teams = {
     ],
   },
   "ZMB": {
-    "alpha3": "Zambi",
+    "alpha3": "ZMB",
     "flag": "🇿🇲",
     "name": "Zambia",
     "demonym": "Zambia",
