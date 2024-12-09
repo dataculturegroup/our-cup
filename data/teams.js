@@ -185,8 +185,8 @@ OurCup.data.teams = {
       "#FFD700"
     ],
   },
-  "HTI": {
-    "alpha3": "HTI",
+  "HAI": {
+    "alpha3": "HAI",
     "flag": "🇭🇹",
     "name": "Haiti",
     "demonym": "Haitian",
@@ -425,7 +425,7 @@ OurCup.data.teams = {
       "#FF8200"
     ],
   },
-  "ZAF": {
+  "RSA": {
     "alpha3": "South Africa",
     "flag": "🇿🇦",
     "name": "South Africa",
@@ -494,8 +494,8 @@ OurCup.data.teams = {
       "#FFFFFF"
     ],
   },
-  "VNM": {
-    "alpha3": "VNM",
+  "VIE": {
+    "alpha3": "VIE",
     "flag": "🇻🇳",
     "name": "Vietnam",
     "demonym": "Vietnamese",
@@ -510,8 +510,8 @@ OurCup.data.teams = {
       "#FFCD00"
     ],
   },
-  "ZMB": {
-    "alpha3": "ZMB",
+  "ZAM": {
+    "alpha3": "ZAM",
     "flag": "🇿🇲",
     "name": "Zambia",
     "demonym": "Zambia",
