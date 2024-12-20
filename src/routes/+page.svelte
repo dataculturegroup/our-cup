@@ -19,7 +19,7 @@
 <main>
     <ScrollyStory />
 
-    <section>
+    <section style="min-height: 300px;">
         <a name="#interactive" aria-label="try out the interactive"></a>
         <PlacePicker {preselectedCounty} />
     </section>

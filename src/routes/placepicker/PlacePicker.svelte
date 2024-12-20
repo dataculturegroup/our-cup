@@ -45,6 +45,8 @@
                 console.log(data.results[0]);
                 selectedCountyFips = data.results[0].county_fips;
                 handleGo();        // to update the URL
+                return delay(500);
+            }).then(() => {
                 location.reload(); // hack to run page code cleanly
             });
     }
@@ -84,6 +86,10 @@
     }
     
     function handleGo() {
+        // save state on URL before rendering
+        const url = new URL(window.location);
+        url.searchParams.set('fips', selectedCountyFips);
+        window.history.pushState({}, '', url);
         // show user feedback so they understand what went into this
         delay(1).then(() => {
             scrollTo('status');
@@ -100,10 +106,6 @@
             return delay(1000);
         }).then(() => {            
             hideStatus();
-            // save state on URL before rendering
-            const url = new URL(window.location);
-            url.searchParams.set('fips', selectedCountyFips);
-            window.history.pushState({}, '', url);
             clickedGo = true;
             return delay(500);
         });

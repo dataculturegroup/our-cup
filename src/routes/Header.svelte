@@ -32,7 +32,7 @@ img {
             <p>
                 Make it <b>Our Cup</b>.
             </p>
-            <p><small>(scroll for more, or skip to the end)</small></p>
+            <p><small>(scroll for more, or <a href="#interactive">skip to the end</a>)</small></p>
             <img src="images/scroll-down.gif" alt="scroll down" />
         </div>
     </div>
