@@ -1,5 +1,6 @@
 <script>
     import { allCounties } from '$lib/counties.js';
+    import { delay, scrollTo } from '$lib/util.js';
     import StateOptions from './StateOptions.svelte';
     import Recommendations from '../recommendations/Recommendations.svelte';
 
@@ -37,9 +38,8 @@
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         showStatus("Zooming to county...");
-        const fccUrl = "https://geo.fcc.gov/api/census/area?lat="+lat+"&lon="+lng+"&censusYear=2020&format=json";
-        console.log(fccUrl);
-        fetch(fccUrl)
+        const fccApiUrl = `https://geo.fcc.gov/api/census/area?lat=${lat}&lon=${lng}&censusYear=2020&format=json`;
+        fetch(fccApiUrl)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.results[0]);
@@ -69,7 +69,6 @@
                 errorMsg = "An unknown error occurred.";
                 break;
         }
-        console.log(errorMsg)
         hideStatus();
         enableButtons();
     }
@@ -83,9 +82,6 @@
         const buttons = document.querySelectorAll('button');
         buttons.forEach(button => button.disabled = false);
     }
-
-    const delay = (t, v) => new Promise(resolve => setTimeout(resolve, t, v));
-    const scrollTo = (elementId) => document.getElementById(elementId).scrollIntoView();
     
     function handleGo() {
         // show user feedback so they understand what went into this
@@ -109,7 +105,7 @@
             url.searchParams.set('fips', selectedCountyFips);
             window.history.pushState({}, '', url);
             clickedGo = true;
-            scrollTo('recommendations');
+            return delay(500);
         });
     }
 
@@ -181,6 +177,8 @@ button:disabled {
     </div>
 </div>
 
-{#if clickedGo && selectedCounty }
-    <Recommendations county={selectedCounty} />
-{/if}
+<div id="recommendationsWrapper">
+    {#if clickedGo && selectedCounty }
+        <Recommendations county={selectedCounty} />
+    {/if}
+</div>

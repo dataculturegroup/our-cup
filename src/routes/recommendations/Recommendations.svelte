@@ -1,8 +1,14 @@
 <script>
+    import { onMount } from 'svelte';
+    import { scrollTo } from '$lib/util.js';
     import { teams } from '$lib/teams.js';
     import { recommendations } from '$lib/recommendations.js';
     import { fixtures } from '$lib/fixtures.js';
     import CountryCard from './CountryCard.svelte';
+
+    onMount( () => {
+        scrollTo('recommendations');
+    });
 
     let { county } = $props();
 
@@ -30,7 +36,7 @@
 }
 </style>
 
-<div  id="recommendations">
+<div id="recommendations">
     {#if countryDetails.length == 0 }
         <div class="container">
             <div class="row">
