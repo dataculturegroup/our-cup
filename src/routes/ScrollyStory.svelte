@@ -165,7 +165,7 @@ figure p {
 
     <figure id="backdrop">
         <div class="wrapper" id="background-wrapper">
-                <img id="backdrop-img"/>
+                <img id="backdrop-img" alt="(will be replaced by code)"/>
         </div>
         <div id="backdrop-caption"></div>
             </figure>
