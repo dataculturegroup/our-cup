@@ -4,6 +4,7 @@ Wrapper that shows recommended 3 teams to follow based on the user's selections.
  * rendering a CountryCard for each
 -->
 <script>
+	import { fly } from 'svelte/transition'; // helps us do animations
     import { onMount } from 'svelte';   // event handler registration called automatically when the component is visible on page
     import teams from '$data/teams.json'; // static manually curated data about participants in World Cup
     import recommendations from '$data/recommendations.json'; // computed data from Python notebook based on census data
@@ -47,7 +48,7 @@ Wrapper that shows recommended 3 teams to follow based on the user's selections.
 }
 </style>
 
-<div id="recommendations">
+<div id="recommendations" transition:fly={{y:200, duration: 2000}}>
     {#if countryDetails.length == 0 }
         <!-- show an error if recommendations aren't found -->
         <div class="container">
