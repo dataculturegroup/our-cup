@@ -1,3 +1,7 @@
+<!--
+Just a static list of states in the US I copied from the internet somewhere. Putting it in its own file 
+so it can be imported and used in other places without making them really long and hard to read.
+-->
 <option value="AL">Alabama</option>
 <option value="AK">Alaska</option>
 <option value="AZ">Arizona</option>

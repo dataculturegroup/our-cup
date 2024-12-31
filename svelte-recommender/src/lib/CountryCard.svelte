@@ -1,16 +1,20 @@
+<!--
+Card with details about a country's local cultural connection and games to watch.
+-->
 <script>
-    import teams from '$data/teams.json'
-    let { team, fixtures, county } = $props()
+    import teams from '$data/teams.json';   // static file with desk research on country
+    let { team, fixtures, county } = $props();  // parent passes in all the info we need to show
 
-    let showMap = $state(false)
+    // state: toggles whether to show the immigration chloropleth map or not
+    let showMap = $state(false);
 
+    // state mgmt: clean up and localize game data by looking up the selected country in pre-computed fixtures data
     const games = $derived(fixtures.map(fx => {
-        const homeTeam = teams[fx.homeTeam]
-        const awayTeam = teams[fx.awayTeam]
-        const localDate = new Date(fx.dateUTC)
-        return { homeTeam, awayTeam, localDate }
+        const homeTeam = teams[fx.homeTeam];
+        const awayTeam = teams[fx.awayTeam];
+        const localDate = new Date(fx.dateUTC);
+        return { homeTeam, awayTeam, localDate };
     }))
-
 </script>
 
 <style>
@@ -51,11 +55,13 @@ h3 {
 }
 </style>
 
+<!-- render as 1/3 of full width (12 columns) -->
 <div class="col-md-4" id="team-card-{team.alpha3}">
     <div class="team-card">
         <h3>{team.name}</h3>
         <span class="flag">{team.flag}</span>
 
+        <!-- links to local cultral connections -->
         <p>
             🍲 Support a local business - find a <a target="_blank" href="https://www.yelp.com/search?find_desc={team.name} {team.foodSearch || ''}&find_loc={county.name} {county.state}">{team.demonym} restaurant near you on Yelp</a>, 
             or make <a target="_blank" href="https://www.yummly.com/recipes?q={team.name} {team.foodSearch || ''}">a {team.demonym} recipe from Yummly</a>.
@@ -67,6 +73,7 @@ h3 {
             See a <a href="#immigrant-map" onclick={() => showMap = !showMap}>map of where {team.demonym} immigrants live across the US</a>.
         </p>
 
+        <!-- toggle-able map from Observable notebok -->
         {#if showMap}
             <p>
                 <b>Map of {team.demonym} immigrants</b>
@@ -75,6 +82,7 @@ h3 {
             </p>
         {/if}
 
+        <!-- games to watch -->
         <p><b>Games to watch:</b></p>
         <ul>
             {#each games as {homeTeam, awayTeam, localDate}}
@@ -86,5 +94,6 @@ h3 {
                 </li>
             {/each}
         </ul>
+
     </div>
 </div>
