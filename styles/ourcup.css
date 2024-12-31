@@ -45,6 +45,10 @@ h3 {
 	position: relative;
 }
 
+#interactive {
+  margin-top: 2rem;
+}
+
 article {
 	position: relative;
 	padding: 0;
@@ -145,63 +149,11 @@ em {
   margin: 0 2rem;
 }
 
-#interactive {
-  text-align: center;
-  padding: 2rem 0 4rem 0;
-  min-height: 1000px;
-}
-
-#recsWrapper {
-  display: none;
-  margin-top: 2rem;
-}
-
-.team-card {
-  display: none;
-}
-
-.team {
-  margin-top: 2rem;
-  padding: 1rem;
-  border: 2px solid #471705;
-  border-radius: 0.25rem;
-  text-align: left;
-}
-
-.team h3, .team .flag {
-  text-align: center;
-}
-
-.team p {
-}
-
-.flag {
-  font-size: 120px;
-  display: block;
-  margin-top: -30px;
-  margin-bottom: -30px;
-}
-
-.OurCup.data.fixtures b {
-  font-variant: all-small-caps;
-  font-size: 1.5rem;
-  color: #0088CC;
-}
-
-.team ul {
-  list-style-type: none;
-  margin:0;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: .25rem;
-}
-
 footer {
   color: #fff;
   background-color: #333333;
   padding: 2rem 0 1rem 0;
+  margin: 2rem 0 0 0;
   font-size: 1rem;
 }
 
@@ -221,17 +173,4 @@ footer a:visited {
 
 footer b {
   font-variant: all-small-caps;
-}
-
-#statusWrapper {
-  display: none;
-}
-
-#manual-selection {
-  display:none;
-  margin-bottom: 1rem;
-}
-
-.form-select {
-  margin-bottom: 0.5rem
 }
