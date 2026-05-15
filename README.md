@@ -5,8 +5,17 @@ A quick web tool that suggests World Cup games to watch in your community based 
 
 This is created in two parts: a HTML/JSS/CSS scrollytelling site using scrollama.js, and a  Svelte-based "recommender" that manages the interactive component logic and state.
 
-Updating
---------
+## Install
+
+1. `cd svelte-recommender`
+2. `npm install`
+
+## Developing
+
+1. `cd svelte-recommender`
+2. `npm run dev`
+
+## Updating
 
 Updating this to the latest World Cup is a series of automated and manual steps:
 
@@ -19,7 +28,6 @@ Updating this to the latest World Cup is a series of automated and manual steps:
 7. Copy the generated JS and CSS files from `svelte-recommender/dist/` to the appropriate directories here
 8. Now you're ready to update the story
 
-Deploying
----------
+## Deploying
 
 Once the svelte interactive is built into static JS and CSS, this is ready to deploy to a flat HTML server. I deployed it via GitHub Pages for the free hosting.
