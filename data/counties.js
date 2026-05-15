@@ -1544,44 +1544,49 @@ OurCup.data.counties = [
     "name": "Yuma County",
     "state": "CO"
   },
-  {
-    "fips": 9001,
-    "name": "Fairfield County",
+{
+    "fips": 9110,
+    "name": "Capitol Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9003,
-    "name": "Hartford County",
+    "fips": 9120,
+    "name": "Greater Bridgeport Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9005,
-    "name": "Litchfield County",
+    "fips": 9130,
+    "name": "Lower Connecticut River Valley Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9007,
-    "name": "Middlesex County",
+    "fips": 9140,
+    "name": "Naugatuck Valley Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9009,
-    "name": "New Haven County",
+    "fips": 9150,
+    "name": "Northeastern Connecticut Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9011,
-    "name": "New London County",
+    "fips": 9160,
+    "name": "Northwest Hills Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9013,
-    "name": "Tolland County",
+    "fips": 9170,
+    "name": "South Central Connecticut Planning Region",
     "state": "CT"
   },
   {
-    "fips": 9015,
-    "name": "Windham County",
+    "fips": 9180,
+    "name": "Southeastern Connecticut Planning Region",
+    "state": "CT"
+  },
+  {
+    "fips": 9190,
+    "name": "Western Connecticut Planning Region",
     "state": "CT"
   },
   {
