@@ -30,11 +30,30 @@ Wrapper that shows recommended 3 teams to follow based on the user's selections.
         }
     })
 
+    // clean up dynamically because we'll update the JSON from the source and want to 
+    // preserve their format 
+    const cleanedFixtures = $derived(fixtures.map(fx => {
+        const [datePart, timePart] = fx["Date"].split(" ");
+        const [day, month, year] = datePart.split("/");
+        const parsedDate = new Date(`${year}-${month}-${day}T${timePart}:00Z`);
+        return {
+            matchNumber: fx["Match Number"],
+            roundNumber: fx["Round Number"],
+            date: fx["Date"], // a string in the original format
+            dateUTC: parsedDate,
+            location: fx["Location"],
+            homeTeam: fx["Home Team"],
+            awayTeam: fx["Away Team"],
+            group: fx["Group"],
+            result: fx["Result"]
+        }
+    }))
+    
     // state mgmt: pick the country info I wrote and the fixtures, based on selected county
     const countryDetails = $derived(countries.map(country => {
         const team = teams[country];
         // need to check for games the team is either home or away in
-        const teamFixtures = fixtures.filter(fx => fx.homeTeam === country || fx.awayTeam === country);
+        const teamFixtures = cleanedFixtures.filter(fx => fx.homeTeam === country || fx.awayTeam === country);
         return { country, info: team, fixtures: teamFixtures };
     }))
 </script>

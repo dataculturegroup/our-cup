@@ -54,7 +54,7 @@ The top-level component that runs the whole interactive. This manages:
         fetch(fccApiUrl)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.results[0])
+                // console.log(data.results[0])
                 selectedCountyFips = Number(data.results[0].county_fips) // this will automatically update selectedCounty
                 handleGo()
             });
