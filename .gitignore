@@ -1,3 +1,4 @@
 .DS_Store
 census-data/data/ACSDT5Y2024.B05006_2026-05-15T165249/
 .claude
+census-data/images/*.png
