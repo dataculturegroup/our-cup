@@ -22,9 +22,9 @@ Svelte-based "recommender" that manages the interactive component logic and stat
 
 Updating this to the latest World Cup is a series of automated and manual steps:
 
-1. Open up the notebook at `census-data/data-generation.pynb` and follow those instructions
+1. Open up the notebook at `census-data/data-generation.ipynb` and follow those instructions
 2. Copy-and-paste the data in `census-data/country-recs-json` to `svelte-recommender/src/data/recommendations.json`
-3. Open the [county-map observable notebook](https://observablehq.com/d/62390c8bd663ff6f) and update the `county-populaton-data-tidy.csv` file
+3. Open up the `census-data/map-generation.ipynb` and run it to generate the new maps; copy them to `svelte-recommender/public/images/map-raw-pop/`
 4. Go through each country alpha-3 to generate and save the map to `svelte-recommender/public/images/map-raw-pop/`
 5. Update `svelte-recommender/src/data/teams.js` with all the team names and metadata you find
 6. Test out the svelte app in `svelte-recommender` (check out the README.md in that dir for more info)
