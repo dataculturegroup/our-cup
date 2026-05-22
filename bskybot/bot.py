@@ -3,7 +3,7 @@ import os
 import re
 import requests
 from dotenv import load_dotenv
-from atproto import Client
+from atproto import Client, models
 from atproto.exceptions import AtProtocolError
 
 import recommender
@@ -25,6 +25,25 @@ GIST_ID       = os.environ["GIST_ID"]  # Copy and paste from te URL of your Gist
 GIST_FILENAME = "wc26-bot-cursor.txt"  # don't need to hide this, so not in an env-var
 
 ZIPCODE_RE = re.compile(r"\b(\d{5})\b")
+URL_RE = re.compile(r"https?://[^\s]+")
+
+
+def build_link_facets(text: str) -> list:
+    """Bluesky needs explicit byte-offset facets to render URLs as links."""
+    text_bytes = text.encode("utf-8")
+    facets = []
+    for match in URL_RE.finditer(text):
+        byte_start = len(text[: match.start()].encode("utf-8"))
+        byte_end = byte_start + len(match.group().encode("utf-8"))
+        facets.append(
+            models.AppBskyRichtextFacet.Main(
+                index=models.AppBskyRichtextFacet.ByteSlice(
+                    byte_start=byte_start, byte_end=byte_end
+                ),
+                features=[models.AppBskyRichtextFacet.Link(uri=match.group())],
+            )
+        )
+    return facets
 
 
 # State Helpers
@@ -120,6 +139,7 @@ def run():
 
             client.send_post(
                 text=reply_text,
+                facets=build_link_facets(reply_text),
                 reply_to={"root": root_ref, "parent": parent_ref},
             )
         except AtProtocolError as e:
