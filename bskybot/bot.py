@@ -3,7 +3,7 @@ import os
 import re
 import requests
 from dotenv import load_dotenv
-from atproto import Client, models
+from atproto import Client, client_utils
 from atproto.exceptions import AtProtocolError
 
 import recommender
@@ -28,22 +28,20 @@ ZIPCODE_RE = re.compile(r"\b(\d{5})\b")
 URL_RE = re.compile(r"https?://[^\s]+")
 
 
-def build_link_facets(text: str) -> list:
-    """Bluesky needs explicit byte-offset facets to render URLs as links."""
-    text_bytes = text.encode("utf-8")
-    facets = []
+def build_rich_text(text: str) -> client_utils.TextBuilder:
+    """Bluesky won't auto-detect URLs — wrap the plain reply text in a TextBuilder so
+    send_post emits proper byte-offset link facets."""
+    tb = client_utils.TextBuilder()
+    cursor = 0
     for match in URL_RE.finditer(text):
-        byte_start = len(text[: match.start()].encode("utf-8"))
-        byte_end = byte_start + len(match.group().encode("utf-8"))
-        facets.append(
-            models.AppBskyRichtextFacet.Main(
-                index=models.AppBskyRichtextFacet.ByteSlice(
-                    byte_start=byte_start, byte_end=byte_end
-                ),
-                features=[models.AppBskyRichtextFacet.Link(uri=match.group())],
-            )
-        )
-    return facets
+        if match.start() > cursor:
+            tb.text(text[cursor:match.start()])
+        url = match.group()
+        tb.link(url, url)
+        cursor = match.end()
+    if cursor < len(text):
+        tb.text(text[cursor:])
+    return tb
 
 
 # State Helpers
@@ -138,8 +136,7 @@ def run():
                 }
 
             client.send_post(
-                text=reply_text,
-                facets=build_link_facets(reply_text),
+                text=build_rich_text(reply_text),
                 reply_to={"root": root_ref, "parent": parent_ref},
             )
         except AtProtocolError as e:
