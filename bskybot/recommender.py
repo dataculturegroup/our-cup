@@ -94,10 +94,10 @@ def process_zipcode(zipcode: str) -> str:
     # assemble a real recommendation
     rec_text = ""
     # add in the flags for any countries
-    flags = ""
+    flags = []
     for team_info in country_teams:
         if team_info and team_info.get('flag'):
-            flags += team_info['flag'] + " "
+            flags.append(team_info['flag'])
     rec_text += f"Fans in {zipcode} ({county['city']}, {county['state']}) are cheering for {', '.join(flags)} ⚽️🎉\n"
     # add in the next 3 relevant games
     game_recs = [ g for g in fixtures if (g['Home Team'] in country_recs) or (g['Away Team'] in country_recs)]
@@ -107,7 +107,7 @@ def process_zipcode(zipcode: str) -> str:
         rec_text += "Games to watch:\n"
     for game in game_recs[:3]:  # keep it short
         local_date = _as_local_time(zipcode, game['gmt_datetime'])
-        rec_text += f"{local_date.strftime('%m/%d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%I%p')}\n"
+        rec_text += f"{local_date.strftime('%b %d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%I%p')}\n"
     # random tidbit
     random_link = _random_info(country_teams[0], zipcode)
     # Bluesky caps posts at 300 graphemes. Only append the random_link if the base
