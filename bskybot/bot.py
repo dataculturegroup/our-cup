@@ -70,23 +70,24 @@ def run():
     client = Client()  # this handles speaking ATProto to and from Bluesky
     client.login(BSKY_HANDLE, BSKY_PASSWORD)
 
-    cursor = read_cursor() # figure out the last notification we processed and strat from there
+    # We store the indexed_at of the most recently processed notification in the gist.
+    # The atproto listNotifications `cursor` is a pagination marker (goes older), not a "since" marker,
+    # so we can't use it for this — we fetch the latest batch and filter client-side by indexed_at instead.
+    last_indexed_at = read_cursor()
 
-    params = {"limit": 25}
-    if cursor:
-        params["cursor"] = cursor
-
-    resp = client.app.bsky.notification.list_notifications(params)
+    resp = client.app.bsky.notification.list_notifications({"limit": 25})
     notifs = resp.notifications
 
     if not notifs:
         print("No new notifications.")
         return
 
-    # Save cursor from the newest notification before processing
-    new_cursor = resp.cursor
-    
-    mentions = [n for n in notifs if n.reason == "mention" and not n.is_read]
+    if last_indexed_at:
+        new_notifs = [n for n in notifs if n.indexed_at > last_indexed_at]
+    else:
+        new_notifs = notifs
+
+    mentions = [n for n in new_notifs if n.reason == "mention"]
 
     print(f"Found {len(mentions)} unread mention(s).")
 
@@ -124,10 +125,11 @@ def run():
         except AtProtocolError as e:
             print(f"  ERROR posting reply: {e}")
 
-    # Mark notifications as read and persist cursor
-    client.app.bsky.notification.update_seen({"seen_at": notifs[0].indexed_at})
-    if new_cursor:
-        write_cursor(new_cursor)
+    # Persist the newest indexed_at across the whole fetched batch (not just mentions) so we don't
+    # re-scan notifications we've already considered, and mark them read server-side too.
+    newest_indexed_at = max(n.indexed_at for n in notifs)
+    write_cursor(newest_indexed_at)
+    client.app.bsky.notification.update_seen({"seen_at": newest_indexed_at})
     print("Done.")
 
 
