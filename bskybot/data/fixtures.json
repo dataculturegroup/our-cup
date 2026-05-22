@@ -1,0 +1,1042 @@
+[
+  {
+    "Match Number": 1,
+    "Round Number": 1,
+    "Date": "11/06/2026 19:00",
+    "Location": "Mexico City Stadium",
+    "Home Team": "MEX",
+    "Away Team": "RSA",
+    "Group": "Group A",
+    "Result": ""
+  },
+  {
+    "Match Number": 2,
+    "Round Number": 1,
+    "Date": "12/06/2026 02:00",
+    "Location": "Guadalajara Stadium",
+    "Home Team": "KOR",
+    "Away Team": "CZE",
+    "Group": "Group A",
+    "Result": ""
+  },
+  {
+    "Match Number": 3,
+    "Round Number": 1,
+    "Date": "12/06/2026 19:00",
+    "Location": "Toronto Stadium",
+    "Home Team": "CAN",
+    "Away Team": "BIH",
+    "Group": "Group B",
+    "Result": ""
+  },
+  {
+    "Match Number": 4,
+    "Round Number": 1,
+    "Date": "13/06/2026 01:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "USA",
+    "Away Team": "PAR",
+    "Group": "Group D",
+    "Result": ""
+  },
+  {
+    "Match Number": 8,
+    "Round Number": 1,
+    "Date": "13/06/2026 19:00",
+    "Location": "San Francisco Bay Area Stadium",
+    "Home Team": "QAT",
+    "Away Team": "SUI",
+    "Group": "Group B",
+    "Result": ""
+  },
+  {
+    "Match Number": 7,
+    "Round Number": 1,
+    "Date": "13/06/2026 22:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "BRA",
+    "Away Team": "MAR",
+    "Group": "Group C",
+    "Result": ""
+  },
+  {
+    "Match Number": 5,
+    "Round Number": 1,
+    "Date": "14/06/2026 01:00",
+    "Location": "Boston Stadium",
+    "Home Team": "HAI",
+    "Away Team": "SCO",
+    "Group": "Group C",
+    "Result": ""
+  },
+  {
+    "Match Number": 6,
+    "Round Number": 1,
+    "Date": "14/06/2026 04:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "AUS",
+    "Away Team": "TUR",
+    "Group": "Group D",
+    "Result": ""
+  },
+  {
+    "Match Number": 10,
+    "Round Number": 1,
+    "Date": "14/06/2026 17:00",
+    "Location": "Houston Stadium",
+    "Home Team": "GER",
+    "Away Team": "CUW",
+    "Group": "Group E",
+    "Result": ""
+  },
+  {
+    "Match Number": 11,
+    "Round Number": 1,
+    "Date": "14/06/2026 20:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "NED",
+    "Away Team": "JPN",
+    "Group": "Group F",
+    "Result": ""
+  },
+  {
+    "Match Number": 9,
+    "Round Number": 1,
+    "Date": "14/06/2026 23:00",
+    "Location": "Philadelphia Stadium",
+    "Home Team": "CIV",
+    "Away Team": "ECU",
+    "Group": "Group E",
+    "Result": ""
+  },
+  {
+    "Match Number": 12,
+    "Round Number": 1,
+    "Date": "15/06/2026 02:00",
+    "Location": "Monterrey Stadium",
+    "Home Team": "SWE",
+    "Away Team": "TUN",
+    "Group": "Group F",
+    "Result": ""
+  },
+  {
+    "Match Number": 14,
+    "Round Number": 1,
+    "Date": "15/06/2026 16:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "ESP",
+    "Away Team": "CPV",
+    "Group": "Group H",
+    "Result": ""
+  },
+  {
+    "Match Number": 16,
+    "Round Number": 1,
+    "Date": "15/06/2026 19:00",
+    "Location": "Seattle Stadium",
+    "Home Team": "BEL",
+    "Away Team": "EGY",
+    "Group": "Group G",
+    "Result": ""
+  },
+  {
+    "Match Number": 13,
+    "Round Number": 1,
+    "Date": "15/06/2026 22:00",
+    "Location": "Miami Stadium",
+    "Home Team": "KSA",
+    "Away Team": "URU",
+    "Group": "Group H",
+    "Result": ""
+  },
+  {
+    "Match Number": 15,
+    "Round Number": 1,
+    "Date": "16/06/2026 01:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "IRN",
+    "Away Team": "NZL",
+    "Group": "Group G",
+    "Result": ""
+  },
+  {
+    "Match Number": 17,
+    "Round Number": 1,
+    "Date": "16/06/2026 19:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "FRA",
+    "Away Team": "SEN",
+    "Group": "Group I",
+    "Result": ""
+  },
+  {
+    "Match Number": 18,
+    "Round Number": 1,
+    "Date": "16/06/2026 22:00",
+    "Location": "Boston Stadium",
+    "Home Team": "IRQ",
+    "Away Team": "NOR",
+    "Group": "Group I",
+    "Result": ""
+  },
+  {
+    "Match Number": 19,
+    "Round Number": 1,
+    "Date": "17/06/2026 01:00",
+    "Location": "Kansas City Stadium",
+    "Home Team": "ARG",
+    "Away Team": "ALG",
+    "Group": "Group J",
+    "Result": ""
+  },
+  {
+    "Match Number": 20,
+    "Round Number": 1,
+    "Date": "17/06/2026 04:00",
+    "Location": "San Francisco Bay Area Stadium",
+    "Home Team": "AUT",
+    "Away Team": "JOR",
+    "Group": "Group J",
+    "Result": ""
+  },
+  {
+    "Match Number": 23,
+    "Round Number": 1,
+    "Date": "17/06/2026 17:00",
+    "Location": "Houston Stadium",
+    "Home Team": "POR",
+    "Away Team": "COD",
+    "Group": "Group K",
+    "Result": ""
+  },
+  {
+    "Match Number": 22,
+    "Round Number": 1,
+    "Date": "17/06/2026 20:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "ENG",
+    "Away Team": "CRO",
+    "Group": "Group L",
+    "Result": ""
+  },
+  {
+    "Match Number": 21,
+    "Round Number": 1,
+    "Date": "17/06/2026 23:00",
+    "Location": "Toronto Stadium",
+    "Home Team": "GHA",
+    "Away Team": "PAN",
+    "Group": "Group L",
+    "Result": ""
+  },
+  {
+    "Match Number": 24,
+    "Round Number": 1,
+    "Date": "18/06/2026 02:00",
+    "Location": "Mexico City Stadium",
+    "Home Team": "UZB",
+    "Away Team": "COL",
+    "Group": "Group K",
+    "Result": ""
+  },
+  {
+    "Match Number": 25,
+    "Round Number": 2,
+    "Date": "18/06/2026 16:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "CZE",
+    "Away Team": "RSA",
+    "Group": "Group A",
+    "Result": ""
+  },
+  {
+    "Match Number": 26,
+    "Round Number": 2,
+    "Date": "18/06/2026 19:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "SUI",
+    "Away Team": "BIH",
+    "Group": "Group B",
+    "Result": ""
+  },
+  {
+    "Match Number": 27,
+    "Round Number": 2,
+    "Date": "18/06/2026 22:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "CAN",
+    "Away Team": "QAT",
+    "Group": "Group B",
+    "Result": ""
+  },
+  {
+    "Match Number": 28,
+    "Round Number": 2,
+    "Date": "19/06/2026 01:00",
+    "Location": "Guadalajara Stadium",
+    "Home Team": "MEX",
+    "Away Team": "KOR",
+    "Group": "Group A",
+    "Result": ""
+  },
+  {
+    "Match Number": 32,
+    "Round Number": 2,
+    "Date": "19/06/2026 19:00",
+    "Location": "Seattle Stadium",
+    "Home Team": "USA",
+    "Away Team": "AUS",
+    "Group": "Group D",
+    "Result": ""
+  },
+  {
+    "Match Number": 30,
+    "Round Number": 2,
+    "Date": "19/06/2026 22:00",
+    "Location": "Boston Stadium",
+    "Home Team": "SCO",
+    "Away Team": "MAR",
+    "Group": "Group C",
+    "Result": ""
+  },
+  {
+    "Match Number": 29,
+    "Round Number": 2,
+    "Date": "20/06/2026 01:00",
+    "Location": "Philadelphia Stadium",
+    "Home Team": "BRA",
+    "Away Team": "HAI",
+    "Group": "Group C",
+    "Result": ""
+  },
+  {
+    "Match Number": 31,
+    "Round Number": 2,
+    "Date": "20/06/2026 04:00",
+    "Location": "San Francisco Bay Area Stadium",
+    "Home Team": "TUR",
+    "Away Team": "PAR",
+    "Group": "Group D",
+    "Result": ""
+  },
+  {
+    "Match Number": 35,
+    "Round Number": 2,
+    "Date": "20/06/2026 17:00",
+    "Location": "Houston Stadium",
+    "Home Team": "NED",
+    "Away Team": "SWE",
+    "Group": "Group F",
+    "Result": ""
+  },
+  {
+    "Match Number": 33,
+    "Round Number": 2,
+    "Date": "20/06/2026 20:00",
+    "Location": "Toronto Stadium",
+    "Home Team": "GER",
+    "Away Team": "CIV",
+    "Group": "Group E",
+    "Result": ""
+  },
+  {
+    "Match Number": 34,
+    "Round Number": 2,
+    "Date": "21/06/2026 00:00",
+    "Location": "Kansas City Stadium",
+    "Home Team": "ECU",
+    "Away Team": "CUW",
+    "Group": "Group E",
+    "Result": ""
+  },
+  {
+    "Match Number": 36,
+    "Round Number": 2,
+    "Date": "21/06/2026 04:00",
+    "Location": "Monterrey Stadium",
+    "Home Team": "TUN",
+    "Away Team": "JPN",
+    "Group": "Group F",
+    "Result": ""
+  },
+  {
+    "Match Number": 38,
+    "Round Number": 2,
+    "Date": "21/06/2026 16:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "ESP",
+    "Away Team": "KSA",
+    "Group": "Group H",
+    "Result": ""
+  },
+  {
+    "Match Number": 39,
+    "Round Number": 2,
+    "Date": "21/06/2026 19:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "BEL",
+    "Away Team": "IRN",
+    "Group": "Group G",
+    "Result": ""
+  },
+  {
+    "Match Number": 37,
+    "Round Number": 2,
+    "Date": "21/06/2026 22:00",
+    "Location": "Miami Stadium",
+    "Home Team": "URU",
+    "Away Team": "CPV",
+    "Group": "Group H",
+    "Result": ""
+  },
+  {
+    "Match Number": 40,
+    "Round Number": 2,
+    "Date": "22/06/2026 01:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "NZL",
+    "Away Team": "EGY",
+    "Group": "Group G",
+    "Result": ""
+  },
+  {
+    "Match Number": 43,
+    "Round Number": 2,
+    "Date": "22/06/2026 17:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "ARG",
+    "Away Team": "AUT",
+    "Group": "Group J",
+    "Result": ""
+  },
+  {
+    "Match Number": 42,
+    "Round Number": 2,
+    "Date": "22/06/2026 21:00",
+    "Location": "Philadelphia Stadium",
+    "Home Team": "FRA",
+    "Away Team": "IRQ",
+    "Group": "Group I",
+    "Result": ""
+  },
+  {
+    "Match Number": 41,
+    "Round Number": 2,
+    "Date": "23/06/2026 00:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "NOR",
+    "Away Team": "SEN",
+    "Group": "Group I",
+    "Result": ""
+  },
+  {
+    "Match Number": 44,
+    "Round Number": 2,
+    "Date": "23/06/2026 03:00",
+    "Location": "San Francisco Bay Area Stadium",
+    "Home Team": "JOR",
+    "Away Team": "ALG",
+    "Group": "Group J",
+    "Result": ""
+  },
+  {
+    "Match Number": 47,
+    "Round Number": 2,
+    "Date": "23/06/2026 17:00",
+    "Location": "Houston Stadium",
+    "Home Team": "POR",
+    "Away Team": "UZB",
+    "Group": "Group K",
+    "Result": ""
+  },
+  {
+    "Match Number": 45,
+    "Round Number": 2,
+    "Date": "23/06/2026 20:00",
+    "Location": "Boston Stadium",
+    "Home Team": "ENG",
+    "Away Team": "GHA",
+    "Group": "Group L",
+    "Result": ""
+  },
+  {
+    "Match Number": 46,
+    "Round Number": 2,
+    "Date": "23/06/2026 23:00",
+    "Location": "Toronto Stadium",
+    "Home Team": "PAN",
+    "Away Team": "CRO",
+    "Group": "Group L",
+    "Result": ""
+  },
+  {
+    "Match Number": 48,
+    "Round Number": 2,
+    "Date": "24/06/2026 02:00",
+    "Location": "Guadalajara Stadium",
+    "Home Team": "COL",
+    "Away Team": "COD",
+    "Group": "Group K",
+    "Result": ""
+  },
+  {
+    "Match Number": 51,
+    "Round Number": 3,
+    "Date": "24/06/2026 19:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "SUI",
+    "Away Team": "CAN",
+    "Group": "Group B",
+    "Result": ""
+  },
+  {
+    "Match Number": 52,
+    "Round Number": 3,
+    "Date": "24/06/2026 19:00",
+    "Location": "Seattle Stadium",
+    "Home Team": "BIH",
+    "Away Team": "QAT",
+    "Group": "Group B",
+    "Result": ""
+  },
+  {
+    "Match Number": 49,
+    "Round Number": 3,
+    "Date": "24/06/2026 22:00",
+    "Location": "Miami Stadium",
+    "Home Team": "SCO",
+    "Away Team": "BRA",
+    "Group": "Group C",
+    "Result": ""
+  },
+  {
+    "Match Number": 50,
+    "Round Number": 3,
+    "Date": "24/06/2026 22:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "MAR",
+    "Away Team": "HAI",
+    "Group": "Group C",
+    "Result": ""
+  },
+  {
+    "Match Number": 53,
+    "Round Number": 3,
+    "Date": "25/06/2026 01:00",
+    "Location": "Mexico City Stadium",
+    "Home Team": "CZE",
+    "Away Team": "MEX",
+    "Group": "Group A",
+    "Result": ""
+  },
+  {
+    "Match Number": 54,
+    "Round Number": 3,
+    "Date": "25/06/2026 01:00",
+    "Location": "Monterrey Stadium",
+    "Home Team": "RSA",
+    "Away Team": "KOR",
+    "Group": "Group A",
+    "Result": ""
+  },
+  {
+    "Match Number": 55,
+    "Round Number": 3,
+    "Date": "25/06/2026 20:00",
+    "Location": "Philadelphia Stadium",
+    "Home Team": "CUW",
+    "Away Team": "CIV",
+    "Group": "Group E",
+    "Result": ""
+  },
+  {
+    "Match Number": 56,
+    "Round Number": 3,
+    "Date": "25/06/2026 20:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "ECU",
+    "Away Team": "GER",
+    "Group": "Group E",
+    "Result": ""
+  },
+  {
+    "Match Number": 57,
+    "Round Number": 3,
+    "Date": "25/06/2026 23:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "JPN",
+    "Away Team": "SWE",
+    "Group": "Group F",
+    "Result": ""
+  },
+  {
+    "Match Number": 58,
+    "Round Number": 3,
+    "Date": "25/06/2026 23:00",
+    "Location": "Kansas City Stadium",
+    "Home Team": "TUN",
+    "Away Team": "NED",
+    "Group": "Group F",
+    "Result": ""
+  },
+  {
+    "Match Number": 59,
+    "Round Number": 3,
+    "Date": "26/06/2026 02:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "TUR",
+    "Away Team": "USA",
+    "Group": "Group D",
+    "Result": ""
+  },
+  {
+    "Match Number": 60,
+    "Round Number": 3,
+    "Date": "26/06/2026 02:00",
+    "Location": "San Francisco Bay Area Stadium",
+    "Home Team": "PAR",
+    "Away Team": "AUS",
+    "Group": "Group D",
+    "Result": ""
+  },
+  {
+    "Match Number": 61,
+    "Round Number": 3,
+    "Date": "26/06/2026 19:00",
+    "Location": "Boston Stadium",
+    "Home Team": "NOR",
+    "Away Team": "FRA",
+    "Group": "Group I",
+    "Result": ""
+  },
+  {
+    "Match Number": 62,
+    "Round Number": 3,
+    "Date": "26/06/2026 19:00",
+    "Location": "Toronto Stadium",
+    "Home Team": "SEN",
+    "Away Team": "IRQ",
+    "Group": "Group I",
+    "Result": ""
+  },
+  {
+    "Match Number": 65,
+    "Round Number": 3,
+    "Date": "27/06/2026 00:00",
+    "Location": "Houston Stadium",
+    "Home Team": "CPV",
+    "Away Team": "KSA",
+    "Group": "Group H",
+    "Result": ""
+  },
+  {
+    "Match Number": 66,
+    "Round Number": 3,
+    "Date": "27/06/2026 00:00",
+    "Location": "Guadalajara Stadium",
+    "Home Team": "URU",
+    "Away Team": "ESP",
+    "Group": "Group H",
+    "Result": ""
+  },
+  {
+    "Match Number": 63,
+    "Round Number": 3,
+    "Date": "27/06/2026 03:00",
+    "Location": "Seattle Stadium",
+    "Home Team": "EGY",
+    "Away Team": "IRN",
+    "Group": "Group G",
+    "Result": ""
+  },
+  {
+    "Match Number": 64,
+    "Round Number": 3,
+    "Date": "27/06/2026 03:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "NZL",
+    "Away Team": "BEL",
+    "Group": "Group G",
+    "Result": ""
+  },
+  {
+    "Match Number": 67,
+    "Round Number": 3,
+    "Date": "27/06/2026 21:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "PAN",
+    "Away Team": "ENG",
+    "Group": "Group L",
+    "Result": ""
+  },
+  {
+    "Match Number": 68,
+    "Round Number": 3,
+    "Date": "27/06/2026 21:00",
+    "Location": "Philadelphia Stadium",
+    "Home Team": "CRO",
+    "Away Team": "GHA",
+    "Group": "Group L",
+    "Result": ""
+  },
+  {
+    "Match Number": 71,
+    "Round Number": 3,
+    "Date": "27/06/2026 23:30",
+    "Location": "Miami Stadium",
+    "Home Team": "COL",
+    "Away Team": "POR",
+    "Group": "Group K",
+    "Result": ""
+  },
+  {
+    "Match Number": 72,
+    "Round Number": 3,
+    "Date": "27/06/2026 23:30",
+    "Location": "Atlanta Stadium",
+    "Home Team": "COD",
+    "Away Team": "UZB",
+    "Group": "Group K",
+    "Result": ""
+  },
+  {
+    "Match Number": 69,
+    "Round Number": 3,
+    "Date": "28/06/2026 02:00",
+    "Location": "Kansas City Stadium",
+    "Home Team": "ALG",
+    "Away Team": "AUT",
+    "Group": "Group J",
+    "Result": ""
+  },
+  {
+    "Match Number": 70,
+    "Round Number": 3,
+    "Date": "28/06/2026 02:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "JOR",
+    "Away Team": "ARG",
+    "Group": "Group J",
+    "Result": ""
+  },
+  {
+    "Match Number": 73,
+    "Round Number": "Round of 32",
+    "Date": "28/06/2026 19:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "2A",
+    "Away Team": "2B",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 76,
+    "Round Number": "Round of 32",
+    "Date": "29/06/2026 17:00",
+    "Location": "Houston Stadium",
+    "Home Team": "1C",
+    "Away Team": "2F",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 74,
+    "Round Number": "Round of 32",
+    "Date": "29/06/2026 20:30",
+    "Location": "Boston Stadium",
+    "Home Team": "1E",
+    "Away Team": "3ABCDF",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 75,
+    "Round Number": "Round of 32",
+    "Date": "30/06/2026 01:00",
+    "Location": "Monterrey Stadium",
+    "Home Team": "1F",
+    "Away Team": "2C",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 78,
+    "Round Number": "Round of 32",
+    "Date": "30/06/2026 17:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "2E",
+    "Away Team": "2I",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 77,
+    "Round Number": "Round of 32",
+    "Date": "30/06/2026 21:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "1I",
+    "Away Team": "3CDFGH",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 79,
+    "Round Number": "Round of 32",
+    "Date": "01/07/2026 01:00",
+    "Location": "Mexico City Stadium",
+    "Home Team": "1A",
+    "Away Team": "3CEFHI",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 80,
+    "Round Number": "Round of 32",
+    "Date": "01/07/2026 16:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "1L",
+    "Away Team": "3EHIJK",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 82,
+    "Round Number": "Round of 32",
+    "Date": "01/07/2026 20:00",
+    "Location": "Seattle Stadium",
+    "Home Team": "1G",
+    "Away Team": "3AEHIJ",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 81,
+    "Round Number": "Round of 32",
+    "Date": "02/07/2026 00:00",
+    "Location": "San Francisco Bay Area Stadium",
+    "Home Team": "1D",
+    "Away Team": "3BEFIJ",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 84,
+    "Round Number": "Round of 32",
+    "Date": "02/07/2026 19:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "1H",
+    "Away Team": "2J",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 83,
+    "Round Number": "Round of 32",
+    "Date": "02/07/2026 23:00",
+    "Location": "Toronto Stadium",
+    "Home Team": "2K",
+    "Away Team": "2L",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 85,
+    "Round Number": "Round of 32",
+    "Date": "03/07/2026 03:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "1B",
+    "Away Team": "3EFGIJ",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 88,
+    "Round Number": "Round of 32",
+    "Date": "03/07/2026 18:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "2D",
+    "Away Team": "2G",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 86,
+    "Round Number": "Round of 32",
+    "Date": "03/07/2026 22:00",
+    "Location": "Miami Stadium",
+    "Home Team": "1J",
+    "Away Team": "2H",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 87,
+    "Round Number": "Round of 32",
+    "Date": "04/07/2026 01:30",
+    "Location": "Kansas City Stadium",
+    "Home Team": "1K",
+    "Away Team": "3DEIJL",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 90,
+    "Round Number": "Round of 16",
+    "Date": "04/07/2026 17:00",
+    "Location": "Houston Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 89,
+    "Round Number": "Round of 16",
+    "Date": "04/07/2026 21:00",
+    "Location": "Philadelphia Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 91,
+    "Round Number": "Round of 16",
+    "Date": "05/07/2026 20:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 92,
+    "Round Number": "Round of 16",
+    "Date": "06/07/2026 00:00",
+    "Location": "Mexico City Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 93,
+    "Round Number": "Round of 16",
+    "Date": "06/07/2026 19:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 94,
+    "Round Number": "Round of 16",
+    "Date": "07/07/2026 00:00",
+    "Location": "Seattle Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 95,
+    "Round Number": "Round of 16",
+    "Date": "07/07/2026 16:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 96,
+    "Round Number": "Round of 16",
+    "Date": "07/07/2026 20:00",
+    "Location": "BC Place Vancouver",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 97,
+    "Round Number": "Quarter Finals",
+    "Date": "09/07/2026 20:00",
+    "Location": "Boston Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 98,
+    "Round Number": "Quarter Finals",
+    "Date": "10/07/2026 19:00",
+    "Location": "Los Angeles Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 99,
+    "Round Number": "Quarter Finals",
+    "Date": "11/07/2026 21:00",
+    "Location": "Miami Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 100,
+    "Round Number": "Quarter Finals",
+    "Date": "12/07/2026 01:00",
+    "Location": "Kansas City Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 101,
+    "Round Number": "Semi Finals",
+    "Date": "14/07/2026 19:00",
+    "Location": "Dallas Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 102,
+    "Round Number": "Semi Finals",
+    "Date": "15/07/2026 19:00",
+    "Location": "Atlanta Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 103,
+    "Round Number": "Finals",
+    "Date": "18/07/2026 21:00",
+    "Location": "Miami Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  },
+  {
+    "Match Number": 104,
+    "Round Number": "Finals",
+    "Date": "19/07/2026 19:00",
+    "Location": "New York/New Jersey Stadium",
+    "Home Team": "To be announced",
+    "Away Team": "To be announced",
+    "Group": "",
+    "Result": ""
+  }
+]

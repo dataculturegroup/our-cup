@@ -1,1 +1,5 @@
 pandas
+topojson
+geopandas
+matplotlib
+jupyter
