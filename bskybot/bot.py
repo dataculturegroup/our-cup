@@ -17,7 +17,7 @@ BSKY_HANDLE   = os.environ["BSKY_HANDLE"]        # e.g. yourbot.bsky.social
 BSKY_PASSWORD = os.environ["BSKY_APP_PASSWORD"]   # App Password from Bluesky settings
 
 # GH -> Settings -> Developer Settings -> Personal Access Tokens -> Generate new token (select "gist" scope)
-GITHUB_TOKEN  = os.environ["GITHUB_TOKEN"]  # this will let us access the Gist
+GITHUB_TOKEN  = os.environ["GH_TOKEN"]  # this will let us access the Gist
 
 # Set up a GitHub Gist with a single file (named as GIST_FILENAME below) to store the cursor for the 
 # last processed notification. Put "0" in the file to start.
