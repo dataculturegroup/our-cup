@@ -59,19 +59,19 @@ def _random_info(team: Dict, zipcode: str) -> str:
     info_key = random.choice(RANDOM_INFO_KEYS)
     info_value = team.get(info_key)
     msg = ""
-    if info_key is "foodSearch":
+    if info_key == "foodSearch":
         if info_value is None:
             info_key = 'demonym'
             info_value = team.get(info_key)
         yelp_url = f"https://www.yelp.com/search?find_desc={quote_plus(info_value)}&find_loc={zipcode}"
         msg = f"Find local {info_value} food: {yelp_url}"
-    elif info_key is "wikipediaUrl":
+    elif info_key == "wikipediaUrl":
         if info_value is not None:
             msg = f"Learn about {team['name']}: {info_value}"
-    elif info_key is "globalVoicesUrl":
+    elif info_key == "globalVoicesUrl":
         if info_value is not None:
             msg = f"Read local {team['demonym']} news: {info_value}"
-    elif info_key is "spotify":
+    elif info_key == "spotify":
         if info_value is not None:
             playlist_name = random.choice(list(info_value.keys()))
             msg = f"Hear some {playlist_name}: {info_value['playlist_name']}"
