@@ -75,8 +75,8 @@ def _random_info(team: Dict, zipcode: str) -> str:
             msg = f"Read local {team['demonym']} news: {info_value}"
     elif info_key == "spotify":
         if info_value is not None:
-            playlist_name = random.choice(list(info_value.keys()))
-            msg = f"Hear some {playlist_name}: {info_value['playlist_name']}"
+            playlist = random.choice(info_value)
+            msg = f"Hear some {playlist['name']}: {playlist['url']}"
     return msg  # failsafe for missing data
 
 
