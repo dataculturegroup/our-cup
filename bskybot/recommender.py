@@ -17,6 +17,8 @@ fips_2_recs = {}
 fixtures = {}
 teams = {}
 
+BLUESKY_MAX_CHARS = 300
+
 DATA_DIR = "data"
 
 RANDOM_INFO_KEYS = ['foodSearch', 'wikipediaUrl', 'globalVoicesUrl', 'spotify']
@@ -107,6 +109,12 @@ def process_zipcode(zipcode: str) -> str:
         local_date = _as_local_time(zipcode, game['gmt_datetime'])
         rec_text += f"{local_date.strftime('%m/%d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%I%p')}\n"
     # random tidbit
-    rec_text += f"\n{_random_info(country_teams[0], zipcode)}"
+    random_link = _random_info(country_teams[0], zipcode)
+    # Bluesky caps posts at 300 graphemes. Only append the random_link if the base
+    # rec_text fits, and only keep it appended if the combined text also fits.
+    if len(rec_text) <= BLUESKY_MAX_CHARS:
+        with_link = rec_text + random_link
+        if len(with_link) <= BLUESKY_MAX_CHARS:
+            rec_text = with_link
     # and return the text
     return rec_text
