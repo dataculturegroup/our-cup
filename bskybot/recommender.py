@@ -107,7 +107,7 @@ def process_zipcode(zipcode: str) -> str:
         rec_text += "Games to watch:\n"
     for game in game_recs[:3]:  # keep it short
         local_date = _as_local_time(zipcode, game['gmt_datetime'])
-        rec_text += f"{local_date.strftime('%b %d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%I%p')}\n"
+        rec_text += f"  {local_date.strftime('%b %d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%-I%p')}\n"
     # random tidbit
     random_link = _random_info(country_teams[0], zipcode)
     # Bluesky caps posts at 300 graphemes. Only append the random_link if the base
