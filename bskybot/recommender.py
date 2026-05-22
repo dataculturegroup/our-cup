@@ -66,17 +66,17 @@ def _random_info(team: Dict, zipcode: str) -> str:
             info_key = 'demonym'
             info_value = team.get(info_key)
         yelp_url = f"https://www.yelp.com/search?find_desc={quote_plus(info_value)}&find_loc={zipcode}"
-        msg = f"Find local {info_value} food: {yelp_url}"
+        msg = f"🍽️Find local {info_value} food: {yelp_url}"
     elif info_key == "wikipediaUrl":
         if info_value is not None:
-            msg = f"Learn about {team['name']}: {info_value}"
+            msg = f"📚Learn about {team['name']}: {info_value}"
     elif info_key == "globalVoicesUrl":
         if info_value is not None:
-            msg = f"Read local {team['demonym']} news: {info_value}"
+            msg = f"📰Read local {team['demonym']} news: {info_value}"
     elif info_key == "spotify":
         if info_value is not None:
             playlist = random.choice(info_value)
-            msg = f"Hear some {playlist['name']}: {playlist['url']}"
+            msg = f"🎶Hear some {playlist['name']}: {playlist['url']}"
     return msg  # failsafe for missing data
 
 
@@ -98,16 +98,16 @@ def process_zipcode(zipcode: str) -> str:
     for team_info in country_teams:
         if team_info and team_info.get('flag'):
             flags.append(team_info['flag'])
-    rec_text += f"Fans in {zipcode} ({county['city']}, {county['state']}) are cheering for {', '.join(flags)} ⚽️🎉\n"
+    rec_text += f"Fans in {zipcode} ({county['city']}, {county['state']}) are cheering for {''.join(flags)}\n"
     # add in the next 3 relevant games
     game_recs = [ g for g in fixtures if (g['Home Team'] in country_recs) or (g['Away Team'] in country_recs)]
     if len(game_recs) == 1:
         rec_text += "Game to watch: "
     elif len(game_recs) > 1:
-        rec_text += "Games to watch:\n"
+        rec_text += "Games to watch ⚽️🎉:\n"
     for game in game_recs[:3]:  # keep it short
         local_date = _as_local_time(zipcode, game['gmt_datetime'])
-        rec_text += f"  {local_date.strftime('%b %d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%-I%p')}"
+        rec_text += f"  {local_date.strftime('%b %d')}: {game['Home Team']} vs {game['Away Team']} @ {local_date.strftime('%-I%p')}\n"
     # random tidbit
     random_link = _random_info(country_teams[0], zipcode)
     # Bluesky caps posts at 300 graphemes. Only append the random_link if the base
