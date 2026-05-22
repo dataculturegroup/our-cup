@@ -24,6 +24,6 @@ jobs:
         env:
           BSKY_HANDLE:        ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD:  ${{ secrets.BSKY_APP_PASSWORD }}
-          GITHUB_TOKEN:       ${{ secrets.GIST_TOKEN }}
+          GH_TOKEN:           ${{ secrets.GH_TOKEN }}
           GIST_ID:            ${{ secrets.GIST_ID }}
         run: python bot.py
