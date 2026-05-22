@@ -31,7 +31,7 @@ Updating this to the latest World Cup is a series of automated and manual steps:
 7. Copy the generated JS and CSS files from `svelte-recommender/dist/` to the appropriate directories here
 8. Rewrite the narrative in the `index.html` and images configured in `scripts/scrolling.js`
 9. Redesign the app's graphic design to match the current tournament a bit
-10. Deploy
+10. Run `npm run build` to build the static files (to `svelte-recommender/dist`). Copy the .js to `scripts/` and the .css to `/styles/`
 
 ## Deploying
 
