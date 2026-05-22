@@ -1,0 +1,3 @@
+atproto==0.*
+requests==2.*
+python-dotenv==1.*

@@ -1,0 +1,29 @@
+name: Bluesky Zipcode Bot
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:  # allows manual trigger from GH Actions UI
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        working-directory: bskybot
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        working-directory: bskybot
+        env:
+          BSKY_HANDLE:        ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD:  ${{ secrets.BSKY_APP_PASSWORD }}
+          GITHUB_TOKEN:       ${{ secrets.GIST_TOKEN }}
+          GIST_ID:            ${{ secrets.GIST_ID }}
+        run: python bot.py

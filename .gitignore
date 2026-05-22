@@ -1,4 +1,8 @@
 .DS_Store
 census-data/data/ACSDT5Y2024.B05006_2026-05-15T165249/
+census-data/data/ZIP_COUNTY_122025.csv
 .claude
 census-data/images/*.png
+bskybot/.env
+bskybot/.idea/
+bskybot/__pycache__/
