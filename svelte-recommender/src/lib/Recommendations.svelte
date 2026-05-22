@@ -21,7 +21,7 @@ Wrapper that shows recommended 3 teams to follow based on the user's selections.
     // the parent pases in the county the user selected 
     let { county } = $props();
 
-    // state mgmt: figure out countires by looking up the selected county fips in pre-computed recommendations data
+    // state mgmt: figure out countries by looking up the selected county fips in pre-computed recommendations data
     const countries = $derived.by(() => { // using `$derived.by` here so I can use a function
         if (recommendations.hasOwnProperty(county.fips)) {
             return recommendations[county.fips];
@@ -88,16 +88,23 @@ Wrapper that shows recommended 3 teams to follow based on the user's selections.
                     <h2>Top Teams for {county.name}, {county.state}</h2>
                     <p>
                         Many of your neighbors are from 
-                        {countryDetails[0].info.flag} {countryDetails[0].info.name},
-                        {countryDetails[1].info.flag} {countryDetails[1].info.name}, and
-                        {countryDetails[2].info.flag} {countryDetails[2].info.name}.
+                        {#if countryDetails.length == 1}
+                            {countryDetails[0].info.flag} {countryDetails[0].info.name}.
+                        {:else if countryDetails.length == 2}
+                            {countryDetails[0].info.flag} {countryDetails[0].info.name} and
+                            {countryDetails[1].info.flag} {countryDetails[1].info.name}.
+                        {:else}
+                            {countryDetails[0].info.flag} {countryDetails[0].info.name},
+                            {countryDetails[1].info.flag} {countryDetails[1].info.name}, and
+                            {countryDetails[2].info.flag} {countryDetails[2].info.name}.
+                        {/if}
                     </p>
                 </div>
             </div>
         </div>
         <!-- render on CountryCard for each top country, based on immigrant popualtions in selected county -->
         <div class="container">
-            <div class="row"> <!-- each card will be rendered as 4 columns -->
+            <div class="row"> <!-- each card will be rendered as 3 columns -->
                 {#each countryDetails as { country, info, fixtures }}
                     <CountryCard team={info} {fixtures} {county}/>
                 {/each}

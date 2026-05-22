@@ -143,6 +143,10 @@ em {
 	margin-bottom: 0;
 }
 
+#app {
+  min-height: 100vh;
+}
+
 footer {
   color: #fff;
   background-color: #333333;
