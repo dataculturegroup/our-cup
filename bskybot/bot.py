@@ -2,6 +2,7 @@ import json
 import os
 import re
 import requests
+from typing import Tuple
 from dotenv import load_dotenv
 from atproto import Client, client_utils
 from atproto.exceptions import AtProtocolError
@@ -37,8 +38,18 @@ def build_rich_text(text: str) -> client_utils.TextBuilder:
         if match.start() > cursor:
             tb.text(text[cursor:match.start()])
         url = match.group()
+        # Per https://docs.bsky.app/docs/advanced-guides/post-richtext, strip trailing
+        # .,;!? and a closing ) when the URL has no matching ( — otherwise the link
+        # target includes the surrounding sentence punctuation.
+        while url:
+            if url[-1] in ".,;!?":
+                url = url[:-1]
+            elif url[-1] == ")" and "(" not in url:
+                url = url[:-1]
+            else:
+                break
         tb.link(url, url)
-        cursor = match.end()
+        cursor = match.start() + len(url)
     if cursor < len(text):
         tb.text(text[cursor:])
     return tb
@@ -78,6 +89,20 @@ def extract_zipcode(text: str) -> str | None:
     return match.group(1) if match else None
 
 
+def fetch_new_notifications(authenticated_client: Client, last_indexed_at: str | None) -> Tuple[list, str]:
+    resp = authenticated_client.app.bsky.notification.list_notifications({"limit": 25})
+    notifs = resp.notifications
+    if not notifs:
+        return []
+    if last_indexed_at:
+        new_notifs = [n for n in notifs if n.indexed_at > last_indexed_at]
+    else:
+        new_notifs = notifs
+    mentions = [n for n in new_notifs if n.reason == "mention"]
+    newest_indexed_at = max(n.indexed_at for n in notifs)
+    return mentions, newest_indexed_at
+
+
 # Execution
 # Set up to run as a script every 5 minutes (fastest we can run on GH Actions).
 
@@ -92,20 +117,7 @@ def run():
     # so we can't use it for this — we fetch the latest batch and filter client-side by indexed_at instead.
     last_indexed_at = read_cursor()
 
-    resp = client.app.bsky.notification.list_notifications({"limit": 25})
-    notifs = resp.notifications
-
-    if not notifs:
-        print("No new notifications.")
-        return
-
-    if last_indexed_at:
-        new_notifs = [n for n in notifs if n.indexed_at > last_indexed_at]
-    else:
-        new_notifs = notifs
-
-    mentions = [n for n in new_notifs if n.reason == "mention"]
-
+    mentions, newest_indexed_at = fetch_new_notifications(client, last_indexed_at)
     print(f"Found {len(mentions)} unread mention(s).")
 
     for notif in mentions:
@@ -144,7 +156,6 @@ def run():
 
     # Persist the newest indexed_at across the whole fetched batch (not just mentions) so we don't
     # re-scan notifications we've already considered, and mark them read server-side too.
-    newest_indexed_at = max(n.indexed_at for n in notifs)
     write_cursor(newest_indexed_at)
     client.app.bsky.notification.update_seen({"seen_at": newest_indexed_at})
     print("Done.")
