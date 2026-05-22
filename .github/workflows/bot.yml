@@ -3,7 +3,7 @@ name: Bluesky Zipcode Bot
 on:
   schedule:
     - cron: '*/8 * * * *'
-  workflow_dispatch:  # allows manual trigger from GH Actions UI
+  workflow_dispatch:  # allows manually-triggered runs
 
 jobs:
   run-bot:
