@@ -75,6 +75,7 @@ class TestProcessZipcode:
 		assert "02115" in msg
 		assert "Boston, MA" in msg
 		assert "BRA vs MAR" in msg
+		assert msg.startswith("Fans")
 
 
 class TestAsLocalTime:

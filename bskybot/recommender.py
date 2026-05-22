@@ -113,7 +113,7 @@ def process_zipcode(zipcode: str) -> str:
     # Bluesky caps posts at 300 graphemes. Only append the random_link if the base
     # rec_text fits, and only keep it appended if the combined text also fits.
     if len(rec_text) <= BLUESKY_MAX_CHARS:
-        with_link = "\n" + rec_text + random_link
+        with_link = rec_text + random_link
         if len(with_link) <= BLUESKY_MAX_CHARS:
             rec_text = with_link
     # and return the text
