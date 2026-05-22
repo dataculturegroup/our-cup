@@ -1,8 +1,8 @@
 name: Bluesky Zipcode Bot
 
 on:
-  schedule:
-    - cron: '*/8 * * * *'
+  # schedule:
+  #   - cron: '*/8 * * * *'
   workflow_dispatch:  # allows manually-triggered runs
 
 jobs:
