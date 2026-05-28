@@ -1,8 +1,14 @@
+
+
+:root {
+  --field-green: #1A4731;
+  --trophy-golden: #F6C944;
+}
+
 body {
   margin: 0px;
   padding: 0px;
   font-family: Garamond, serif;
-  color: #471705;
   font-size: 1.25rem;
   background-color: #fff;
 }
@@ -21,7 +27,7 @@ p.small {
 }
 
 h1 {
-  color: #0044CC;
+  color: var(--field-green);
   font-family: "Gill Sans", sans-serif;
   font-size: 3.5rem;
   font-weight: bold;
@@ -156,7 +162,7 @@ footer {
 }
 
 a, a:hover {
-  color: #0088CC;
+  color: var(--field-green);
 }
 
 footer a {
