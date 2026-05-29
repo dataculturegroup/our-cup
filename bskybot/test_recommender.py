@@ -39,7 +39,7 @@ class TestFips2Recs:
 
 	@pytest.mark.parametrize("county_fips, expected_recs", [
 		("25025", ["HAI", "COL", "BRA"]),
-		("36061", ["MEX", "CAN", "KOR"]),
+		("36061", ["MEX", "CAN", "ECU"]),
 		("06075", ["MEX", "KOR", "CAN"]),
 	])
 	def test_valid_fips(self, county_fips, expected_recs):
