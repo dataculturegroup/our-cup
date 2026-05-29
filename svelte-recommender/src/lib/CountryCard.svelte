@@ -61,7 +61,7 @@ h3 {
         <h3>{team.name}</h3>
         <span class="flag">{team.flag}</span>
 
-        <!-- links to local cultral connections -->
+        <!-- links to local cultural connections -->
         <p>
             🍲 Support a local business - find a <a target="_blank" href="https://www.yelp.com/search?find_desc={team.name} {team.foodSearch || ''}&find_loc={county.name} {county.state}">{team.demonym} restaurant near you on Yelp</a>, 
             or make <a target="_blank" href="https://www.yummly.com/recipes?q={team.name} {team.foodSearch || ''}">a {team.demonym} recipe from Yummly</a>.
@@ -69,7 +69,9 @@ h3 {
             or read from some local journalists on <a target="_blank" href="{team.globalVoicesUrl}">Global Voices {team.name}</a>. 
             🎵 Use Spotify to listen to <a target="_blank" href="{team.spotify[0].url}">{team.spotify[0].name}</a>,
                 or <a target="_blank" href="{team.spotify[1].url}">{team.spotify[1].name}</a>. 
-            ⚽️ Read the <a target="_blank" href="{team.teamGuide}">{team.demonym} team guide on the Guardian</a>. 
+            {#if team.teamGuide}
+                ⚽️ Read the <a target="_blank" href="{team.teamGuide}">{team.demonym} team guide on the Guardian</a>. 
+            {/if}
             See a <a href="#immigrant-map" onclick={() => showMap = !showMap}>map of where {team.demonym} immigrants live across the US</a>.
         </p>
 
