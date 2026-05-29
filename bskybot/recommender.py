@@ -21,7 +21,7 @@ BLUESKY_MAX_CHARS = 300
 
 DATA_DIR = "data"
 
-RANDOM_INFO_KEYS = ['foodSearch', 'wikipediaUrl', 'globalVoicesUrl', 'spotify']
+RANDOM_INFO_KEYS = ['foodSearch', 'wikipediaUrl', 'globalVoicesUrl', 'spotify', 'teamGuide']
 
 def load():
     # Call once to initialize from data
@@ -58,7 +58,10 @@ def _as_local_time(zipcode: str, game_time_utc: dt.datetime) -> dt.datetime:
 
 
 def _random_info(team: Dict, zipcode: str) -> str:
-    info_key = random.choice(RANDOM_INFO_KEYS)
+    choices = [k for k in RANDOM_INFO_KEYS if k in team.keys()]  # only include keys for which we have data for this team
+    if not choices:
+        return ""
+    info_key = random.choice(choices)
     info_value = team.get(info_key)
     msg = ""
     if info_key == "foodSearch":
@@ -77,6 +80,9 @@ def _random_info(team: Dict, zipcode: str) -> str:
         if info_value is not None:
             playlist = random.choice(info_value)
             msg = f"🎶Hear some {playlist['name']}: {playlist['url']}"
+    elif info_key == 'teamGuide':
+        if info_value is not None:
+            msg = f"📖Get to know the team: {info_value}"
     return msg  # failsafe for missing data
 
 
