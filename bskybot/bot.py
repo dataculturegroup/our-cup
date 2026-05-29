@@ -4,8 +4,9 @@ import re
 import requests
 from typing import Tuple
 from dotenv import load_dotenv
-from atproto import Client, client_utils
+from atproto import Client, Session, SessionEvent, client_utils
 from atproto.exceptions import AtProtocolError
+from atproto_client.exceptions import RequestException
 
 import recommender
 
@@ -20,10 +21,12 @@ BSKY_PASSWORD = os.environ["BSKY_APP_PASSWORD"]   # App Password from Bluesky se
 # GH -> Settings -> Developer Settings -> Personal Access Tokens -> Generate new token (select "gist" scope)
 GITHUB_TOKEN  = os.environ["GH_TOKEN"]  # this will let us access the Gist
 
-# Set up a GitHub Gist with a single file (named as GIST_FILENAME below) to store the cursor for the 
-# last processed notification. Put "0" in the file to start.
-GIST_ID       = os.environ["GIST_ID"]  # Copy and paste from te URL of your Gist
-GIST_FILENAME = "wc26-bot-cursor.txt"  # don't need to hide this, so not in an env-var
+# Set up a GitHub Gist to store our state across runs. It holds two files: one for the cursor of the
+# last processed notification (put "0" in it to start), and one for the Bluesky session string so we
+# can resume an existing session instead of logging in fresh every run.
+GIST_ID                = os.environ["GIST_ID"]  # Copy and paste from te URL of your Gist
+GIST_CURSOR_FILENAME   = "wc26-bot-cursor.txt"   # don't need to hide these, so not in env-vars
+GIST_SESSION_FILENAME  = "wc26-bot-session.txt"
 
 ZIPCODE_RE = re.compile(r"\b(\d{5})\b")
 URL_RE = re.compile(r"https?://[^\s]+")
@@ -56,25 +59,44 @@ def build_rich_text(text: str) -> client_utils.TextBuilder:
 
 
 # State Helpers
-# We use a GitHub Gist to store the cursor indicated the last processed notification. This ensures that we
-# don't reply twice to the same mention, even if the bot restarts.
+# We use a GitHub Gist to store state across runs: the cursor of the last processed notification (so we
+# don't reply twice to the same mention, even if the bot restarts) and the Bluesky session string (so we
+# resume an existing session instead of creating a new one — Bluesky rate-limits us to ~10 new sessions
+# per day).
 
-def read_cursor() -> str | None:
+def load_state() -> Tuple[str | None, str | None]:
+    """Fetch the gist once and return (cursor, session_string). Either may be None if not stored yet."""
     resp = requests.get(
         f"https://api.github.com/gists/{GIST_ID}",
         headers={"Authorization": f"Bearer {GITHUB_TOKEN}"},
         timeout=10,
     )
     resp.raise_for_status()
-    content = resp.json()["files"][GIST_FILENAME]["content"].strip()
-    return content if content and content != "0" else None
+    files = resp.json()["files"]
+
+    cursor = files.get(GIST_CURSOR_FILENAME, {}).get("content", "").strip()
+    cursor = cursor if cursor and cursor != "0" else None
+
+    session = files.get(GIST_SESSION_FILENAME, {}).get("content", "").strip()
+    session = session if session and session != "0" else None
+
+    return cursor, session
 
 
-def write_cursor(cursor: str) -> None:
+def save_state(*, cursor: str | None = None, session: str | None = None) -> None:
+    """Patch the gist with whichever pieces of state are provided. Only the files we pass get touched,
+    so saving a refreshed session doesn't clobber the cursor and vice-versa."""
+    files = {}
+    if cursor is not None:
+        files[GIST_CURSOR_FILENAME] = {"content": cursor}
+    if session is not None:
+        files[GIST_SESSION_FILENAME] = {"content": session}
+    if not files:
+        return
     requests.patch(
         f"https://api.github.com/gists/{GIST_ID}",
         headers={"Authorization": f"Bearer {GITHUB_TOKEN}"},
-        json={"files": {GIST_FILENAME: {"content": cursor}}},
+        json={"files": files},
         timeout=10,
     ).raise_for_status()
 
@@ -106,16 +128,38 @@ def fetch_new_notifications(authenticated_client: Client, last_indexed_at: str |
 # Execution
 # Set up to run as a script every 5 minutes (fastest we can run on GH Actions).
 
+def get_client(session_string: str | None) -> Client:
+    """Resume the saved Bluesky session if we have one, otherwise log in fresh. We register a
+    session-change callback so any session that gets created or refreshed is written back to the gist,
+    keeping us under Bluesky's ~10-new-sessions-per-day rate limit."""
+    client = Client()  # this handles speaking ATProto to and from Bluesky
+
+    @client.on_session_change
+    def persist_session(event: SessionEvent, session: Session) -> None:
+        if event in (SessionEvent.CREATE, SessionEvent.REFRESH):
+            save_state(session=session.export())
+
+    if session_string:
+        try:
+            client.login(session_string=session_string)  # resume the existing session
+            return client
+        except AtProtocolError as e:
+            print(f"Saved session invalid ({e}); creating a new one.")
+
+    client.login(BSKY_HANDLE, BSKY_PASSWORD)  # the callback above persists the new session
+    return client
+
+
 def run():
     recommender.load() # one time load of static data for fast lookups in the bot logic
 
-    client = Client()  # this handles speaking ATProto to and from Bluesky
-    client.login(BSKY_HANDLE, BSKY_PASSWORD)
+    # We store the indexed_at of the most recently processed notification in the gist, alongside the
+    # Bluesky session string. The atproto listNotifications `cursor` is a pagination marker (goes older),
+    # not a "since" marker, so we can't use it for this — we fetch the latest batch and filter
+    # client-side by indexed_at instead.
+    last_indexed_at, session_string = load_state()
 
-    # We store the indexed_at of the most recently processed notification in the gist.
-    # The atproto listNotifications `cursor` is a pagination marker (goes older), not a "since" marker,
-    # so we can't use it for this — we fetch the latest batch and filter client-side by indexed_at instead.
-    last_indexed_at = read_cursor()
+    client = get_client(session_string)
 
     mentions, newest_indexed_at = fetch_new_notifications(client, last_indexed_at)
     print(f"Found {len(mentions)} unread mention(s).")
@@ -151,12 +195,19 @@ def run():
                 text=build_rich_text(reply_text),
                 reply_to={"root": root_ref, "parent": parent_ref},
             )
+        except RequestException as e:
+            if e.response.status_code == 429:
+                reset_ts = int(e.response.headers.get("ratelimit-reset", 0))
+                reset_time = datetime.datetime.fromtimestamp(reset_ts)
+                print(f"Rate limited. Resets at {reset_time}. Skipping.")
+            else:
+                raise
         except AtProtocolError as e:
             print(f"  ERROR posting reply: {e}")
 
     # Persist the newest indexed_at across the whole fetched batch (not just mentions) so we don't
     # re-scan notifications we've already considered, and mark them read server-side too.
-    write_cursor(newest_indexed_at)
+    save_state(cursor=newest_indexed_at)
     client.app.bsky.notification.update_seen({"seen_at": newest_indexed_at})
     print("Done.")
 
