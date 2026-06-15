@@ -48,6 +48,10 @@ def load():
         teams = json.load(f)
 
 
+def _now() -> dt.datetime:
+    return dt.datetime.now(dt.timezone.utc)
+
+
 def _as_local_time(zipcode: str, game_time_utc: dt.datetime) -> dt.datetime:
     # helper to convert the game time from UTC to local time in the recommended location for formatting the reply text
     timezone_name = zip_2_timezone.get(zipcode)
@@ -105,8 +109,9 @@ def process_zipcode(zipcode: str) -> str:
         if team_info and team_info.get('flag'):
             flags.append(team_info['flag'])
     rec_text += f"Fans in {zipcode} ({county['city']}, {county['state']}) are cheering for {''.join(flags)}\n"
-    # add in the next 3 relevant games
-    game_recs = [ g for g in fixtures if (g['Home Team'] in country_recs) or (g['Away Team'] in country_recs)]
+    # add in the next 3 relevant games (skip ones that have already started)
+    now = _now()
+    game_recs = [ g for g in fixtures if ((g['Home Team'] in country_recs) or (g['Away Team'] in country_recs)) and g['gmt_datetime'] >= now]
     if len(game_recs) == 1:
         rec_text += "Game to watch: "
     elif len(game_recs) > 1:

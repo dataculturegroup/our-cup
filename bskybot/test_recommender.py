@@ -70,12 +70,22 @@ class TestProcessZipcode:
 		msg = recommender.process_zipcode(zipcode)
 		assert msg.startswith("⚠️ Sorry")
 
-	def test_full_mesasge(self):
+	def test_full_mesasge(self, monkeypatch):
+		# pin "now" before the tournament so all fixtures are still upcoming
+		monkeypatch.setattr(recommender, "_now", lambda: dt.datetime(2026, 6, 1, tzinfo=dt.timezone.utc))
 		msg = recommender.process_zipcode("02115")
 		assert "02115" in msg
 		assert "Boston, MA" in msg
 		assert "BRA vs MAR" in msg
 		assert msg.startswith("Fans")
+
+	def test_excludes_past_games(self, monkeypatch):
+		# pin "now" after the BRA vs MAR game (13/06/2026 22:00 UTC) but before later Boston-recommended games
+		monkeypatch.setattr(recommender, "_now", lambda: dt.datetime(2026, 6, 15, 0, 0, tzinfo=dt.timezone.utc))
+		msg = recommender.process_zipcode("02115")
+		assert "BRA vs MAR" not in msg
+		# a later fixture for a recommended team (UZB vs COL on 18/06/2026) should still appear
+		assert "UZB vs COL" in msg
 
 
 class TestAsLocalTime:
